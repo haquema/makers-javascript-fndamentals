@@ -102,3 +102,5 @@ In Javascript, we call a function such as the one passed to `setTimeout` a *call
   d. The program ends.
   e. 2 seconds (2000ms) lapse.  
 2. Discuss with your pair: do you agree on the order of those steps? You might want to run the program again to verify your answers.
+
+

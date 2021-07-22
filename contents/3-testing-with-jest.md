@@ -81,7 +81,7 @@ describe('add', () => {
     // fill the two blanks
     // - one should be the result of calling the function `add` with 2 and 2
     // - the other the expected result (...4, in case you were wondering!)
-    expect(__).toBe(__);
+    expect(__).toEqual(__);
   });
 });
 ```
@@ -176,7 +176,7 @@ describe('fizzBuzz', () => {
 });
 ```
 
-1. Using what you've learned previously about the syntax of Jest to write a test for the `add` function, write four assertions (`expect(...).toBe(...)`) to test those four different cases for the `fizzBuzz` function.
+1. Using what you've learned previously about the syntax of Jest to write a test for the `add` function, write four assertions (`expect(...).toEqual(...)`) to test those four different cases for the `fizzBuzz` function.
 2. Now write the fizzBuzz function inside a file named `fizzbuzz.js`. 
 3. Remember our test file needs to know about the `fizzBuzz` function in order to test it. Use `module.exports` and `require`, like seen previously, to import the `fizzBuzz` function in the test file.
 4. Make sure the tests pass.

@@ -33,6 +33,7 @@ Scope:
         * Use for sorting or filtering function
       * Template literals?  `hello ${name}`
       * Async JS, callbacks
+      * equality: === v/s ==
       * Arrays
         * creation
         * push
