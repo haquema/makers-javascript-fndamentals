@@ -147,9 +147,9 @@ The following requirement is:
 
 Requirements:
  * Add a property `expiresIn` on food items, which will be the number of seconds before a food item is not good to eat anymore.
- * Test-drive and implement a new method `removeExpiredItems` which will remove only expired items from the fridge.
+ * Test-drive and implement a new method `clearExpiredItems` which will remove only expired items from the fridge.
  * Implement a function that runs every 10 seconds and clear expired items, using the function defined in the previous requirement. You might want to use [`setInterval`](https://javascript.info/settimeout-setinterval#setinterval) for this, which works in a similar way as our old friend `setTimeout`.
 
 Note: it is slightly harder to test things that are asynchronous in Javascript, such as the behaviour of `setInterval`, or things that "happen after X seconds" or "happen every X seconds". Don't worry though, we'll get there. 
 
-For the time being, a good way to test "by hand" if your new code is working is to create a file `index.js` in which you create a new instance of `Fridge`, and run this JS file.
+For the time being, a good way to test "by hand" if your new code is working is to create a file `index.js` in which you create a new instance of `Fridge`, and run this file

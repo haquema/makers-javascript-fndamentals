@@ -1,6 +1,6 @@
 # Arrays and functions
 
-Javascript Arrays work in a similar way to other languages - they are list of values. We can use them to store all sorts of interesting things - list of numbers, strings, etc.
+Javascript Arrays work in a similar way to other languages - they are list of values. We can use them to store all sorts of interesting things - numbers, strings, etc. Even functions!
 
 ## Objectives
 
@@ -11,27 +11,22 @@ Javascript Arrays work in a similar way to other languages - they are list of va
  * Execute some code for each element of an array.
  * Give a function as an argument to another function.
 
-## Declaring and updating an array
+## Exercise: a first array
 
 ```javascript
 let oddNumbers = [1, 3, 5];
 
-oddNumbers.push(7); // what will be printed here?
-
-console.log(oddNumbers)
+console.log(oddNumbers);
 
 ```
 
-We can do things like add new elements to the array, get its length, and also iterate through each of its elements.
+1. Run the above in `node` and add the following number 7 to it.
+2. Find how to print the length of the array using `console.log`.
+3. Declare a new array called `evenNumbers`, containing the first few even numbers.
+
+## Exercise: iterating through elements
 
 ```javascript
-let oddNumbers = [1, 3, 5, 7];
-let evenNumbers = [0, 2, 4, 8];
-
-console.log(evenNumbers.length); // what will be printed here?
-
-console.log(evenNumbers.length + oddNumbers.length); // and here?
-
 // What is this doing? Execute it inside `node` if needed.
 oddNumbers.forEach((n) => console.log(n);
 
@@ -41,13 +36,13 @@ oddNumbers.forEach((n) => {
 });
 
 // Is this doing the same thing? If yes, what is it different in the way the code is written?
-// Explain it using words like "function", "argument", "each" and "looping".
 let printNumber = (n) => console.log(n);
+
 oddNumbers.forEach(printNumber);
 
 ```
 
-## Exercise
+## Exercise: an array of names
 
 Do the following in `node`:
 1. Declare an *array* called `names` containing a few people's names, such as `'Anna'`.
@@ -59,7 +54,7 @@ Hello Laura
 Hello <name>
 ```
 
-## Exercise
+## Exercise: an array of prices
 
 Do the following in `node`:
 1. Declare an array called `prices` containing two values, `4.99` and `9.99`.
@@ -72,6 +67,8 @@ Do the following in `node`:
 ```
 
 ## A world of functions
+
+We've previously wrote this code, to print all the elements of an array:
 
 ```javascript
 let printNumber = (n) => {
@@ -99,7 +96,7 @@ Do the following in `node`:
 
 ## Finding the bug
 
-After working through the last example, we've decided to modify it to compute *even* numbers instead of odd ones. However, when we run the code, something is not working.
+After working through the last example, a student decided to modify it to compute *even* numbers instead of odd ones. However, when they run the code, something is not working.
 
 ```javascript
 let numbers = [0,1,2,3,4,5,6,7,8,9,10];
@@ -112,4 +109,4 @@ let evenNumbers = numbers.filter(isEvenNumber);
 ```
 
 1. Run the code yourself. What is the issue with `evenNumbers`?
-2. Can you spot the bug with this code? 
+2. Can you spot the bug with this code? Make the fix so it runs as expected.

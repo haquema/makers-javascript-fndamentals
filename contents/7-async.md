@@ -1,6 +1,6 @@
 # Asynchronicity
 
-This very frightening word is actually used in JS to explain something that can be confusing at first. So let's go through one example first.
+This is a very frightening word, but it's also an important concept in Javascript. So let's go through one example first.
 
 ```javascript
 console.log(1);
@@ -96,11 +96,50 @@ console.log(4);
 In Javascript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
 
 1. Take a notebook or open a text note on your laptop, and put the following steps in the order in which you think they happen: 
-  a. `printGreeting` is called.
-  b. The program starts.
-  c. `setTimeout` is called.
-  d. The program ends.
-  e. 2 seconds (2000ms) lapse.  
+  * `printGreeting` is called.
+  * The program starts.
+  * `setTimeout` is called.
+  * The program ends.
+  * 2 seconds (2000ms) lapse.  
 2. Discuss with your pair: do you agree on the order of those steps? You might want to run the program again to verify your answers.
 
+## Exercise: returning values
 
+```javascript
+
+let delay = 2000;
+let sayHello = () => {
+  return 'Hello';
+}
+
+let result = setTimeout(sayHello, delay);
+
+console.log(result);
+```
+
+1. Describe the order in which things happen. At what point is the string `'Hello'` returned by `sayHello`?
+2. What do you think is the initial value of `result`? What is the value of `result` 2 seconds later?
+3. Run the code. Use `console.log` to print the value of `result` at different points in time. Is what you see different from what you expected? If yes, try to make assumptions on why.
+4. Modify the code so the string `'Hello'` ends being assigned to the variable `result`.
+
+
+In short, it's not possible to return values from a *callback function* the same way as for "normal" functions. That is because, in the example above, `result` is assigned right after `setTimeout` has finished its work. But, at that point (about zero second after the program starts), `sayHello` has not executed yet - it will only execute 2 seconds later. So `result` can never get the value returned by `sayHello`. This return value is, in a way, lost (sad, isn't it). This is shown on the diagram below:
+
+![Diagram](images/async-return-value.svg)
+
+Since we can't `return` values, one solution is to assign them to a variable than exists outside of the callback function:
+
+```javascript
+let delay = 2000;
+let result = null;
+let sayHello = () => {
+  result = 'Hello'; // result gets assigned here
+}
+
+setTimeout(sayHello, delay);
+
+console.log(result);
+```
+
+1. Run this code. What is the initial value of `result`?
+2. What is the value of `result` 2 seconds later? Why?
