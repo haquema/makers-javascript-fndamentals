@@ -96,7 +96,7 @@ Do the following in `node`:
 
 ## Finding the bug
 
-After working through the last example, a student decided to modify it to compute *even* numbers instead of odd ones. However, when they run the code, something is not working.
+After working through the last example, one dev from your cohort decided to modify it so it computes *even* numbers instead of odd ones. However, when they run the code, something is not working.
 
 ```javascript
 let numbers = [0,1,2,3,4,5,6,7,8,9,10];
@@ -108,5 +108,5 @@ let isEvenNumber = (number) => {
 let evenNumbers = numbers.filter(isEvenNumber);
 ```
 
-1. Run the code yourself. What is the issue with `evenNumbers`?
+1. Run the code yourself. What is the issue with the value of `evenNumbers`?
 2. Can you spot the bug with this code? Make the fix so it runs as expected.

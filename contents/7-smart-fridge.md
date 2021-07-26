@@ -1,14 +1,14 @@
-# Coding challenge: Building a Fridge
+# Coding challenge: Building a smart fridge
 
 ## Objectives
 
  * Test-drive a simple JS application.
 
-## A simple fridge
+## Domain model
 
-You'll build, test-driving your code, a simple class representing a fridge containing food items. Here is the specification for this first step:
+You'll build, test-driving your code, a simple program to manage a smart fridge. Here is the specification for the initial MVP of the program:
 
-* A Fridge is created an empty list of food items.
+* A new Fridge is created an empty list of food items.
 * Each Food item needs to have a name and a calories amount.
 * You can add a Food item to the fridge.
 * You can remove a Food item from the fridge.
@@ -117,7 +117,7 @@ describe('A fridge', () => {
 </p>
 </details>
 
-## Minimum temperature
+## Finding out healthy items
 
 We can now add items to our fridge:
 
@@ -132,10 +132,11 @@ fridge.addItem(new FoodItem('Chocolate cake', 120));
 ```
 
 The following requirement is:
- * There should be a way to list food items under 100 calories.
+ * There should be a method to list food items under 100 calories.
+ * There should be a method returning the list of all food items, sorted by the amount of calories (from low to high).
 
-1. Add a test that verifies this requirement inside.
-2. Modify the `Fridge` class to reflect this. Hint: remember how you've previously *filtered* items from an array.
+1. Add tests that verifies those new requirements.
+2. Modify the `Fridge` class to implement them. Hint: remember how you've previously *filtered* items from an array. Sorting the array might need a bit of research on your side!
 
 <details><summary>Reveal walkthrough steps</summary>
 <p>
@@ -152,4 +153,4 @@ Requirements:
 
 Note: it is slightly harder to test things that are asynchronous in Javascript, such as the behaviour of `setInterval`, or things that "happen after X seconds" or "happen every X seconds". Don't worry though, we'll get there. 
 
-For the time being, a good way to test "by hand" if your new code is working is to create a file `index.js` in which you create a new instance of `Fridge`, and run this file
+For the time being, a good way to test "by hand" if your new code is working is to create a file `index.js` in which you create a new instance of `Fridge`, and run this file.

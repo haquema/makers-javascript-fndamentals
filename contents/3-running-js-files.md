@@ -32,3 +32,21 @@ Simple as that!
 1. In a file named `longest.js`, write a function `findLongest` that takes an array of names and returns the longest of them.
 2. In the same file, use `console.log` to print out the result of calling this function with a few names.
 3. Run this file with the command line. If done right, you should see the value of the longest name printed.
+
+## Exercise: code review
+
+Someone from your team asked you to review their code. In one of the Javascript files, there is the following function:
+
+```javascript
+let isMaximumScore = (score) => {
+  let maxScore = 100;
+  if (score == maxScore) {
+    true;
+  } else {
+    false;
+  }
+}
+```
+
+1. What comment would you make to improve this code, based on what you learned on this page?
+2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem?

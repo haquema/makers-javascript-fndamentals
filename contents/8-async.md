@@ -1,6 +1,6 @@
-# Asynchronicity
+# Asynchronous Javascript
 
-This is a very frightening word, but it's also an important concept in Javascript. So let's go through one example first.
+This can be a very frightening word, but it's also an important concept in Javascript. So let's go through one example first.
 
 ```javascript
 console.log(1);
@@ -16,15 +16,15 @@ someFunction();
 console.log(4);
 ```
 
-> 1. In which order are the numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
-> 2. Save this code in a file called `async.js`, run the file from the terminal, and see if the output matches your assumptions. If not, why?
+> 1. In which order are the four numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
+> 2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions. If not, why?
 
-If you've got the sequence 1, 3, 2, 4 - then you're right. What happens is that, after the first `console.log`, `someFunction` is defined, but it is not run! Only after the `console.log(3)` is `someFunction` called, and `console.log(2)` is then called. Finally, `console.log(4)` is called.
+If you've got the sequence 1, 3, 2, 4 - then you're right. What happens is that, after the first `console.log`, `someFunction` is defined, but it is not run yet! Only after the `console.log(3)` is `someFunction` called, and `console.log(2)` is then called. Finally, `console.log(4)` is called.
 
 ## An Asynchronous Example
 
 ```javascript
-let delay = 2000; // in milliseconds
+let delay = 2000; // in milliseconds (so it's 2 seconds)
 let printGreeting = () => {
   console.log('Hey! Am I late to the party?');
 }
@@ -32,8 +32,8 @@ let printGreeting = () => {
 setTimeout(printGreeting, delay);
 ```
 
-> 1. Replace the contents of `async.js` with this code, and run the file. What is happening? 
-> 2. Try to call directly the function `printGreeting` at the end of the file, and log its return value. Run the file again. How is the result different?
+> 1. Run this code. What is happening? 
+> 2. Try to call directly the function `printGreeting` at the end of the file, and run the code again. How is the result different?
 > 3. From the previous answers, make an assumption about what the `setTimeout` function is doing. 
 
 Here's another slightly different example:
@@ -95,7 +95,7 @@ console.log(4);
 
 In Javascript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
 
-1. Take a notebook or open a text note on your laptop, and put the following steps in the order in which you think they happen: 
+1. Take a notebook or open a text note on your laptop, and put the following steps in the exact order in which you think they happen: 
   * `printGreeting` is called.
   * The program starts.
   * `setTimeout` is called.
@@ -117,23 +117,26 @@ let result = setTimeout(sayHello, delay);
 console.log(result);
 ```
 
-1. Describe the order in which things happen. At what point is the string `'Hello'` returned by `sayHello`?
+1. Describe the order in which things happen. At what point in time is the string `'Hello'` returned by `sayHello`?
 2. What do you think is the initial value of `result`? What is the value of `result` 2 seconds later?
 3. Run the code. Use `console.log` to print the value of `result` at different points in time. Is what you see different from what you expected? If yes, try to make assumptions on why.
-4. Modify the code so the string `'Hello'` ends being assigned to the variable `result`.
+4. Modify the code so the string `'Hello'` ends being assigned to the variable `result`. If you're having trouble with this, keep reading to learn more.
 
 
-In short, it's not possible to return values from a *callback function* the same way as for "normal" functions. That is because, in the example above, `result` is assigned right after `setTimeout` has finished its work. But, at that point (about zero second after the program starts), `sayHello` has not executed yet - it will only execute 2 seconds later. So `result` can never get the value returned by `sayHello`. This return value is, in a way, lost (sad, isn't it). This is shown on the diagram below:
+In short, it's not possible to return values from a *callback function* the same way as for "normal" functions. That is because, in the example above, `result` is assigned right after `setTimeout` has finished its work. But, at that point (about zero second after the program starts), `sayHello` has not executed yet - it will only execute 2 seconds later.
+
+So `result` can never get the value returned by `sayHello` - it cannot get a value from the future! This return value is, in a way, lost (sad, isn't it). This is shown on the diagram below:
 
 ![Diagram](images/async-return-value.svg)
 
-Since we can't `return` values, one solution is to assign them to a variable than exists outside of the callback function:
+Since we can't `return` values, one solution is to assign them to a variable than already exists outside of the callback function:
 
 ```javascript
 let delay = 2000;
-let result = null;
+let result = null; // result is created here
+
 let sayHello = () => {
-  result = 'Hello'; // result gets assigned here
+  result = 'Hello'; // ...and gets assigned here
 }
 
 setTimeout(sayHello, delay);

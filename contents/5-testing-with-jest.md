@@ -116,7 +116,7 @@ Something doesn't seem right. Jest doesn't seem to know about our `add` function
 
 ## The missing export
 
-If you've mentioned something along the lines of "require" or "include", then you're on the right track. We need a way to `require` our function in our test file. In Javascript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
+If you've mentioned something along the lines of "require" or "include", then you're on the right path. We need a way to `require` our function in our test file. In Javascript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
 
 ```javascript
 // sayHello.js
@@ -131,13 +131,15 @@ module.exports = sayHello;
 ```javascript
 // another file
 
-let sayHello = require('./sayHello');
+const sayHello = require('./sayHello');
 
 // we can now use the sayHello function
 sayHello();
 ```
 
-Using this new information, do the following things:
+Note: we're using `const` instead of `let` when requiring the function. The behaviour is the same than `let` - it declares a variable - however `sayHello` cannot be reassigned to something else later. This is a good practice in idiomatic Javascript to always use `const` for functions that are required from other files, so we'll use it rather than `let`.
+
+Using this new learning, do the following things:
 1. Modify the file `add.js` to export the `add` function.
 2. Modify the file `add.test.js` to require the `add` function from the `add.js` file.
 

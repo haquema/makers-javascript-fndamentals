@@ -1,9 +1,55 @@
 # JS week 1
 
-Learning goals:
-* Test-drive a simple Javascript program
-* Use the DOM API to build a web user interface for this program
-* Follow an effective process to learn a new language
+## Learning objectives
+
+Week 1:
+* Test-drive a simple Javascript program using Node.
+* Follow an effective process to learn a new language.
+
+Week 2:
+* Test-drive a simple Javascript program running in a web browser.
+* Use the DOM API to build a web user interface for this program.
+
+## Sequence
+
+This is the current sequence of steps the learners will go through during the module. The first steps are meant to get them familiar with Javascript environment and concepts. The last steps are part of a bigger coding challenge.
+
+1. [Your first JS program](./main/1-getting-started) - in which they learn how to install node and use the REPL to write some JS.
+2. [Mapping previous knowledge](./main/2-mapping-previous-knowledge.md) - in which they map previous knowledge to JS through a series of exercises (variables, functions, etc).
+3. [Arrays](./main/3-arrays.md) - in which they learn how to use arrays and how to use functions like `forEach` or `filter` to manipulate them (giving functions to functions).
+4. [Running JS files]() - in which they learn how to run JS files from the CLI.
+5. [Testing with Jest]() - in which they learn how to use `npm` to install Jest and how to TDD a JS function.
+6. [Classes] - in which they learn how to write JS classes and how to test-drive one.
+7. [Airport] - in which they rebuild Airport in JS.
+8. [Async] - in which they learn to develop a mental model of asynchronous behaviour in JS, with the example of `setTimeout`.
+9. [Challenge - Fridge] - in which they start to test-drive a `Fridge` class from a specification.
+10. [Calling APIs] - in which they learn how to call remote APIs and handle the response (building on what they previously learned with async behaviour).
+11. [Recipes] - in which they build on the previous APIs section to use the Spoonacular API to find recipes from the fridge's items.
+12. 
+
+## Scope
+
+This first Javascript module covers:
+ * Running Javascript with Node, using the REPL or from JS files.
+ * Debugging with `console.log`
+ * Variables
+ * Functions (arrow syntax), functions as values, passing functions to other functions (higher-order functions)
+ * Classes and methods
+ * Arrays and basic iteration/filtering
+ * Objects
+ * Template literals
+ * TDD with Jest
+
+This first Javascript module *does not* cover:
+ * The complex behaviour of `this`
+ * Closures
+ * Strict mode
+ * Prototypal inheritance
+ * Build tools
+ * Promises
+ * Details of the event loop
+ 
+## Other notes
 
 Current JS module notes/questions:
  - The count app project is maybe too complex and introduced way too soon?

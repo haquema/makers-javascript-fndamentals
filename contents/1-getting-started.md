@@ -26,7 +26,9 @@ Type ".help" for more information.
 > 
 ```
 
-You should now be able to type Javascript code inside it, and see the result of what you've typed. Try with something simple like `2 + 2` and press `enter` to get the result. Congratulations, you just wrote your first line of Javascript! Perhaps a slightly boring one for now, but no worries, more will come soon.
+You should now be able to type Javascript code inside it, and see the result of what you've typed. 
+
+Try with something simple like `2 + 2` and press `enter` to get the result. Congratulations, you just wrote your first line of Javascript! Perhaps a slightly boring one for now, but no worries, more will come soon.
 
 ## Exercise - your first Javascript program
 
@@ -34,10 +36,11 @@ Here are two more lines of JS - resist the urge of pasting it into `node` and tr
 
 ```javascript
 let name = 'Javascript';
-console.log('Hello, ' + name);
+console.log('Hello, ' name);
 ```
 
 1. From those two lines of code, what are you finding similar to another programming language you already know? What is different?
 2. Try to describe to your pair (or to yourself) what this program is doing. What does `console.log` do?
+3. As you might have noticed already if you've tried running the code above, there is a syntax error. Can you spot where? Make the necessary fix so the code above prints the string "Hello, Javascript" on the terminal.
 
 

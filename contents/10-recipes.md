@@ -1,4 +1,4 @@
-# Getting recipes
+# Coding challenge: A fridge of recipes
 
 ## Objectives
 
@@ -6,7 +6,7 @@
  * Use a callback function to handle response from an external source.
  * Transform the received response into a useful JS value.
 
-We now got food in our fridge, which is good. What if we want to cook something, even if we're not very creative cooks? It would be good to have some *data source* for getting recipes, given some ingredients.
+Let's go back to our fridge. We now got food inside it, which is good. What if we want to cook something, even if we're not very creative cooks? It would be good to have some *data source* for getting recipes, given some ingredients.
 
 Well, thankfully for us, there is! You'll find that there are APIs for all sorts of things, including cooking recipes. We'll use the [Spoonacular API](https://spoonacular.com/food-api/). You'll need to create an account before being able to use the API (a free account should have enough "API calls" available for you to work on the challenge).
 

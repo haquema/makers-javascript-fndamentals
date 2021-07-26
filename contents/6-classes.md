@@ -51,7 +51,6 @@ class Person {
 
 </details>
 
-
 ## Test-driving an Adder class
 
 Remember our `add` function from before?
@@ -75,16 +74,16 @@ You might now be wondering (rightly) what happens to our `module.exports` and `r
 Well, it turns out classes can be exported the same way as functions! So we can write something like this:
 
 ```javascript
-// ... in the add.js file
+// In the add.js file...
 module.exports = Adder;
 ```
 
 ```javascript
 // ... and in the add.test.js file
-let Adder = require('./add');
+const Adder = require('./add');
 ```
 
-You should know be able to make the tests pass.
+You should now be able to make the tests pass.
 
 Here's a potential solution on how your file `add.js` could look like:
 

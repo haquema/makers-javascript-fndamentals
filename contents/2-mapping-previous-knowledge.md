@@ -76,7 +76,7 @@ let result = add(2, 2); // what is the value of `result`?
 console.log(result); // what will be printed here?
 ```
 1. Run the code above and verify your assumptions. Is it printing the result you expected? 
-2. Have a look at the example in the [Defining functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) MDN documentation. Compare it to the `add` function we've written above. Can you see what's missing?
+2. Have a look at the example in the [Defining functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) MDN documentation. Compare it to the `add` function we've written above. Can you see what's missing in our code?
 3. Modify the `add` function to get its result correctly printed in the terminal.
 4. In `node`, define a function `multiply` that takes two arguments and multiply them. Then, use `console.log` to print the result of multiplying 2 and 4 using this new function.
 5. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`.
@@ -123,7 +123,7 @@ console.log(isTasty(-30)); // and here?
 numberSign('0');
 ```
 3. What is the function returning? Is that what you expected? Why do you think this happens?
-4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0'. You might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0'. Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
 *Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the Javascript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
 
