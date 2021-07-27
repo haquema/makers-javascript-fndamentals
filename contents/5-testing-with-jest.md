@@ -145,11 +145,6 @@ Using this new learning, do the following things:
 
 Once this is done, we can run `jest` again, and we should see our test passing! Congratulations, you've just wrote your first Jest test!
 
-## Exercises
-
-1. Earlier, you've learned how to run a JS file from the command line. Modify the file `add.js` in such way that, when it is run from the command line, it prints to the terminal the result of adding 2 and 3 (by calling the `add` function).
-2. Now run the `add.js` file from the command line. If you've written the correct code, you should see `5` output on the terminal.
-
 ## Exercise: testing the fizzBuzz function
 
 We're going to write a test for the `fizzBuzz` function we defined earlier. 
