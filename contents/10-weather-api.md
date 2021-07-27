@@ -29,11 +29,11 @@ got(apiUrl).then((response) => {
 ```
 
 1. What is the final string value of `apiUrl`?
-2. When do you think the function passed to `then` will be executed? How is this kind of behaviour called in Javascript?
+2. When do you think the function passed to `then` will be executed? How is this kind of behaviour called in JavaScript?
 
 Let's have a look at the above code example together:
  * First, we're building the URL to call with `got`. This URL contains our API key (so the server on the other end can "know" it's our account requesting the API - and who to charge for it), and the city we want to get weather data for.
- * The *callback* function passed to `then` will be executed once the response is received. We then use `JSON.parse(response.body)` to transform the JSON string received into a Javascript *object*, that we assign to `weatherData`.
+ * The *callback* function passed to `then` will be executed once the response is received. We then use `JSON.parse(response.body)` to transform the JSON string received into a JavaScript *object*, that we assign to `weatherData`.
  * We can use `console.log` to print the object on the terminal and inspect it.
 
 If you run the code above, you should see a similar output in your terminal:

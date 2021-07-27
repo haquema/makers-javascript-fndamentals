@@ -10,7 +10,7 @@ In other languages, you might have learned to think about objects as "instances 
 bike = Bike.new
 ```
 
-However, in Javascript, objects designate a different kind of values, quite similar to Ruby hashes. Here's a Javascript object:
+However, in JavaScript, objects designate a different kind of values, quite similar to Ruby hashes. Here's a JavaScript object:
 
 ```javascript
 let person = {
@@ -34,10 +34,7 @@ let person = {
     city: 'London',
     postcode: 'E1 123'
   },
-  hobbies: ['writing', 'tennis', 'cooking'],
-  speak: () => {
-    console.log('Hello!');
-  }
+  hobbies: ['writing', 'tennis', 'cooking']
 };
 ```
 

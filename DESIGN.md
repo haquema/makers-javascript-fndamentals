@@ -1,14 +1,9 @@
-# JS week 1
+# JS week 1 (JS fundamentals)
 
 ## Learning objectives
 
-Week 1:
 * Test-drive a simple Javascript program using Node.
 * Follow an effective process to learn a new language.
-
-Week 2:
-* Test-drive a simple Javascript program running in a web browser.
-* Use the DOM API to build a web user interface for this program.
 
 ## Sequence
 
@@ -38,7 +33,15 @@ This first Javascript module covers:
  * Arrays and basic iteration/filtering
  * Objects
  * Template literals
- * TDD with Jest
+ * Testing with Jest
+
+The second Javascript module (week 2) will cover:
+ * Running JS from the browser
+ * Using a build tool (probably esbuild) and npm scripts
+ * Manipulate the DOM to interact with the page
+ * Call APIs from a webpage (using fetch)
+ * Build a single-page app communicating with a backend
+ * Full-stack Javascript
 
 This first Javascript module *does not* cover:
  * The complex behaviour of `this`
@@ -46,7 +49,7 @@ This first Javascript module *does not* cover:
  * Strict mode
  * Prototypal inheritance
  * Build tools
- * Promises
+ * Promises in details
  * Details of the event loop
  
 ## Other notes

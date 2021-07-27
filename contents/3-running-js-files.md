@@ -1,6 +1,6 @@
-# Running Javascript files
+# Running JavaScript files
 
-So far, we've been only writing Javascript inside our `node` REPL. This is good for trying out some ideas, or double checking that a snippet of code is working as intended. But going further, we want to be able to write and save our code to files, so we can organise our projects in a way that makes sense and use Git to commit and version our code. 
+So far, we've been only writing JavaScript inside our `node` REPL. This is good for trying out some ideas, or double checking that a snippet of code is working as intended. But going further, we want to be able to write and save our code to files, so we can organise our projects in a way that makes sense and use Git to commit and version our code. 
 
 ## Objectives
 
@@ -35,7 +35,7 @@ Simple as that!
 
 ## Exercise: code review
 
-Someone from your team asked you to review their code. In one of the Javascript files, there is the following function:
+Someone from your team just asked you to review their code. In one of the JavaScript files, there is the following function:
 
 ```javascript
 let isMaximumScore = (score) => {

@@ -6,6 +6,13 @@ It's a great second language to learn, as it introduces many new language concep
 
 In this first module, you'll learn the basics of Javascript by pairing through a series of exercises, either building on previous knowledge or discovering new concepts. You'll then build a more complex coding challenge using all of those new concepts.
 
+## Learning objectives
+
+* Test-drive a simple Javascript program using Node.
+* Follow an effective process to learn a new language.
+
+## Sequence
+
 1. [Getting started](contents/1-getting-started.md)
 2. [Discovering Javascript](contents/2-discovering-js.md)
 3. [Running files](contents/3-running-js-files.md)

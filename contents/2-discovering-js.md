@@ -1,4 +1,4 @@
-# Mapping previous knowledge
+# Discovering JavaScript
 
 ## Objectives
 
@@ -25,7 +25,7 @@ console.log(result);
 let greeting = 'Hello ';
 let name = 'Makers';
 
-console.log(greeting  name);
+console.log greeting + name;
 ```
 
 1. What is printed by this program?
@@ -40,7 +40,7 @@ let sayHello = () => {
 
 console.log(sayHello);
 ```
-1. Describe what the following code is doing, using the words "function", "declare", "return".
+1. Find a [different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) to write the function `sayHello`.
 2. What will be printed by this program? Go ahead and run it in `node`. Is the result what you expected?
 3. Make a fix so "Hello" is correctly printed by this program. Hint: [the first example from this section about Calling Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#calling_functions) might be useful!
 4. Modify the function `sayHello` so it accepts one argument, and calling `sayHello("Sarah")` displays the personalized message "Hello Sarah".
@@ -54,7 +54,7 @@ When you've completed the exercises above, you can reveal the solution:
 ```javascript
 
 // What about this one? Hint: you might want to use the word "argument" here too.
-let sayHello = (name) => {
+let sayHello = function(name) => {
   return `Hello ${name}`;
 }
 
@@ -103,7 +103,7 @@ console.log(result);
 ## Exercise: a more complex function
 
 ```javascript
-let numberSign = (number) => {
+let getNumberSign = (number) => {
   if (number == 0) {
     return 'zero';
   } else if (number > 0) {
@@ -116,16 +116,16 @@ console.log(isTasty(0)); // and here?
 console.log(isTasty(-30)); // and here?
 ```
 
-1. Modify the function `numberSign` to it returns the string `'negative'` when the number is negative.
-2. Modify the function `numberSign` so it returns the string `'invalid number'` when the given value is not a number.
-2. Call the function `numberSign` by giving the *string* `'0'`:
+1. Modify the function `getNumberSign` to it returns the string `'negative'` when the number is negative.
+2. Modify the function `getNumberSign` so it returns the string `'invalid number'` when the given value is not a number.
+2. Call the function `getNumberSign` by giving the *string* `'0'`:
 ```javascript
-numberSign('0');
+getNumberSign('0');
 ```
 3. What is the function returning? Is that what you expected? Why do you think this happens?
 4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0'. Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
-*Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the Javascript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
+*Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the JavaScript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
 
 ## Exercise: functions and variables
 
@@ -139,15 +139,15 @@ let greet = sayHello;
 
 1. What will be the result of calling the `greet` function? Is it the same as calling `sayHello`?
 2. What can you say about the relationship between those two functions?
-3. Discuss with your pair (or with yourself!) - in Javascript, do you think a function can also be a variable? Explain why. Is this different from another programming language you already know?
+3. Discuss with your pair - in JavaScript, do you think a function can also be a variable? Explain why. Is this different from another programming language you already know?
 
 ## Exercise: a fizzBuzz function!
 
 1. After having been through those examples, make a list of the main differences you found so far with a another programming language you already know (maybe Ruby).
-2. Try to write a `fizzBuzz` function in Javascript. As a reminder, this function should take a number as argument, and then either:
+2. Try to write a `fizzBuzz` function in JavaScript. As a reminder, this function should take a number as argument, and then either:
   * Print "Fizz" if this number is divisible by 3.
   * Print "Buzz" if this number is divisible by 5.
   * Print "FizzBuzz" if this number is divisible by 5 and 3.
   * Otherwise, print the number itself.
 
-  You will need to find how to write conditionals in Javascript, and also how to find if a number is divisible by another. How would you write this in a language you know? Now what about Javascript?
+  You will need to find how to write conditionals in JavaScript, and also how to find if a number is divisible by another. How would you write this in a language you know? Now what about JavaScript?

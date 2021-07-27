@@ -3,14 +3,14 @@
 ## Objectives
 
  * Use express to serve a simple web app.
- * Use express routes to call a Javascript program.
+ * Use express routes to call a JavaScript program.
 
 This will be a stretch goal. 
 
 ## Express
 
 ```
-npm install
+npm install express
 ```
 
 ```javascript

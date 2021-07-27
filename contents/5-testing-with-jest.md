@@ -1,4 +1,4 @@
-# Testing in Javascript
+# Testing in JavaScript
 
 ## Objectives
 
@@ -15,7 +15,7 @@ In most programming languages, we can use libraries, which are made of code alre
 
 In Ruby, for example, those libraries are called `gems` and we use the `bundle` command to install them. We list those gems inside the `Gemfile`.
 
-In Javascript, they are called `packages` and are listed in a file called `package.json`.
+In JavaScript, they are called `packages` and are listed in a file called `package.json`.
 
 To create an empty `package.json` file, run the following command inside your project directory:
 ```
@@ -59,9 +59,6 @@ added 328 packages from 269 contributors and audited 328 packages in 33.686s
 
 found 0 vulnerabilities
 ```
-
-### Questions
-1. Have a look at the project directory. Can you see any new files or directories? From this, what assumption can you make about the way the `npm` command is managing Javascript packages? 
 
 ## Exercise: your first test
 
@@ -116,7 +113,7 @@ Something doesn't seem right. Jest doesn't seem to know about our `add` function
 
 ## The missing export
 
-If you've mentioned something along the lines of "require" or "include", then you're on the right path. We need a way to `require` our function in our test file. In Javascript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
+If you've mentioned something along the lines of "require" or "include", then you're on the right path. We need a way to `require` our function in our test file. In JavaScript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
 
 ```javascript
 // sayHello.js
@@ -137,7 +134,7 @@ const sayHello = require('./sayHello');
 sayHello();
 ```
 
-Note: we're using `const` instead of `let` when requiring the function. The behaviour is the same than `let` - it declares a variable - however `sayHello` cannot be reassigned to something else later. This is a good practice in idiomatic Javascript to always use `const` for functions that are required from other files, so we'll use it rather than `let`.
+Note: we're using `const` instead of `let` when requiring the function. The behaviour is the same than `let` - it declares a variable - however `sayHello` cannot be reassigned to something else later. This is a good practice in idiomatic JavaScript to always use `const` for functions that are required from other files, so we'll use it rather than `let`.
 
 Using this new learning, do the following things:
 1. Modify the file `add.js` to export the `add` function.

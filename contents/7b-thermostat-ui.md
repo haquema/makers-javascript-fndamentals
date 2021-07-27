@@ -1,35 +1,31 @@
 # Coding challenge: Thermostat CLI
 
+We can now run tests to make sure all the methods of our `Thermostat` are correctly implemented. However we'd like to be able to interact with it as well - perhaps from the command line.
+
+We'll use a new npm package called `readline-sync` for this:
+
 ```
-npm install prompt
+npm install readline-sync
 ```
 
-https://github.com/flatiron/prompt#getting-basic-prompt-information
+You can read the documentation for a [basic usage](https://github.com/anseki/readline-sync#basic-methods) of this library.
 
 ## Exercise
 
-1. In a new file called `namePrompt.js`, write a code that prompts the user for their name and print the message `"Your name is [name]"`
+1. In a new file called `namePrompt.js`, write the code that prompts the user for their name and print the message `"Your name is [name]"`.
+
+<details>
+<summary>Reveal solution</summary>
 
 ```javascript
-prompt.get(['name'], (err, result) => {
-  console.log(`Your name is ${result.name}`);
-});
+const readline = require('readline-sync');
+
+let name = readline.question('Enter your name');
+
+console.log(`Your name is {name}`);
 ```
 
-You will note that the callback function used to retrieve the user input is getting two arguments: `err` and `result`. This is a very common pattern in Javascript libraries, when dealing with asynchronous results: the first argument will usually contain an error if something wrong happened, or contain `null`. The second argument is then the result that is of interest for us (in this case, the user CLI input).
-
-We might want to handle that error in case something wrong happens:
-
-```javascript
-prompt.get(['name'], (err, result) => {
-  // if error is not null, we couldn't get user input
-  if (err !== null) {
-    console.log('Something wrong happened!');
-  } else {
-    console.log(`Your name is ${result.name}`);
-  }
-});
-```
+</details>
 
 ## Exercise: a CLI for our thermostat
 
@@ -48,3 +44,33 @@ Temperature is now 19
 prompt: command: down
 Temperature is now 18
 ```
+
+<details>
+<summary>Reveal solution</summary>
+
+```javascript
+const Thermostat = require('./thermostat');
+const readline = require('readline-sync');
+
+let thermostat = new Thermostat();
+
+while (true) {
+  console.log('Temperature is ' + thermostat.getTemperature());
+
+  let command = readline.question('Enter "up" or "down" > ');
+
+  if (command === 'up') {
+    thermostat.up();
+  } else if (command === 'down') {
+    thermostat.down();
+  }
+}
+
+```
+
+</details>
+
+## Exercise
+
+1. Update the code so the program user can also enable and disable the thermostat's power saving mode.
+2. If the temperature is decreased to the minimum possible value, display a warning message to the user.

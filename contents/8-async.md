@@ -1,6 +1,6 @@
-# Asynchronous Javascript
+# Asynchronous JavaScript
 
-This can be a very frightening word, but it's also an important concept in Javascript. So let's go through one example first.
+This can be a very frightening word, but it's also an important concept in JavaScript. So let's go through one example first.
 
 ```javascript
 console.log(1);
@@ -93,7 +93,7 @@ console.log(4);
 > 2. Run the code and verify your assumptions. 
 > 3. Did setting `delay` to 0 change anything? From this finding, what can you say about the `printGreeting` function passed to `setTimeout`? 
 
-In Javascript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
+In JavaScript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
 
 1. Take a notebook or open a text note on your laptop, and put the following steps in the exact order in which you think they happen: 
   * `printGreeting` is called.
@@ -146,3 +146,23 @@ console.log(result);
 
 1. Run this code. What is the initial value of `result`?
 2. What is the value of `result` 2 seconds later? Why?
+
+## Exercise: asynchronous user input
+
+Earlier we used the package `readline-sync` to read user input in a JS program. As the name implies, the behaviour of this package is *synchronous*. Let's zoom in the following line to explain what this means:
+
+```javascript
+const readline = require('readline-sync');
+let name = readline.question('Enter your name');
+
+console.log(`Your name is {name}`);
+```
+
+In this example, the second line *blocks* the program to continue further. The variable `name` is not assigned at all *before* the user has entered some input, and the rest of the program won't be executed as well. Therefore we say the user input is read in a *synchronous* way, because it blocks the program from advancing further. This behaviour is very similar to Ruby's `gets.chomp`, which blocks the program while it's waiting for user input.
+
+As we've just seen above, it can be different with JavaScript. In the previous exercise, `setTimeout` doesn't block the program for 2 seconds before `sayHello` is called. The rest of the program is executed and *then*, after 2 seconds have lapsed, `sayHello` happens. This is then an *asynchronous* behaviour.
+
+There is a version of the `readline-sync` gem, [simply named `readline`](https://node.readthedocs.io/en/stable/api/readline/), that also reads user input, but in an asynchronous way.
+
+1. After looking at the documentation for the `readline` package, reimplement the program that asks a user for their name and print "Your name is [name]", using `readline` instead of `readline-sync`.
+2. In which order do the different steps of the program happen? How is it different from the version using `readline-sync`?

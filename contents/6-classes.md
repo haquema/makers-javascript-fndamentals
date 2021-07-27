@@ -17,14 +17,14 @@ class Person {
   }
 
   speak() {
-    return 'Hello, my name is ';
+    return '';
   }
 }
 
 ```
 1. Will anything be printed on the screen if the code above is executed into `node`? Why?
 2. Run the code and verify your assumptions.
-3. Modify the class code so when creating a new person with the name "Patrick", the `speak` method returns "Hello, my name is Patrick".
+3. The method `speak` returns an empty string. Modify the code so when creating a new person with the name "Patrick", the `speak` method returns "Hello, my name is Patrick".
 4. Either in `node` or in a JS file, create a new instance of this class and call the method `speak` on it. 
 5. Define a new method `shout` on the `Person` class. This method should return the same thing than the `speak` method, but in uppercase.
 6. Create a new instance of `Person` and print the result of calling the `shout` method in the terminal.
@@ -99,8 +99,6 @@ module.exports = Adder;
 
 ## Moving Fizzbuzz to a class
 
-Remember our `fizzBuzz` function? What if we wanted to have a class instead?
-
-Implement the class `Fizzbuzz`, which will have a single `calculate` method that computes the result of fizzbuzz.
+Remember our `fizzBuzz` function? What if we wanted to have a class instead? Implement the class `Fizzbuzz`, which will have a single method `calculate`, that computes the result of fizzbuzz.
 
 Modify the test file `fizzbuzz.test.js` to reflect the change we made. Instead of calling directly the `fizzBuzz` function, we now have to create a new instance of this class and call the method `calculate`.
