@@ -88,3 +88,4 @@ Test-drive and implement the following - remember that you'll need to mock the `
 
 1. Create a new class `Weather` that implements one method `getTemperature`, taking a city name as argument and fetching the weather from the OpenWeather API.
 2. Implement the method `setCity` in `Thermostat`, that uses `Weather` to set the thermostat's temperature for the given city.
+3. Modify the file `main.js` so it prompts the user for a city name (instead of a command "up" or "down") and call the `setCity` method to fetch weather data for the given city.

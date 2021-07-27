@@ -1,12 +1,16 @@
 # Objects
 
+## Objectives
+ 
+ * Create and manipulate JS objects
+
 In other languages, you might have learned to think about objects as "instances of a class" - for example, in the following Ruby code, `bike` would be an object (instance of the `Bike` class):
 
 ```ruby
 bike = Bike.new
 ```
 
-However, in Javascript, objects designate a different kind of values, which is very similar to Ruby hashes. Here's a Javascript object:
+However, in Javascript, objects designate a different kind of values, quite similar to Ruby hashes. Here's a Javascript object:
 
 ```javascript
 let person = {
