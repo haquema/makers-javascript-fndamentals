@@ -2,6 +2,8 @@
 
 ## Objectives
 
+ * Use express to serve a simple web app.
+ * Use express routes to call a Javascript program.
 
 This will be a stretch goal. 
 

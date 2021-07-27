@@ -14,18 +14,18 @@ Week 2:
 
 This is the current sequence of steps the learners will go through during the module. The first steps are meant to get them familiar with Javascript environment and concepts. The last steps are part of a bigger coding challenge.
 
-1. [Your first JS program](./main/1-getting-started) - in which they learn how to install node and use the REPL to write some JS.
-2. [Mapping previous knowledge](./main/2-mapping-previous-knowledge.md) - in which they map previous knowledge to JS through a series of exercises (variables, functions, etc).
-3. [Arrays](./main/3-arrays.md) - in which they learn how to use arrays and how to use functions like `forEach` or `filter` to manipulate them (giving functions to functions).
-4. [Running JS files]() - in which they learn how to run JS files from the CLI.
-5. [Testing with Jest]() - in which they learn how to use `npm` to install Jest and how to TDD a JS function.
-6. [Classes] - in which they learn how to write JS classes and how to test-drive one.
-7. [Airport] - in which they rebuild Airport in JS.
-8. [Async] - in which they learn to develop a mental model of asynchronous behaviour in JS, with the example of `setTimeout`.
-9. [Challenge - Fridge] - in which they start to test-drive a `Fridge` class from a specification.
-10. [Calling APIs] - in which they learn how to call remote APIs and handle the response (building on what they previously learned with async behaviour).
-11. [Recipes] - in which they build on the previous APIs section to use the Spoonacular API to find recipes from the fridge's items.
-12. 
+1. [Your first JS program](./contents/1-getting-started.md) - in which they learn how to install node and use the REPL to write some JS.
+2. [Discovering JS](./contents/2-discovering-js.md) - in which they map previous knowledge to JS through a series of exercises (variables, functions, etc).
+3. [Running JS files](./contents/3-running-js-files.md) - in which they learn how to run JS files from the CLI.
+4. [Arrays and functions](./contents/4-arrays.md) - in which they learn how to use arrays and how to use functions like `forEach` or `filter` to manipulate them (giving functions to functions).
+5. [Testing with Jest](./contents/5-testing-with-jest.md) - in which they learn how to use `npm` to install Jest and how to TDD a JS function.
+6. [Classes](./contents/6-classes.md) - in which they learn how to write JS classes and how to test-drive one.
+7. [Thermostat](./contents/7-thermostat.md) - in which they test-drive, from a specification, a JS class representing a Thermostat.
+8. [Thermostat CLI](./contents/7b-thermostat-ui.md) - in which they implement a CLI to manipulate the thermostat.
+8. [Async](./contents/8-async.md) - in which they learn to develop a mental model of asynchronous behaviour in JS, with the example of `setTimeout`.
+9. [Calling remote APIs](./contents/9-calling-apis.md) - in which they learn how to call remote APIs and handle the response, building on previous async examples.
+10. [Thermostat - Weather](./contents/10-weather-api.md) - in which they use OpenWeather API to fetch the weather data for a city and set the thermostat temperature.
+11. [Thermostat (stretch) - Web server](./contents/11-thermostat-web.md) - in which they use Express to expose endpoints to interact with the thermostat through HTTP rather than a CLI.
 
 ## Scope
 

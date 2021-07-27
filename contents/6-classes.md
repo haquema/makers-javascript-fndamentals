@@ -28,7 +28,7 @@ class Person {
 4. Either in `node` or in a JS file, create a new instance of this class and call the method `speak` on it. 
 5. Define a new method `shout` on the `Person` class. This method should return the same thing than the `speak` method, but in uppercase.
 6. Create a new instance of `Person` and print the result of calling the `shout` method in the terminal.
-7. Bonus one: implement `shout` so it is calling the method `speak`.
+7. Implement `shout` so it calls the method `speak`.
 
 <details>
 <summary>Reveal solution</summary>
