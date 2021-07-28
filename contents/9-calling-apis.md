@@ -132,4 +132,17 @@ However, something doesn't seem right with their code when they run it. The vari
 
 1. Describe the order in which things happen in the code above.
 2. Run the code. What is printed by the call to `console.log`? Is it what you expected? Can you see why this happens? (If you don't, maybe have a fresh look at [the last section about callbacks](6-async.md))
-3. Modify the function `fetchRepoInfo` so the response received in the callback of `then` is finally assigned to the variable `repoResponse`.
+3. Modify the function `fetchRepoInfo` so it accepts a second argument that is a callback function, and we can call `fetchRepoInfo` this way:
+
+```javascript
+fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
+  console.log(repoResponse);
+});
+```
+
+4. Order those different steps in the order they happen:
+  * The Github API is called
+  * `fetchRepoInfo` is called
+  * the callback function to print out the response is called
+  * the Github API response is received
+  

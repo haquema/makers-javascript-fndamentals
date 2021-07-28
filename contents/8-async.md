@@ -16,8 +16,8 @@ someFunction();
 console.log(4);
 ```
 
-> 1. In which order are the four numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
-> 2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions. If not, why?
+1. In which order are the four numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
+2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions. If not, why?
 
 If you've got the sequence 1, 3, 2, 4 - then you're right. What happens is that, after the first `console.log`, `someFunction` is defined, but it is not run yet! Only after the `console.log(3)` is `someFunction` called, and `console.log(2)` is then called. Finally, `console.log(4)` is called.
 
@@ -32,9 +32,9 @@ let printGreeting = () => {
 setTimeout(printGreeting, delay);
 ```
 
-> 1. Run this code. What is happening? 
-> 2. Try to call directly the function `printGreeting` at the end of the file, and run the code again. How is the result different?
-> 3. From the previous answers, make an assumption about what the `setTimeout` function is doing. 
+1. Run this code. What is happening? 
+2. Try to call directly the function `printGreeting` at the end of the file, and run the code again. How is the result different?
+3. From the previous answers, make an assumption about what the `setTimeout` function is doing. 
 
 Here's another slightly different example:
 ```javascript
@@ -45,8 +45,8 @@ setTimeout(() => {
 }, delay);
 ```
 
-> 1. In what is this example different? 
-> 2. Does it change the final result of what the code is doing? Try to answer *before* running the code again, then verify your assumptions.
+1. In what is this example different? 
+2. Does it change the final result of what the code is doing? Try to answer *before* running the code again, then verify your assumptions.
 
 ## Following the flow of the program
 
@@ -72,7 +72,7 @@ console.log(4);
 
 Let's take the same code, again, but setting the `delay` variable to 0. 
 
-> 1. How do you think this will change the behaviour of the code. In which order will the numbers we printed?
+ 1. How do you think this will change the behaviour of the code. In which order will the numbers we printed?
 
 ```javascript
 let delay = 0;
@@ -90,8 +90,8 @@ setTimeout(printGreeting, delay);
 console.log(4);
 ```
 
-> 2. Run the code and verify your assumptions. 
-> 3. Did setting `delay` to 0 change anything? From this finding, what can you say about the `printGreeting` function passed to `setTimeout`? 
+ 2. Run the code and verify your assumptions. 
+ 3. Did setting `delay` to 0 change anything? From this finding, what can you say about the `printGreeting` function passed to `setTimeout`? 
 
 In JavaScript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
 
@@ -129,23 +129,44 @@ So `result` can never get the value returned by `sayHello` - it cannot get a val
 
 ![Diagram](images/async-return-value.svg)
 
-Since we can't `return` values, one solution is to assign them to a variable than already exists outside of the callback function:
+Since we can't `return` values, we need to use other solutions - one of them is to use *callback* functions, again, to tackle this asynchronous problem.
+
+## Exercise: using callbacks to return values
+
+Someone wrote a function `calculateAfterDelay` to do some calculation after a delay:
 
 ```javascript
-let delay = 2000;
-let result = null; // result is created here
-
-let sayHello = () => {
-  result = 'Hello'; // ...and gets assigned here
+let calculateAfterDelay = () => {
+  let delay = 2000;
+  setTimeout(() => {
+    let result = 2 + 3;
+  }, delay);
 }
-
-setTimeout(sayHello, delay);
-
-console.log(result);
 ```
 
-1. Run this code. What is the initial value of `result`?
-2. What is the value of `result` 2 seconds later? Why?
+1. Modify the `calculateAfterDelay` function so it accepts a function, and calls it after the 2 seconds delay.
+2. Call `calculateAfterDelay` with a callback that accepts one argument for the result, and print it.
+
+<details>
+<summary>Reveal solution</summary>
+
+```javascript
+let calculateAfterDelay = (callback) => {
+  let delay = 2000;
+  setTimeout(() => {
+    let result = 2 + 3;
+    callback(result);
+  }, delay);
+}
+
+calculateAfterDelay((result) => {
+  console.log(result);
+})
+```
+
+</details>
+
+3. Explain in which order the different steps happen in this solution program.
 
 ## Exercise: asynchronous user input
 
