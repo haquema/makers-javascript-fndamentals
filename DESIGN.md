@@ -16,8 +16,8 @@ This is the current sequence of steps the learners will go through during the mo
 5. [Testing with Jest](./contents/5-testing-with-jest.md) - in which they learn how to use `npm` to install Jest and how to TDD a JS function.
 6. [Classes](./contents/6-classes.md) - in which they learn how to write JS classes and how to test-drive one.
 7. [Thermostat](./contents/7-thermostat.md) - in which they test-drive, from a specification, a JS class representing a Thermostat.
-8. [Thermostat CLI](./contents/7b-thermostat-ui.md) - in which they implement a CLI to manipulate the thermostat.
-8. [Async](./contents/8-async.md) - in which they learn to develop a mental model of asynchronous behaviour in JS, with the example of `setTimeout`.
+8. [Thermostat CLI](./contents/7b-thermostat-ui.md) - in which they read user input from the CLI to manipulate the thermostat.
+8. [Async](./contents/8-async.md) - in which they learn to develop a mental model of asynchronous behaviour in JS and callbacks, with the example of `setTimeout`.
 9. [Calling remote APIs](./contents/9-calling-apis.md) - in which they learn how to call remote APIs and handle the response, building on previous async examples.
 10. [Thermostat - Weather](./contents/10-weather-api.md) - in which they use OpenWeather API to fetch the weather data for a city and set the thermostat temperature.
 11. [Thermostat (stretch) - Web server](./contents/11-thermostat-web.md) - in which they use Express to expose endpoints to interact with the thermostat through HTTP rather than a CLI.

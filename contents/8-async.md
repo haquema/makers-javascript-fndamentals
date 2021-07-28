@@ -17,7 +17,7 @@ console.log(4);
 ```
 
 1. In which order are the four numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
-2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions. If not, why?
+2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions.
 
 If you've got the sequence 1, 3, 2, 4 - then you're right. What happens is that, after the first `console.log`, `someFunction` is defined, but it is not run yet! Only after the `console.log(3)` is `someFunction` called, and `console.log(2)` is then called. Finally, `console.log(4)` is called.
 

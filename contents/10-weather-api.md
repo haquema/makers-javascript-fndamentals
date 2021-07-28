@@ -8,9 +8,22 @@
 
 Let's go back to our thermostat. It would be great if we could get it to display the current temperature for a given city. How could we get this kind of data?
 
-Well, thankfully for us, there is an API for that! You'll find that there are APIs for all sorts of things, including the weather. We'll use the [OpenWeather API](https://openweathermap.org/api). You'll need to create an account before being able to use the API (a free account should be enough).
+Well, thankfully for us, there is an API for that! You'll find that there are APIs for all sorts of things, including the weather.
+
+## Setup
+
+We'll use the [OpenWeather API](https://openweathermap.org/api). You'll need to create an account before being able to use the API (a free account should be enough).
 
 Once your account is created, head to the [API keys section](https://home.openweathermap.org/api_keys) page on the website, where you'll find your API key. Copy that key somewhere safe on your laptop, but be mindful of *not* including it in a file pushed on your coding challenge Github repository. Ideally, this key shouldn't leave your computer (or your pair's computer)!
+
+You can try having a look at what data this API can return by going to the following URL (your api key should replace the placeholder, including brackets):
+```
+https://api.openweathermap.org/data/2.5/weather?units=metric&q=London&appid={YOUR API KEY HERE}
+```
+
+1. Building on what you've learned previously calling the Github API, use the `got` library to call the OpenWeather API using the URL above.
+
+## Exercise: Calling OpenWeather API
 
 We can try the following code to test the API and get weather for a given location
 
@@ -18,7 +31,7 @@ We can try the following code to test the API and get weather for a given locati
 const got = require('got');
 const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // paste your API key here
 const city = 'London';
-const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
 
 let weatherData = null;
 
@@ -98,10 +111,11 @@ Test-drive and implement the following - remember that you'll need to mock the `
 // weatherApi.js
 const got = require('got');
 const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // paste your API key here
-const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
 class WeatherApi {
   fetchWeatherData(city) {
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
+
     got(apiUrl).then((response) => {
       let weatherData = JSON.parse(response.body);
       return weatherData;
@@ -124,3 +138,33 @@ setCity(city) {
 
 1. The code of the `WeatherApi` class shown above uses `return` to return the weather data to the `Thermostat` instance. However, this doesn't seem to work. Can you see why?
 2. Can you find a different way to *pass back* the data to the `setCity` method? Hint: could you use a *callback* function to do this?
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+// weatherApi.js
+const got = require('got');
+
+const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // paste your API key here
+
+class WeatherApi {
+  fetchWeatherData(city, callback) {
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
+
+    got(apiUrl).then((response) => {
+      let weatherData = JSON.parse(response.body);
+      callback(weatherData);
+    });
+  }
+}
+
+module.exports = WeatherApi;
+```
+
+```javascript
+// thermostat.js
+
+```
+
+</details>
