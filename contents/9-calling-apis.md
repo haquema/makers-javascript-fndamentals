@@ -1,11 +1,57 @@
-# Async data
+# Calling remote APIs
 
 ## Objectives
 
+ * Manipulate JS objects
  * Define what a remote API is.
  * Explain how we can use JavaScript's asynchronous behaviour to request data from an API.
  * Use a library to request data from an API.
  * Use a callback function to handle response from an API.
+
+## Objects intermezzo
+
+In other languages, you might have learned to think about objects as "instances of a class" - for example, in the following Ruby code, `bike` would be an object (instance of the `Bike` class):
+
+```ruby
+bike = Bike.new
+```
+
+However, in JavaScript, objects designate a different kind of values, quite similar to Ruby hashes. Here's an example of a JavaScript object:
+
+```javascript
+let person = {
+  name: 'Maxine',
+  age: 32,
+  address: 'London, E1 123'
+};
+
+// both ways can be used to access an object's property:
+console.log(person.name);
+console.log(person['name']);
+
+```
+
+## Exercise: accessing object values
+
+An object is composed of *key-values* pairs. Those values can be any primitive values such as strings or numbers, as in the example above, or they can be more complex things, such as other objects, arrays, or even functions:
+```javascript
+let person = {
+  name: 'Maxine',
+  age: 32,
+  address: {
+    city: 'London',
+    postcode: 'E1 123'
+  },
+  hobbies: ['writing', 'tennis', 'cooking']
+};
+```
+
+1. Print the value of the `city` attribute ('London').
+2. Print the value of the second `hobbies` value ('tennis').
+
+## Asynchronous data
+
+We've previously learned how JS can execute code in an asynchronous way, with the example of `setTimeout`.
 
 Another common example of asynchronous behaviour in JavaScript is when we need to *fetch remote data* from other APIs. We'll often use the term APIs (for Application Programming Interfaces) to speak about external sources of data we can fetch and use in our programs. Since we often need to wait before the data is available (the network might be slow and unreliable), it makes sense to use JavaScript's *asynchronous* capabilities to work with APIs.
 

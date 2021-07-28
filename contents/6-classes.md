@@ -87,7 +87,12 @@ You should now be able to make the tests pass.
 
 Here's a potential solution on how your file `add.js` could look like:
 
+<details>
+<summary>Reveal solution</summary>
+
 ```javascript
+// add.js
+
 class Adder {
   add(a, b) {
     return a + b;
@@ -96,6 +101,21 @@ class Adder {
 
 module.exports = Adder;
 ```
+
+```javascript
+// add.test.js
+
+const Adder = require('./add');
+
+describe('Adder', () => {
+  it('should add 2 and 2', () => {
+    let adder = new Adder();
+    expect(adder.add(2, 2)).toEqual(2);
+  });
+});
+```
+
+</details>
 
 ## Moving Fizzbuzz to a class
 

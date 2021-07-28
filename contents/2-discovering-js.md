@@ -40,11 +40,12 @@ let sayHello = () => {
 
 console.log(sayHello);
 ```
-1. Find a [different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) to write the function `sayHello`.
+1. Find a [different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) to write the function `sayHello`. You might have to restart `node` for this, otherwise you'll get an error - you're trying to redeclare a function with the same name!
 2. What will be printed by this program? Go ahead and run it in `node`. Is the result what you expected?
 3. Make a fix so "Hello" is correctly printed by this program. Hint: [the first example from this section about Calling Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#calling_functions) might be useful!
 4. Modify the function `sayHello` so it accepts one argument, and calling `sayHello("Sarah")` displays the personalized message "Hello Sarah".
-5. Bonus: can you find another way to write the `sayHello` function, without using the sign `+` at all?
+5. Now try to call `sayHello` without any argument and note the result. Is it different from another language you know?
+6. Bonus: can you find another way to write the `sayHello` function, without using the sign `+` at all?
 
 When you've completed the exercises above, you can reveal the solution:
 
@@ -123,7 +124,7 @@ console.log(isTasty(-30)); // and here?
 getNumberSign('0');
 ```
 3. What is the function returning? Is that what you expected? Why do you think this happens?
-4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0'. Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0' (it should return 'invalid number' instead). Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
 *Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the JavaScript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
 
