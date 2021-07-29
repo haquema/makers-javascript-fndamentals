@@ -48,5 +48,5 @@ let isMaximumScore = (score) => {
 }
 ```
 
-1. What comment would you make to improve this code, based on what you learned on this page?
+1. What comment would you make to improve this code, based on what you learned on the previous page?
 2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem?
