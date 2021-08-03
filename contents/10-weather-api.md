@@ -165,6 +165,12 @@ module.exports = WeatherApi;
 ```javascript
 // thermostat.js
 
+// ...
+setCity(city) {
+  this.weatherApi.fetchWeatherData(city, (weatherData) => {
+    this.temperature = weatherData.main.temp;
+  });
+}
 ```
 
 </details>

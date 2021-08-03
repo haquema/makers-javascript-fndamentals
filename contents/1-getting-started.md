@@ -9,19 +9,19 @@
 
 You will need to install a program called Node.js (also just called "node"). Node is a JavaScript *runtime* - which means it reads JavaScript code, and execute it as a program. This is very similar to, for example, `ruby` or `irb`, which can read and execute Ruby code, either in files or entered directly into the REPL.
 
-First let's install `nvm` - the Node Version Manager. If you've used Ruby with `rvm` before, it's a similar tool: `nvm` allows us to install and manage specific Node versions. 
+First let's install `nvm` - the Node Version Manager. If you've used Ruby with `rvm` before, it's a similar tool: `nvm` allows us to install and manage specific Node versions. You can check the latest Node release on the [releases page](https://nodejs.org/en/about/releases/). We'll chose the *Current* one.
 
 ```
 brew install nvm
-nvm use 12.14.1
+nvm use 16
 ```
 
-If the above did work, you should see something like this in your terminal (exact versions might be different for you!): `Now using node v12.14.1 (npm v6.13.4)` - if something went wrong, have a look at the [troubleshooting section](https://github.com/nvm-sh/nvm#troubleshooting-on-macos) or reach out to someone for help.
+If the above did work, you should see something like this in your terminal (exact versions might be different for you!): `Now using node v16.6.0 (npm v7.19.1)` - if something went wrong, have a look at the [troubleshooting section](https://github.com/nvm-sh/nvm#troubleshooting-on-macos) or reach out to someone for help.
 
 Your should now be able to type `node` inside your terminal, to launch the node REPL: 
 ```
 $ node
-Welcome to Node.js v14.17.3.
+Welcome to Node.js v16.6.0.
 Type ".help" for more information.
 > 
 ```
