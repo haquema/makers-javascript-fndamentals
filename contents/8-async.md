@@ -1,25 +1,12 @@
 # Asynchronous JavaScript
 
-This can be a very frightening word, but it's also an important concept in JavaScript. So let's go through one example first.
+Here's a hard truth: even if we would have the fastest, most efficient computer ever to run our programs and web applications, our programs could still be slow. 
 
-```javascript
-console.log(1);
+Why? Let's take an example: imagine you're deciding to browse your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page. Some Javascript code is fetching the relevant data to display behind the scenes, and replaces those empty parts once the data is loaded. But the data travels on the network, which could be slow and unreliable. Maybe your connection will be down, in which case this data might never come back to your computer!
 
-let someFunction = () => {
-  console.log(2);
-}
+The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some conditon will be met. This condition might be to receive some data back from a remote server, or it can be waiting for a delay, etc.
 
-console.log(3);
-
-someFunction();
-
-console.log(4);
-```
-
-1. In which order are the four numbers going to be printed? Try to think deeply and to write your answer somewhere, maybe on a notebook, before running this code.
-2. Save this code in a JS file and run it from the terminal, then check if the output matches your assumptions.
-
-If you've got the sequence 1, 3, 2, 4 - then you're right. What happens is that, after the first `console.log`, `someFunction` is defined, but it is not run yet! Only after the `console.log(3)` is `someFunction` called, and `console.log(2)` is then called. Finally, `console.log(4)` is called.
+However, we *do not* want to block the rest of our program until the data has been received. Going back to the example above, you wouldn't want the website to freeze while the data is still loading! This kind of behaviour is called *asynchronous programming* — it means we are able to execute some part of the code at a *later time*, without blocking the code that needs to execute before.
 
 ## An Asynchronous Example
 
