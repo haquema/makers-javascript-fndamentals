@@ -2,7 +2,7 @@
 
 Here's a hard truth: even if we would have the fastest, most efficient computer ever to run our programs and web applications, our programs could still be slow. 
 
-Why? Let's take an example: imagine you're deciding to browse your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page. Some Javascript code is fetching the relevant data to display behind the scenes, and replaces those empty parts once the data is loaded. But the data travels on the network, which could be slow and unreliable. Maybe your connection will be down, in which case this data might never come back to your computer!
+Why? Let's take an example: imagine you're deciding to browse your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page that are loading. Some Javascript code is fetching the relevant data to display behind the scenes, and replaces those empty parts with actual content once the data is loaded. But this data travels on the network, which could be slow and unreliable. Maybe your connection will drop, in which case this data might never come back to your computer!
 
 The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some conditon will be met. This condition might be to receive some data back from a remote server, or it can be waiting for a delay, etc.
 

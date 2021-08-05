@@ -1,5 +1,28 @@
 # Testing in JavaScript
 
+Your friend's website is now online and delivering candies all over the world. Everything is great. Late at night, you decide to make a few improvements to the search function, and you update the website before going to have a well deserved night of sleep. However, a few hours later, the phone rings: your friend tells you there's a problem on the website — customers cannot search for candies anymore!
+
+You wake up groggy and have a first cup of well-needed coffee before you open your laptop to check the website, which is not working. No candies appear in the results, no matter what you search for, and you get a blank page instead. You have a look at the code you've deployed just before going to sleep, trying to understand what's wrong.
+
+```javascript
+const searchCandies = (searchPrefix, maxPrice) => {
+  return candies
+    .filter(candy => {
+      return candy[1].toLowerCase().startsWith(searchPrefix);
+    }).filter(candy => {
+      return candy[1] <= maxPrice;
+    });
+}
+```
+
+1. Try this function again in `node`. What is wrong with it?
+
+You realise your mistake, quickly fix it and update the website. Phew, everything seems to be working again! You close your laptop before going back to bed, but you're struggling to sleep. How could such a silly error happen to you? On top of this, this is not nice for your friend's business.
+
+If you think mistakes such as this one happen rarely in the "real world" — think twice. This kind of small errors is far too common in software, simply because code is written by humans, and humans do make mistakes. However, there are ways to avoid or mitigate such errors before the code is updated and impact users — as you might have guessed, one of the most important ways is to test your code and use TDD in your development process.
+
+In this section, you'll learn about how to test your JavaScript code with simple exercises, and you'll then work on writing robust tests for the `searchCandies` function above, so it never puts you out of a good night's sleep again.
+
 ## Objectives
 
  * Install a package using `npm`.
@@ -60,7 +83,7 @@ added 328 packages from 269 contributors and audited 328 packages in 33.686s
 found 0 vulnerabilities
 ```
 
-## Exercise: your first test
+## Your first test
 
 When running `jest` inside the terminal, we should see a message such as "No tests found, exiting with code 1". There are no tests written yet. Let's write one!
 
@@ -170,11 +193,14 @@ describe('fizzBuzz', () => {
 });
 ```
 
-1. Using what you've learned previously about the syntax of Jest to write a test for the `add` function, write four assertions (`expect(...).toEqual(...)`) to test those four different cases for the `fizzBuzz` function.
-2. Now write the fizzBuzz function inside a file named `fizzbuzz.js`. 
-3. Remember our test file needs to know about the `fizzBuzz` function in order to test it. Use `module.exports` and `require`, like seen previously, to import the `fizzBuzz` function in the test file.
-4. Make sure the tests pass.
-5. Using what you've learned previously, modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for))
+To complete this exercise, you'll need to: 
+  * use Jest expectations you've just learned to test the different cases above
+  * use `module.exports` and `require`, like seen previously, to import the `fizzBuzz` function in the test file.
+
+## Questions
+
+1. Write tests for the `fizzBuzz` function and make sure they pass.
+2. Modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)).
 
 If you've done everything correctly, you should see something resembling the following output:
 
@@ -199,3 +225,36 @@ FizzBuzz
 Fizz
 ...
 ```
+
+## Exercise — testing the `searchCandies` function
+
+You're now ready to write tests for the function at the beginning of the file. You can save it to a file called `searchCandies.js` and write the test file as `searchCandies.test.js`. You may use the acceptance criteria for this function to write the Jest test cases:
+
+```javascript
+> searchCandies('Ma', 10);
+[ 'Mars', 'Maltesers' ]
+
+> searchCandies('Ma', 2); // Maltesers excluded: it's more than 2
+[ 'Mars' ]
+
+> searchCandies('S', 10); 
+[ 'Skitties', 'Skittles', 'Starburst' ]
+
+> searchCandies('S', 4); 
+[ 'Skitties', 'Skittles' ] // Starbust excluded: it's more than 4
+
+> searchCandies('s', 4); 
+[ 'Skitties', 'Skittles' ] // works with lowercase search prefix too
+```
+
+### Questions
+
+1. Write the tests for the `searchCandies` function and make sure they pass.
+2. Try to break the `searchCandies` function so at least one test doesn't pass anymore.
+
+
+## About TDD
+
+You might have noticed that, although we wrote tests, we didn't follow a strict TDD process — we wrote the `searchCandies` function before writing its tests. Ideally, we would have written the tests before, but sometimes it's not obvious to know what to test, and you might need to write a first "draft" version of the code first to have a clearer picture of what should be tested.
+
+Writing tests *before* the code is something that you'll get better with experience, so always try to have this in mind when writing code, even if it might feel like working backwards. In the case of our `searchCandies` function, one way to write tests first would have been to look at the acceptance criteria and "translate" them into Jest tests, before writing the actual function.

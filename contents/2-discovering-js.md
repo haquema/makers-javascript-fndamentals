@@ -1,5 +1,7 @@
 # Discovering JavaScript
 
+In this section, you'll be discovering JavaScript's syntax and find some concepts you already know.
+
 ## Objectives
 
  * Use variables in JS.
