@@ -1,6 +1,6 @@
 # Classes
 
-Your friend's candies business is booming, and you're know working almost full time on the website — this is great! However, the more the features you implement, and the more code you add, the messier the project starts to feel. It might be time to tidy up things a bit.
+Your friend's candies business is booming, and you're now working almost full time on the website — this is great! However, the more the features you implement, and the more code you add, the messier the project starts to feel. It might be time to tidy up things a bit.
 
 So far we've used only JavaScript functions, but much like other OOP languages, we can declare and use classes in JS to organise our code. Classes in JS work in a similar way to other languages, they are declared with methods — and perhaps attributes — and can be instantiated. By the end of this section, we'll write a few JavaScript classes that will allow us to execute code like this: 
 
@@ -19,6 +19,7 @@ let totalPrice = basket.getTotalPrice();
  * Declare a method.
  * Create an instance of a class.
  * Call a method on an instance.
+ * Make two classes interact together.
  * Test-drive a class using Jest.
 
 ## Exercise - a simple class
@@ -98,125 +99,55 @@ To complete this exercise, you will have to:
 2. Implement the `UserBase` class in a file `userBase.js` so it passes those tests, and behave exactly like in the example code above.
 
 
+## Exercise - a shopping basket
 
-
-
-
-
-
-
-
--------- BEGIN OLD --------
+Implement the two classes `Candy` and `ShoppingBasket` so we can execute the following code:
 
 ```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+> let candy = new Candy('Mars', 4.99);
 
-  speak() {
-    return '';
-  }
-}
+> candy.getName();
+'Mars'
+> candy.getPrice();
+4.99
 
-```
-1. Will anything be printed on the screen if the code above is executed into `node`? Why?
-2. Run the code and verify your assumptions.
-3. The method `speak` returns an empty string. Modify the code so when creating a new person with the name "Patrick", the `speak` method returns "Hello, my name is Patrick".
-4. Either in `node` or in a JS file, create a new instance of this class and call the method `speak` on it. 
-5. Define a new method `shout` on the `Person` class. This method should return the same thing than the `speak` method, but in uppercase.
-6. Create a new instance of `Person` and print the result of calling the `shout` method in the terminal.
-7. Implement `shout` so it calls the method `speak`.
+> let basket = new ShoppingBasket();
+> basket.getTotalPrice();
+0
 
-<details>
-<summary>Reveal solution</summary>
+> basket.addItem(candy);
 
-```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+> basket.getTotalPrice();
+4.99
 
-  speak() {
-    return 'Hello, my name is ' + this.name;
-  }
+> basket.addItem(new Candy('Skittle', 3.99));
+> basket.addItem(new Candy('Skittle', 3.99));
 
-  shout() {
-    return this.speak().toUpperCase();
-  }
-}
+> basket.getTotalPrice();
+12.97
 ```
 
-</details>
+## Exercise - debugging
 
-## Test-driving an Adder class
-
-Remember our `add` function from before?
+1. Later, you're working to add a method `applyDiscount` to the class `ShoppingBasket` to apply a discount of a certain amount to the total price of the basket. However, something doesn't work — can you find the bug? (some of the code has been omitted for clarity)
 
 ```javascript
-// add.js
-let add = (a, b) => {
-  return a + b;
-}
+class ShoppingBasket {
+  constructor() {
+    this.discount = 0;
+  }
 
-module.exports = add;
-```
+  applyDiscount(discount) {
+    discount = this.discount;
+  }
 
-We'll now try to replicate the same functionality, but this time using a class. Using what you know so far, work through the following steps:
+  getTotalPrice() {
+    let totalPrice = 0;
+    this.candies.forEach((candy) => {
+      totalPrice += candy.getPrice();
+    });
 
-1. In the same file `add.js`, replace the function `add` by a class named `Adder`. This class should have only one method called `add`, which will look a lot like the previous `add` function.
-2. Modify the test file `add.test.js` to replace the usage of the function by the class `Adder`. Instead of calling the function directly, you'll have to create a new instance of `Adder` and call the `add` method on it.
-
-You might now be wondering (rightly) what happens to our `module.exports` and `require`. We know how to export functions, but what about classes? 
-
-Well, it turns out classes can be exported the same way as functions! So we can write something like this:
-
-```javascript
-// In the add.js file...
-module.exports = Adder;
-```
-
-```javascript
-// ... and in the add.test.js file
-const Adder = require('./add');
-```
-
-You should now be able to make the tests pass.
-
-Here's a potential solution on how your file `add.js` could look like:
-
-<details>
-<summary>Reveal solution</summary>
-
-```javascript
-// add.js
-
-class Adder {
-  add(a, b) {
-    return a + b;
+    return totalPrice - this.discount;
   }
 }
-
-module.exports = Adder;
 ```
-
-```javascript
-// add.test.js
-
-const Adder = require('./add');
-
-describe('Adder', () => {
-  it('should add 2 and 2', () => {
-    let adder = new Adder();
-    expect(adder.add(2, 2)).toEqual(2);
-  });
-});
-```
-
-</details>
-
-## Moving Fizzbuzz to a class
-
-Remember our `fizzBuzz` function? What if we wanted to have a class instead? Implement the class `Fizzbuzz`, which will have a single method `calculate`, that computes the result of fizzbuzz.
-
-Modify the test file `fizzbuzz.test.js` to reflect the change we made. Instead of calling directly the `fizzBuzz` function, we now have to create a new instance of this class and call the method `calculate`.

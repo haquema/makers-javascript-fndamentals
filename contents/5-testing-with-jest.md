@@ -83,39 +83,33 @@ added 328 packages from 269 contributors and audited 328 packages in 33.686s
 found 0 vulnerabilities
 ```
 
-## Your first test
+## Exercise: your first test
 
 When running `jest` inside the terminal, we should see a message such as "No tests found, exiting with code 1". There are no tests written yet. Let's write one!
 
-We're going to test a function called `add` which will take two numbers as arguments and, perhaps unsurprisingly, *add* them together. First, let's create one file called `add.test.js` (the part `.test` is a naming convention so Jest can find out in which files are the tests).
+We're going to test-drive a function called `add` which will take two numbers as arguments and, perhaps unsurprisingly, *add* them together. First, let's create one file called `add.test.js` (the part `.test` is a naming convention so Jest can find out in which files are the tests).
 
 ```
 touch add.test.js
 ```
 
-Below is the basic scaffolding for out test - fill in the the blanks (`__`), one with the call to the `add` function, and one with the actual result that the function should return.
+To complete this exercise, you will need to:
+  * use Jest test matchers (such as `expect().toBe()`)
+  * use `module.exports` and `require` to require a JavaScript "module".
+
+## Questions
+
+1. Below is the basic scaffolding for out test - fill in the the blanks (`__`), one with the call to the `add` function, and one with the actual result that the function should return. You'll need to [use the Jest syntax](https://jestjs.io/docs/expect#tobevalue) to do this.
 
 ```javascript
 describe('add', () => {
   it('adds 2 and 2', () => {
-    // fill the two blanks
-    // - one should be the result of calling the function `add` with 2 and 2
-    // - the other the expected result (...4, in case you were wondering!)
-    expect(__).toEqual(__);
+    // TODO: write test
   });
 });
 ```
 
-We can now write the function in its own file - let's call it `add.js`.
-```
-touch add.js
-```
-
-```javascript
-let add = (a, b) => {
-  return a + b;
-}
-```
+2. Write the function `add` into its file `add.js` so it satisfies the test we just wrote.
 
 At this point, we should now have two files, one containing the function (`add.js`) and the other one the tests for this function (`add.test.js`). If we try to run Jest now, and we've written our code correctly, we should expect the tests to pass. Let's see what happens:
 ```
@@ -132,11 +126,11 @@ $ jest
 
 Something doesn't seem right. Jest doesn't seem to know about our `add` function.
 
-1. Based on your knowledge from another programming language you know, what is missing in our test? How could we get Jest to "know" about our `add` function?
+3. Have a look at [the first example from Jest's documentation](https://jestjs.io/docs/getting-started) — write the missing code so our function `add` is defined in our tests.
 
 ## The missing export
 
-If you've mentioned something along the lines of "require" or "include", then you're on the right path. We need a way to `require` our function in our test file. In JavaScript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
+In the previous exercise, we needed a way to `require` our function in our test file. In JavaScript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
 
 ```javascript
 // sayHello.js
@@ -158,10 +152,6 @@ sayHello();
 ```
 
 Note: we're using `const` instead of `let` when requiring the function. The behaviour is the same than `let` - it declares a variable - however `sayHello` cannot be reassigned to something else later. This is a good practice in idiomatic JavaScript to always use `const` for functions that are required from other files, so we'll use it rather than `let`.
-
-Using this new learning, do the following things:
-1. Modify the file `add.js` to export the `add` function.
-2. Modify the file `add.test.js` to require the `add` function from the `add.js` file.
 
 Once this is done, we can run `jest` again, and we should see our test passing! Congratulations, you've just wrote your first Jest test!
 
@@ -194,7 +184,7 @@ describe('fizzBuzz', () => {
 ```
 
 To complete this exercise, you'll need to: 
-  * use Jest expectations you've just learned to test the different cases above
+  * use Jest matchers you've just learned to test the different cases above
   * use `module.exports` and `require`, like seen previously, to import the `fizzBuzz` function in the test file.
 
 ## Questions

@@ -12,65 +12,81 @@ You can read the documentation for a [basic usage](https://github.com/anseki/rea
 
 ## Exercise
 
-1. In a new file called `namePrompt.js`, write the code that prompts the user for their name and print the message `"Your name is [name]"`.
+1. In a new file called `namePrompt.js`, write the code that prompts the user for their name and print the message `"Welcome [name]!"`. You should use the `readline-sync` library in order to do this.
 
-<details>
-<summary>Reveal solution</summary>
+If your code is correct, you should be able to run the program and it should ask for your input, before printing the output:
 
-```javascript
-const readline = require('readline-sync');
+```bash
+node namePrompt.js
 
-let name = readline.question('Enter your name');
-
-console.log(`Your name is {name}`);
+What is your name? 
+prompt: name: Kyle
+Welcome Kyle!
 ```
-
-</details>
 
 ## Exercise: a CLI for our thermostat
 
-1. In a file called `index.js`, create a new instance of the `Thermostat` class.
-2. In the same file, create a loop in which you keep asking the user for a `command` to  increase or decrease the temperature (they could type either "down" or "up").
-3. After updating the thermostat, print a message to the user indicating the new temperature.
-4. Run the file and you should be able to update the thermostat temperature and see it change:
+
+In the thermostat project directory, create a new file `cli.js`. The goal of this exercise is to control the thermostat using the commands "up" and "down" — a correct program would result in the following input/output on the terminal:
 
 ```
+node cli.js
+
 prompt: command: up
 Temperature is now 21
+
 prompt: command: down
 Temperature is now 20
+
 prompt: command: down
 Temperature is now 19
+
 prompt: command: down
 Temperature is now 18
-```
-
-<details>
-<summary>Reveal solution</summary>
-
-```javascript
-const Thermostat = require('./thermostat');
-const readline = require('readline-sync');
-
-let thermostat = new Thermostat();
-
-while (true) {
-  console.log('Temperature is ' + thermostat.getTemperature());
-
-  let command = readline.question('Enter "up" or "down" > ');
-
-  if (command === 'up') {
-    thermostat.up();
-  } else if (command === 'down') {
-    thermostat.down();
-  }
-}
 
 ```
 
-</details>
+In order to complete this exercise, you'll have to:
+
+ * create an instance of the `Thermostat` class.
+ * use the `readline-sync` library to ask for user input.
+ * use a loop.
 
 ## Exercise
 
-1. Update the code so the program user can also enable and disable the thermostat's power saving mode.
-2. If the temperature is decreased to the minimum possible value, display a warning message to the user.
+Update the code so the program user can also enable and disable the thermostat's power saving mode, with the commands "psm on" and "psm off". If the minimum or maximum temperature is reached, display a warning message for the user. The terminal input and output for a valid program should look like this:
+
+```
+node cli.js
+
+prompt: command: up
+Temperature is now 21
+
+prompt: command: up
+Temperature is now 22
+
+prompt: command: psm on
+PSM is now on
+
+prompt: command: up
+Temperature is now 23
+
+prompt: command: up
+Temperature is now 24
+
+prompt: command: up
+Temperature is now 25 (maximum reached!)
+
+prompt: command: up
+Temperature is now 25 (maximum reached!)
+
+prompt: command: up
+Temperature is now 25 (maximum reached!)
+
+prompt: command: psm off
+PSM is now off
+
+prompt: command: up
+Temperature is now 26
+```
+

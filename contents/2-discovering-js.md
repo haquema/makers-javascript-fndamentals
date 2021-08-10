@@ -17,37 +17,44 @@ Make sure you understand the example you're looking at before jumping to the nex
 
 ## Exercise: variables
 
+1. In `node`, declare two variables — `a` is 4 and `b` is 6.
+2. Using `console.log`, print the result of:
+  * a + b (should print 10)
+  * a * b (should print 24)
+
+## Exercise: debugging
+
 ```javascript
-let a = 2;
-let b = 4;
-let result = a + b;
-
-console.log(result);
-
 let greeting = 'Hello ';
 let name = 'Makers';
 
 console.log greeting + name;
 ```
 
-1. What is printed by this program?
-2. Did you find the bug? If not, run the code inside `node` to discover it. Make the fix, so the program prints "Hello Makers".
+1. Can you find the bug? If not, run the code inside `node` to discover it. Make the fix, so the program prints "Hello Makers".
 
 ## Exercise: Functions
 
-```javascript
-let sayHello = () => {
-  return 'Hello';
-}
+1. Define a function `sayHello` so, when called in `node`, it returns the string `'Hello'`:
 
+```javascript
+> sayHello();
+'Hello'
+```
+
+2. Someone is trying to call the function `sayHello` and print its result using `console.log` — however, it doesn't work as expected: why? Make the fix so it prints the return value of the function, as expected.
+
+```javascript
 console.log(sayHello);
 ```
-1. Find a [different way](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) to write the function `sayHello`. You might have to restart `node` for this, otherwise you'll get an error - you're trying to redeclare a function with the same name!
-2. What will be printed by this program? Go ahead and run it in `node`. Is the result what you expected?
-3. Make a fix so "Hello" is correctly printed by this program. Hint: [the first example from this section about Calling Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#calling_functions) might be useful!
-4. Modify the function `sayHello` so it accepts one argument, and calling `sayHello("Sarah")` displays the personalized message "Hello Sarah".
-5. Now try to call `sayHello` without any argument and note the result. Is it different from another language you know?
-6. Bonus: can you find another way to write the `sayHello` function, without using the sign `+` at all?
+
+3. Modify the function `sayHello` so it accepts one argument, and calling `sayHello('Sarah')` displays a personalized message:
+```javascript
+> sayHello('Sarah');
+'Hello Sarah'
+```
+
+4. Bonus: can you find another way to write the `sayHello` function, without using the sign `+` to concatenate the strings?
 
 When you've completed the exercises above, you can reveal the solution:
 
@@ -70,63 +77,60 @@ In the previous solution, we've just used something called a JS *template string
 
 ## Exercise: returning values
 
+1. In `node`, define a function `add` that takes two arguments and return their sum, so we can run the following:
+```javascript
+> add(2, 4);
+6
+
+> add(0, 1);
+1
+```
+
+2. Your pair wrote this function, but it doesn't seem to work as expected — can you see why? You can have a look at the example in the [Defining functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) on the MDN website.
+
 ```javascript
 let add = (a, b) => {
   a + b;
 }
-
-let result = add(2, 2); // what is the value of `result`?
-console.log(result); // what will be printed here?
 ```
-1. Run the code above and verify your assumptions. Is it printing the result you expected? 
-2. Have a look at the example in the [Defining functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#defining_functions) MDN documentation. Compare it to the `add` function we've written above. Can you see what's missing in our code?
-3. Modify the `add` function to get its result correctly printed in the terminal.
-4. In `node`, define a function `multiply` that takes two arguments and multiply them. Then, use `console.log` to print the result of multiplying 2 and 4 using this new function.
-5. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`.
 
-<details>
-<summary>Reveal solution</summary>
 
+3. In `node`, define a function `multiply` that takes two arguments and return their product, so we can run the following:
 ```javascript
-let add = (a, b) => {
-  return a + b;
-}
+> multiply(2, 4);
+8
 
-let multiply = (a, b) => {
-  return a * b;
-}
-
-let result = multiply(2, add(4, 4));
-
-console.log(result);
+> multiply(0, 1);
+0
 ```
 
-</details>
+4. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`.
 
 ## Exercise: a more complex function
 
-```javascript
-let getNumberSign = (number) => {
-  if (number == 0) {
-    return 'zero';
-  } else if (number > 0) {
-    return 'positive';
-  } 
-}
+To complete the following, you will have to:
+ * use `if`, `else if` and `else` to write conditionals.
+ * use the strict equality operator `===` to compare values.
 
-console.log(isTasty(12)); // what will be printed?
-console.log(isTasty(0)); // and here?
-console.log(isTasty(-30)); // and here?
+1. Define a function `getNumberSign` that takes a number and returns either 'zero', 'positive' or 'negative' depending on its sign:
+
+```javascript
+> getNumberSign(3);
+'positive'
+
+> getNumberSign(0);
+'zero'
+
+> getNumberSign(-5);
+'negative'
 ```
 
-1. Modify the function `getNumberSign` to it returns the string `'negative'` when the number is negative.
-2. Modify the function `getNumberSign` so it returns the string `'invalid number'` when the given value is not a number.
-2. Call the function `getNumberSign` by giving the *string* `'0'`:
+2. Modify the function so it returns the string 'invalid number' if the given value is not a number. Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality)
+
 ```javascript
-getNumberSign('0');
+> getNumberSign('2');
+'invalid number'
 ```
-3. What is the function returning? Is that what you expected? Why do you think this happens?
-4. Modify the first `if` condition so it doesn't return `'zero'` when given the string '0' (it should return 'invalid number' instead). Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
 *Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the JavaScript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
 

@@ -100,77 +100,62 @@ We can start to see some interesting things in here. The `main` object is probab
 
 ## Exercise: back to our thermostat
 
-Test-drive and implement the following - remember that you'll need to mock the `WeatherApi` class, perhaps using something like [Jest mocks](https://jestjs.io/docs/es6-class-mocks#the-4-ways-to-create-an-es6-class-mock). You might want to dependency-inject the instance of `WeatherApi` in the `Thermostat`.
- 
-1. Create a new class `WeatherApi` that implements one method `fetchWeatherData`, taking a city name as argument and fetching the weather from the OpenWeather API.
-2. In the `Thermostat` class, implement a method `setCity` that calls the method previous implemented in `WeatherApi`. 
-
-## Exercise: getting the data back to the thermostat
+1. Create a new class `WeatherApi` that implements one method `fetchWeatherData`, taking a city name as argument and fetching the weather from the OpenWeather API. The response from the API should be logged to the terminal. You should be able to use the class like this:
 
 ```javascript
-// weatherApi.js
-const got = require('got');
-const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // paste your API key here
+> let weather = new Weather();
+> weather.fetchWeatherData('London');
 
-class WeatherApi {
-  fetchWeatherData(city) {
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
-
-    got(apiUrl).then((response) => {
-      let weatherData = JSON.parse(response.body);
-      return weatherData;
-    });
-  }
-}
-
-module.exports = WeatherApi;
-```
-
-```javascript
-// thermostat.js
-
-setCity(city) {
-  let weatherData = this.weatherApi.fetchWeatherData(city);
-
-  // TODO: get temperature from weatherData
+{
+  coord: { lon: -0.1257, lat: 51.5085 },
+  weather: [
+    {
+      id: 804,
+      main: 'Clouds',
+      description: 'overcast clouds',
+      icon: '04d'
+    }
+  ],
+  base: 'stations',
+  (...)
 }
 ```
 
-1. The code of the `WeatherApi` class shown above uses `return` to return the weather data to the `Thermostat` instance. However, this doesn't seem to work. Can you see why?
-2. Can you find a different way to *pass back* the data to the `setCity` method? Hint: could you use a *callback* function to do this?
-
-<details>
-<summary>Reveal suggested solution</summary>
-
+2. Instead of logging the response, we want to get it back using a callback. Modify the method `fetchWeatherData` so it accepts a callback in second argument — and we're able to run the following code:
 ```javascript
-// weatherApi.js
-const got = require('got');
+> let weather = new Weather();
+> weather.fetchWeatherData('London', (weatherData) => {
+  console.log(weatherData);
+});
 
-const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // paste your API key here
-
-class WeatherApi {
-  fetchWeatherData(city, callback) {
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
-
-    got(apiUrl).then((response) => {
-      let weatherData = JSON.parse(response.body);
-      callback(weatherData);
-    });
-  }
-}
-
-module.exports = WeatherApi;
-```
-
-```javascript
-// thermostat.js
-
-// ...
-setCity(city) {
-  this.weatherApi.fetchWeatherData(city, (weatherData) => {
-    this.temperature = weatherData.main.temp;
-  });
+{
+  coord: { lon: -0.1257, lat: 51.5085 },
+  weather: [
+    {
+      id: 804,
+      main: 'Clouds',
+      description: 'overcast clouds',
+      icon: '04d'
+    }
+  ],
+  base: 'stations',
+  (...)
 }
 ```
 
-</details>
+3. Modify the `Thermostat` class so it accepts an instance of `Weather` when it is created. Also, add a method `setCity` on the `Thermostat` that calls `weather.fetchWeatherData` and sets the thermostat's temperature from the fetched data. We should be able to execute the following code:
+
+```javascript
+> let weather = new Weather();
+> let thermostat = new Thermostat(weather);
+
+> thermostat.setCity('London');
+
+// there might be a small delay before the response is received
+
+> thermostat.getTemperature(); 
+21.3 // this will be different for you depending on the actual weather data returned by the server
+```
+
+4. Modify the tests in `thermostat.test.js` so the `Weather` class is mocked, perhaps using something like [Jest mocks](https://jestjs.io/docs/es6-class-mocks#the-4-ways-to-create-an-es6-class-mock).
+

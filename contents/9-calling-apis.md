@@ -84,7 +84,7 @@ In the same directory, create a file named `github.js` and write the following c
 const got = require('got');
 
 let handleReceivedResponse = (response) => {
-  console.log(response);
+  console.log(response.body);
 }
 
 got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse);
@@ -97,12 +97,32 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 If you've run the program above, you'll see we received the same data seen previously on the browser. Good! However it's a bit messy and hard to read. What we can do is *convert* the string data into a JavaScript *object* so it is formatted properly. We can do this using `JSON.parse`:
 
 ```javascript
-let handleReceivedResponse = (response) => {
-  console.log(JSON.parse(response));
-}
+object_value = JSON.parse(string_value)
 ```
 
-1. What is the data type of `response` when the callback is called? What is the data type of the value printed by `console.log`? Are they the same?
+## Exercise 
+
+1. Modify the code from the previous exercise so it converts `response.body` to a JS object and prints it.
+
+You should then have the following output (some part was omitted for clarity):
+
+```
+node github.js
+
+{
+  id: 106995,
+  node_id: 'MDEwOlJlcG9zaXRvcnkxMDY5OTU=',
+  name: 'sinatra',
+  full_name: 'sinatra/sinatra',
+  private: false,
+  owner: {
+    login: 'sinatra',
+    id: 8312,
+    node_id: 'MDEyOk9yZ2FuaXphdGlvbjgzMTI=',
+  (...)
+  (...)
+}
+```
 
 ## Exercise: wrapping inside a function
 
@@ -141,8 +161,8 @@ fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
 ```
 
 4. Order those different steps in the order they happen:
-  * The Github API is called
-  * `fetchRepoInfo` is called
-  * the callback function to print out the response is called
-  * the Github API response is received
+    * The Github API is called
+    * `fetchRepoInfo` is called
+    * the callback function to print out the response is called
+    * the Github API response is received
   

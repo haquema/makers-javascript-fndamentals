@@ -38,9 +38,9 @@ Simple as that!
 Someone from your team just asked you to review their code. In one of the JavaScript files, there is the following function:
 
 ```javascript
-let isMaximumScore = (score) => {
-  let maxScore = 100;
-  if (score == maxScore) {
+let isValidLength = (phoneNumber) => {
+  let validLength = 10;
+  if (phoneNumber.length == validLength) {
     true;
   } else {
     false;
@@ -48,5 +48,13 @@ let isMaximumScore = (score) => {
 }
 ```
 
-1. What comment would you make to improve this code, based on what you learned on the previous page?
-2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem?
+1. What comment(s) would you make to improve this code, based on what you learned on the previous page?
+2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem? You'll know the function works if you manage to have the expected output:
+
+```javascript
+isValidLength('00');
+> false
+
+isValidLength('0011223344');
+> true
+```
