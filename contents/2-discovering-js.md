@@ -25,10 +25,10 @@ Make sure you understand the example you're looking at before jumping to the nex
 ## Exercise: debugging
 
 ```javascript
-let greeting = 'Hello ';
-let name = 'Makers';
+> let greeting = 'Hello ';
+> let name = 'Makers';
 
-console.log greeting + name;
+> console.log greeting + name;
 ```
 
 1. Can you find the bug? If not, run the code inside `node` to discover it. Make the fix, so the program prints "Hello Makers".

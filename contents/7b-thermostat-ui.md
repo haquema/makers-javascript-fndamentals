@@ -5,7 +5,7 @@ We can now run tests to make sure all the methods of our `Thermostat` are correc
 We'll use a new npm package called `readline-sync` for this:
 
 ```
-npm install readline-sync
+$ npm install readline-sync
 ```
 
 You can read the documentation for a [basic usage](https://github.com/anseki/readline-sync#basic-methods) of this library.
@@ -17,7 +17,7 @@ You can read the documentation for a [basic usage](https://github.com/anseki/rea
 If your code is correct, you should be able to run the program and it should ask for your input, before printing the output:
 
 ```bash
-node namePrompt.js
+$ node namePrompt.js
 
 What is your name? 
 prompt: name: Kyle
@@ -56,7 +56,7 @@ In order to complete this exercise, you'll have to:
 Update the code so the program user can also enable and disable the thermostat's power saving mode, with the commands "psm on" and "psm off". If PSM is on, and the minimum or maximum temperature is reached, display an additional warning message to the user. The terminal input and output for a valid program should look like this:
 
 ```
-node cli.js
+$ node cli.js
 
 Temperature is 20
 Enter command > up

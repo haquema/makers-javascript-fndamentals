@@ -22,7 +22,7 @@ console.log(sayHello('Sarah'));
 Save this code in a file called `hello.js`, and you can now run it from the command line using `node`:
 
 ```
-node hello.js
+$ node hello.js
 ```
 
 Simple as that!
@@ -49,12 +49,12 @@ let isValidLength = (phoneNumber) => {
 ```
 
 1. What comment(s) would you make to improve this code, based on what you learned on the previous page?
-2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem? You'll know the function works if you manage to have the expected output:
+2. When running the code, something doesn't work as expected. What fix can you suggest to solve the problem? You'll know the function works if you manage to have the expected output when running in `node`:
 
 ```javascript
-isValidLength('00');
-> false
+> isValidLength('00');
+false
 
-isValidLength('0011223344');
-> true
+> isValidLength('0011223344');
+true
 ```

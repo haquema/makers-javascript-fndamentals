@@ -42,7 +42,7 @@ In JavaScript, they are called `packages` and are listed in a file called `packa
 
 To create an empty `package.json` file, run the following command inside your project directory:
 ```
-npm init
+$ npm init
 ```
 
 You will have to answer a bunch of questions about your program - but they don't really matter for now. You can skip them all pressing `enter` until your `package.json` file is generated. If you're curious though, feel free to fill some of the required inputs and see how this affects the `package.json` file!
@@ -90,7 +90,7 @@ When running `jest` inside the terminal, we should see a message such as "No tes
 We're going to test-drive a function called `add` which will take two numbers as arguments and, perhaps unsurprisingly, *add* them together. First, let's create one file called `add.test.js` (the part `.test` is a naming convention so Jest can find out in which files are the tests).
 
 ```
-touch add.test.js
+$ touch add.test.js
 ```
 
 To complete this exercise, you will need to:
@@ -195,6 +195,8 @@ To complete this exercise, you'll need to:
 If you've done everything correctly, you should see something resembling the following output:
 
 ```
+$ node fizzbuzz.js
+
 1
 2
 Fizz

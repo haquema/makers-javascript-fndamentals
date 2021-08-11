@@ -2,9 +2,9 @@
 
 Here's a hard truth: even if we would have the fastest, most efficient computer ever to run our programs and web applications, our programs could still be slow. 
 
-Why? Let's take an example: imagine you're deciding to browse your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page that are loading. Some JavaScript code is fetching the relevant data to display behind the scenes, and replaces those empty parts with actual content once the data is loaded. But this data travels on the network, which could be slow and unreliable. Maybe your connection will drop, in which case this data might never come back to your computer!
+Why? Let's take an example: imagine you're browsing your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page that are still loading. Meanwhile, some JavaScript code is likely fetching the relevant data to display — and once the data is received, replaces those empty parts with actual content. But such data travels over the network, which could be slow and unreliable. Maybe your connection will drop, in which case this data might never come back to your computer!
 
-The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some conditon will be met. This condition might be to receive some data back from a remote server, or it can be waiting for a delay, etc.
+The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some conditon will be met. This condition might be to receive some data back from a remote server, a database, or it can be waiting for a delay, etc.
 
 However, we *do not* want to block the rest of our program until the data has been received. Going back to the example above, you wouldn't want the website to freeze while the data is still loading! This kind of behaviour is called *asynchronous programming* — it means we are able to execute some part of the code at a *later time*, without blocking the code that needs to execute before.
 
@@ -13,7 +13,9 @@ For example, visiting the [homepage of Github](https://github.com/), we can see 
 
 ## Exercise - a delay
 
-The best example of asynchronous behaviour in JavaScript is when we need to fetch data that might not be readily available, but can take a while to arrive. Databases are a good example of this. Let's go back to our candies ecommerce website for a bit, and let's imagine candies are stored inside a database. We have a function `fetchCandiesFromDatabase` to retrieve this data.
+The best example of asynchronous behaviour in JavaScript is when we need to fetch data that might not be readily available, but can take a while to arrive.
+
+Databases are a good example of this. Let's go back to our candies ecommerce website for a bit, and let's imagine candies are stored inside a database. We have a function `fetchCandiesFromDatabase` to retrieve this data.
 
 ```javascript
 let fetchCandiesFromDatabase = () => {
@@ -79,8 +81,6 @@ So `result` can never get the value returned by `fetchCandiesFromDatabase` - it 
 Since we can't `return` values, we need to use other solutions - one of them is to use *callback* functions, again, to tackle this asynchronous problem.
 
 **It's important to note that callbacks function *are not* a different kind of function than regular JS functions — this is often a source of confusion. We call a function "callback" because it is used as such, and passed to another function so it is executed at a later point. But "callback" functions are no more than regular JS functions, and they're defined the same way, with the same syntax.**
-
-## Exercise - using callbacks to return values
 
 Remember that, in JavaScript, functions can be treated as regular values — they can be passed in argument to another function, and called later.
 

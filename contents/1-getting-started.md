@@ -30,13 +30,19 @@ You should now be able to type some JavaScript code inside it, and see the resul
 
 Try with something simple like `2 + 2` and press `enter` to get the result. Congratulations, you just wrote your first line of JavaScript! Perhaps a slightly boring one for now, but no worries, more will come soon.
 
+## About code snippets
+
+In this module, some examples will present code to be executed in the `node` REPL (similar to `irb`), this code will be written like this, with line starting with prompt indicators (`>`) indicating what should be typed, and other lines what should be printed.
+
+Other code examples without prompt indicators at all should be written to JavaScript files. Snippets starting with `$` will indicate commands to type in the terminal (outside the `node` program).
+
 ## Exercise - your first JavaScript program
 
 Here are two more lines of JS - resist the urge of pasting them into `node` right away and try to analyse the code first.
 
 ```javascript
-let name = 'JavaScript';
-console.log('Hello, ' name);
+> let name = 'JavaScript';
+> console.log('Hello, ' name);
 ```
 
 1. From those two lines of code, what are you finding similar to another programming language you already know? What is different?

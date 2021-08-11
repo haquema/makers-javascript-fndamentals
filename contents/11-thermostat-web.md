@@ -12,7 +12,7 @@ In order to do this, we'll need to have a look at a very popular package in the 
 ## Exercise: a simple web server
 
 ```
-npm install express
+$ npm install express
 ```
 
 ```javascript
@@ -37,7 +37,7 @@ app.listen(port);
 Note: in order to test out the following exercise, you can use [the `curl` utility program](https://idratherbewriting.com/learnapidoc/docapis_install_curl.html#make-a-test-api-call) from your terminal, rather than the browser. The option `-X` allow us to use a HTTP method other than `GET`. For example, to test a `POST` HTTP request at the url http://localhost:3000/something:
 
 ```
-curl -XPOST http://localhost:3000/something
+$ curl -XPOST http://localhost:3000/something
 ```
 
 1. Have a look at the [basic routing guide](https://expressjs.com/en/starter/basic-routing.html) for express. In the previous file, implement a new *route* with the HTTP method `POST` and path `/counter` that will *increment* a counter variable.

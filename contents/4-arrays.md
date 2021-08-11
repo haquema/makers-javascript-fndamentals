@@ -98,7 +98,7 @@ Once your function is written, you should be able to type the following code and
 Your friend now would you like to also generate a personalized message for the SMS promotion. Along with the phone numbers, you also now have a list of names:
 
 ```javascript
-let names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
+> let names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
 ```
 
 To complete this exercise you'll have to:
@@ -129,7 +129,7 @@ Your friend now wants to have a specific discount percentage for each customer (
 
 ```javascript
 // yes, it's an array of smaller arrays!
-let namesAndDiscounts = [
+> let namesAndDiscounts = [
   ['Anna', 50],
   ['Laura', 40],
   ['Josh', 30],
