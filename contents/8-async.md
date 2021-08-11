@@ -8,152 +8,138 @@ The key thing to understand is that some parts of our programs will need to exec
 
 However, we *do not* want to block the rest of our program until the data has been received. Going back to the example above, you wouldn't want the website to freeze while the data is still loading! This kind of behaviour is called *asynchronous programming* — it means we are able to execute some part of the code at a *later time*, without blocking the code that needs to execute before.
 
-## An Asynchronous Example
+For example, visiting the [homepage of Github](https://github.com/), we can see for a brief moment some parts of the page are still loading, while the main page structure is already being displayed. Only when the data needed to diplay those sections is received, they are then displayed. This allow for a faster and better user experience, and most modern web applications will function in such a way. In the next module, you'll learn more about such web applications, but for now we need to understand the building blocks of it — asynchronous programming and callbacks.
+
+
+## Exercise - a delay
+
+The best example of asynchronous behaviour in JavaScript is when we need to fetch data that might not be readily available, but can take a while to arrive. Databases are a good example of this. Let's go back to our candies ecommerce website for a bit, and let's imagine candies are stored inside a database. We have a function `fetchCandiesFromDatabase` to retrieve this data.
 
 ```javascript
-let delay = 2000; // in milliseconds (so it's 2 seconds)
-let printGreeting = () => {
-  console.log('Hey! Am I late to the party?');
+let fetchCandiesFromDatabase = () => {
+  // fetch candies...
 }
-
-setTimeout(printGreeting, delay);
 ```
 
-1. Run this code. What is happening? 
-2. Try to call directly the function `printGreeting` at the end of the file, and run the code again. How is the result different?
-3. From the previous answers, make an assumption about what the `setTimeout` function is doing. 
+For the sake of this example, we are not going to use a database for real, but we'll rather *simulate* the latency of it. Which means we'll artificially delay the return of this function, to pretend it's consuming time.
 
-Here's another slightly different example:
-```javascript
-let delay = 2000; // in milliseconds
+### Questions
 
-setTimeout(() => {
-  console.log('Hey! Am I late to the party?');
-}, delay);
+1. In a file called `async.js`, implement the function `fetchCandiesFromDatabase` so when it is called, it prints the message `'candies loaded'` *after 2 seconds have lapsed*, not immediately. You'll have to use the function [`setTimeout`](https://www.informit.com/articles/article.aspx?p=2265407&seqNum=4) for this.
+
+If your code is correct, running this file should print the message *after 2 seconds*:
+
+```
+$ node async.js
+candies loaded
 ```
 
-1. In what is this example different? 
-2. Does it change the final result of what the code is doing? Try to answer *before* running the code again, then verify your assumptions.
+Note: the function passed in argument to `setTimeout`, that prints the message, is called a *callback function*. It is called like this simply because it is "called back" at a later point in the execution of the program (in that case, after 2 seconds).
 
-## Following the flow of the program
+## Exercise - getting back the candies
 
-Since we're curious (aren't you?) to learn more about the previous code example, let's add a few `console.log` to get visibility in the code. Make the necessary changes into `async.js`.
-
-Before running the following code from the command line, try to think hard about it and to guess in which order to different numbers output by `console.log` will be printed. 
+Printing a message is not really useful, let's add an array of candies that we can return, to represent the data fetched from the DB — we'll write its name in uppercase, to denote it represents our "database", and differenciate it from other variables:
 
 ```javascript
-let delay = 2000;
+const CANDIES_DB = ['Mars', 'Maltesers', 'Skittles', 'Fraise Tagada'];
 
-console.log(1);
-
-let printGreeting = () => {
-  console.log(2);
-  console.log('Hey! Am I late to the party?');
-  console.log(3);
+let fetchCandiesFromDatabase = () => {
+  // ...
 }
-
-setTimeout(printGreeting, delay);
-
-console.log(4);
 ```
 
-Let's take the same code, again, but setting the `delay` variable to 0. 
+### Questions
 
- 1. How do you think this will change the behaviour of the code. In which order will the numbers we printed?
+1. Modify the function `fetchCandiesFromDatabase` so it returns (immediately) the `CANDIES_DB` array. Running the function in the `node` REPL should yield the following output in the terminal:
 
 ```javascript
-let delay = 0;
-
-console.log(1);
-
-let printGreeting = () => {
-  console.log(2);
-  console.log('Hey! Am I late to the party?');
-  console.log(3);
-}
-
-setTimeout(printGreeting, delay);
-
-console.log(4);
+> fetchCandiesFromDatabase();
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
 ```
 
- 2. Run the code and verify your assumptions. 
- 3. Did setting `delay` to 0 change anything? From this finding, what can you say about the `printGreeting` function passed to `setTimeout`? 
-
-In JavaScript, we call a function such as the one passed to `setTimeout` a *callback*. The name comes from the fact that such functions are "called back" at a later point.
-
-1. Take a notebook or open a text note on your laptop, and put the following steps in the exact order in which you think they happen: 
-  * `printGreeting` is called.
-  * The program starts.
-  * `setTimeout` is called.
-  * The program ends.
-  * 2 seconds (2000ms) lapse.  
-2. Discuss with your pair: do you agree on the order of those steps? You might want to run the program again to verify your answers.
-
-## Exercise: returning values
+2. Now modify the function so it returns the `CANDIES_DB` array *after 2 seconds* (like when printing the message in the previous exercise). What does the function return, this time?
 
 ```javascript
-
-let delay = 2000;
-let sayHello = () => {
-  return 'Hello';
-}
-
-let result = setTimeout(sayHello, delay);
-
-console.log(result);
+> let result = fetchCandiesFromDatabase();
+undefined
+> result;
+undefined
 ```
 
-1. Describe the order in which things happen. At what point in time is the string `'Hello'` returned by `sayHello`?
-2. What do you think is the initial value of `result`? What is the value of `result` 2 seconds later?
-3. Run the code. Use `console.log` to print the value of `result` at different points in time. Is what you see different from what you expected? If yes, try to make assumptions on why.
-4. Modify the code so the string `'Hello'` ends being assigned to the variable `result`. If you're having trouble with this, keep reading to learn more.
+Our function seems to return `undefined`, and we have no sign of our candies, even when waiting 2 seconds. Is there no way of returning values that are available after some time?
 
+## Exercise - returning values
 
-In short, it's not possible to return values from a *callback function* the same way as for "normal" functions. That is because, in the example above, `result` is assigned right after `setTimeout` has finished its work. But, at that point (about zero second after the program starts), `sayHello` has not executed yet - it will only execute 2 seconds later.
+In short, it's not possible to return values from a *callback function* the same way as for "normal" functions, using `return`. That is because, in the example above, `result` is assigned right after `fetchCandiesFromDatabase` is executed. But, at that point (about zero second after the program starts), the callback in `setTimeout` has not executed yet - it will only execute 2 seconds later.
 
-So `result` can never get the value returned by `sayHello` - it cannot get a value from the future! This return value is, in a way, lost (sad, isn't it). This is shown on the diagram below:
+So `result` can never get the value returned by `fetchCandiesFromDatabase` - it cannot get a value from the future! Our candies are, in a way, lost (sad, isn't it). This is shown on the diagram below:
 
 ![Diagram](images/async-return-value.svg)
 
 Since we can't `return` values, we need to use other solutions - one of them is to use *callback* functions, again, to tackle this asynchronous problem.
 
-## Exercise: using callbacks to return values
+**It's important to note that callbacks function *are not* a different kind of function than regular JS functions — this is often a source of confusion. We call a function "callback" because it is used as such, and passed to another function so it is executed at a later point. But "callback" functions are no more than regular JS functions, and they're defined the same way, with the same syntax.**
 
-Someone wrote a function `calculateAfterDelay` to do some calculation after a delay:
+## Exercise - using callbacks to return values
 
-```javascript
-let calculateAfterDelay = () => {
-  let delay = 2000;
-  setTimeout(() => {
-    let result = 2 + 3;
-  }, delay);
-}
-```
+Remember that, in JavaScript, functions can be treated as regular values — they can be passed in argument to another function, and called later.
 
-1. Modify the `calculateAfterDelay` function so it accepts a function, and calls it after the 2 seconds delay.
-2. Call `calculateAfterDelay` with a callback that accepts one argument for the result, and print it.
-
-<details>
-<summary>Reveal solution</summary>
+1. Modify the function `fetchCandiesFromDatabase` so it accepts a function as an argument. When this is done, you should be able to execute the function like this in the REPL:
 
 ```javascript
-let calculateAfterDelay = (callback) => {
-  let delay = 2000;
-  setTimeout(() => {
-    let result = 2 + 3;
-    callback(result);
-  }, delay);
-}
-
-calculateAfterDelay((result) => {
+> fetchCandiesFromDatabase((result) => {
   console.log(result);
-})
+});
+
+// 2 seconds should lapse
+
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
 ```
 
-</details>
+## Exercise - adding a candy
 
-3. Explain in which order the different steps happen in this solution program.
+We now have a function that fetches candies from a database — or at least, pretends to do so. What if we'd like to add a new candy to the array?
+
+### Questions
+
+1. Implement a function `addCandy` that takes a candy name in argument, and *adds* it to the `CANDIES_DB` array, *3 seconds after the function is called*. Calling this function in the REPL should yield the following output:
+
+2. Modify the function so it accepts a callback function as a second argument, and calls it *after* the new candy is added. Calling this function in the REPL should yield the following output:
+
+```javascript
+> addCandy('Raffaello', () => {
+  console.log('candy added');
+});
+
+> CANDIES_DB; // should be the same as before
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
+
+// wait 3 seconds — the message should appear, and CANDY_DB should have the new value
+
+candy added
+
+> CANDIES_DB;
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada', 'Raffaello' ]
+```
+
+3. Write a function `addCandyThenFetchCandies` that does those things in order: adds a new candy, then only when it is added, returns the value of all candies using a callback. To complete this, you will need to:
+    * call `addCandy` and `fetchCandiesFromDatabase` inside this function.
+    * use two callbacks
+
+Remember to indent your code properly, otherwise it might be harder to spot mistakes, especially when dealing with callbacks! Calling this function in the REPL should yield the following output:
+
+```javascript
+CANDY_DB;
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
+
+addCandyThenFetchCandies('Raffaello', (newCandiesList) => {
+  console.log(newCandiesList);
+});
+
+// *5 SECONDS* should now lapse before printing
+
+[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada', 'Raffaello' ]
+```
 
 ## Exercise: asynchronous user input
 
@@ -174,3 +160,23 @@ There is a version of the `readline-sync` gem, [simply named `readline`](https:/
 
 1. After looking at the documentation for the `readline` package, reimplement the program that asks a user for their name and print "Your name is [name]", using `readline` instead of `readline-sync`.
 2. In which order do the different steps of the program happen? How is it different from the version using `readline-sync`?
+
+## Exercise: debugging
+
+Someone in your cohort wrote the following program to ask a user what is their favourite color using the `readline` module, however it doesn't work as expected. They just sent you the code, so you can help debug it. 
+
+```javascript
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let answer = rl.question('What is your favourite color? ');
+
+console.log(answer); // prints undefined...
+```
+
+1. Can you spot what the issue is?
+2. Modify the code above so it has the expected behaviour and prints the message `'Your favourite color is [color]'` after the user entered it. 

@@ -30,19 +30,18 @@ Welcome Kyle!
 In the thermostat project directory, create a new file `cli.js`. The goal of this exercise is to control the thermostat using the commands "up" and "down" — a correct program would result in the following input/output on the terminal:
 
 ```
-node cli.js
+$ node cli.js
 
-prompt: command: up
-Temperature is now 21
-
-prompt: command: down
-Temperature is now 20
-
-prompt: command: down
-Temperature is now 19
-
-prompt: command: down
-Temperature is now 18
+Temperature is 20
+Enter command > up
+Temperature is 21
+Enter command > down
+Temperature is 20
+Enter command > down
+Temperature is 19
+Enter command > down
+Temperature is 18
+Enter command > 
 
 ```
 
@@ -50,43 +49,33 @@ In order to complete this exercise, you'll have to:
 
  * create an instance of the `Thermostat` class.
  * use the `readline-sync` library to ask for user input.
- * use a loop.
+ * use loops and conditionals.
 
-## Exercise
+## Exercise: more commands
 
-Update the code so the program user can also enable and disable the thermostat's power saving mode, with the commands "psm on" and "psm off". If the minimum or maximum temperature is reached, display a warning message for the user. The terminal input and output for a valid program should look like this:
+Update the code so the program user can also enable and disable the thermostat's power saving mode, with the commands "psm on" and "psm off". If PSM is on, and the minimum or maximum temperature is reached, display an additional warning message to the user. The terminal input and output for a valid program should look like this:
 
 ```
 node cli.js
 
-prompt: command: up
-Temperature is now 21
-
-prompt: command: up
-Temperature is now 22
-
-prompt: command: psm on
-PSM is now on
-
-prompt: command: up
-Temperature is now 23
-
-prompt: command: up
-Temperature is now 24
-
-prompt: command: up
-Temperature is now 25 (maximum reached!)
-
-prompt: command: up
-Temperature is now 25 (maximum reached!)
-
-prompt: command: up
-Temperature is now 25 (maximum reached!)
-
-prompt: command: psm off
-PSM is now off
-
-prompt: command: up
-Temperature is now 26
+Temperature is 20
+Enter command > up
+Temperature is 21
+Enter command > up
+Temperature is 22
+Enter command > up
+Temperature is 23
+Enter command > up
+Temperature is 24
+Enter command > psm on
+Temperature is 24
+Enter command > up
+Temperature is 25 (maximum reached)
+Enter command > up
+Temperature is 25 (maximum reached)
+Enter command > psm off
+Temperature is 25
+Enter command > up
+Temperature is 26
 ```
 
