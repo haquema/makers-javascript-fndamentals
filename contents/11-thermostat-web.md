@@ -44,6 +44,17 @@ $ curl -XPOST http://localhost:3000/something
 2. Implement a second `GET` route to *read* the value of this counter.
 3. Implement a third `DELETE` route to *reset* the value of this counter.
 
+If your program is correct, you should be able to execute the following `curl` commands in the terminal, and get the same output: 
+
+```bash
+$ curl -XPOST http://localhost:3000/counter
+$ curl -XPOST http://localhost:3000/counter
+$ curl -XGET http://localhost:3000/counter 
+2
+$ curl -XDELETE http://localhost:3000/counter
+$ curl -XGET http://localhost:3000/counter 
+0
+```
 
 ## Exercise: thermostat over the web
 
@@ -52,39 +63,18 @@ $ curl -XPOST http://localhost:3000/something
 3. Implement a route `POST /up` to increase the temperature.
 4. Implement a route `POST /down` to decrease the temperature.
 5. Implement a route `DELETE /temperature` to reset the thermostat.
-6. Try to interact with the thermostat over HTTP using curl.
 
-<details>
-<summary>Reveal suggested solution</summary>
+If your program is correct, you should be able to execute the following `curl` commands in the terminal, and get the same output: 
 
-```javascript
-const express = require('express');
-const app = express();
-const Thermostat = require('./thermostat');
-const port = 3000;
+```bash
+$ curl -XGET http://localhost:3000/temperature 
+20
+$ curl -XPOST http://localhost:3000/up 
+$ curl -XPOST http://localhost:3000/up 
+$ curl -XGET http://localhost:3000/temperature 
+22
 
-let thermostat = new Thermostat();
-
-app.get('/', (req, res) => {
-  res.send(`Current temperature is ${thermostat.getTemperature()}`);
-});
-
-app.post('/up', (req, res) => {
-  thermostat.up();
-  res.send(`Current temperature is ${thermostat.getTemperature()}`);
-});
-
-app.post('/down', (req, res) => {
-  thermostat.down();
-  res.send(`Current temperature is ${thermostat.getTemperature()}`);
-});
-
-app.delete('/temperature', (req, res) => {
-  thermostat.reset();
-  res.send(`Current temperature is ${thermostat.getTemperature()}`);
-});
-
-app.listen(port);
+$ curl -XDELETE http://localhost:3000/temperature
+$ curl -XGET http://localhost:3000/temperature 
+20
 ```
-
-</details>
