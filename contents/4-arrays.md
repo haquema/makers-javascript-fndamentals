@@ -196,11 +196,14 @@ You can notice the shape is similar to what you've worked with before — an arr
 
 ### Questions
 
+To complete this question, you will use most of the things you've learned in this section:
+  * The `filter` and `map` functions.
+  * How to access a specific element of an array.
+  * You might also need to find out how to verify whether a string is the prefix for another string!
+
 1. Implement a function `searchCandies` that takes the following two arguments: a search string and a maximum price — and returns only the *names* of candies matching these criteria:
     * the candy name *starts by* the search string
     * the candy price is less than the maximum price
-
-    To complete this question, you will use most of the things you've learned in this section. You might also need to find out how to verify whether a string is the prefix for another string!
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 

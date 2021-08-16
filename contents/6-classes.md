@@ -101,7 +101,13 @@ To complete this exercise, you will have to:
 
 ## Exercise - a shopping basket
 
-Implement the two classes `Candy` and `ShoppingBasket` so we can execute the following code:
+To complete this exercise, you'll have to:
+  * use `npm init` and `npm install` to setup a project directory and install Jest.
+  * write Jest tests cases for a class.
+  * declare a class and its methods.
+  * use [Jest mocks](https://jestjs.io/docs/es6-class-mocks#automatic-mock) to mock one class in unit tests.
+
+We're going to test-drive and implement the two classes `Candy` and `ShoppingBasket` so we can execute the following code:
 
 ```javascript
 > let candy = new Candy('Mars', 4.99);
@@ -126,6 +132,13 @@ Implement the two classes `Candy` and `ShoppingBasket` so we can execute the fol
 > basket.getTotalPrice();
 12.97
 ```
+
+### Questions:
+
+1. Setup the project directory and install Jest.
+2. Test-drive and implement the `Candy` class (test file should be `candy.test.js`).
+3. Test-drive and implement the `ShoppingBasket` class (test file should be `shoppingBasket.test.js`).
+4. Our class `ShoppingBasket` depends on the `Candy` class, we need to properly isolate it in our unit tests — [mock the `Candy` class](https://jestjs.io/docs/es6-class-mocks#automatic-mock) inside the test file `shoppingBasket.test.js`.
 
 ## Exercise - debugging
 

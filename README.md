@@ -24,7 +24,7 @@ In this first module, you'll learn the basics of Javascript by pairing through a
 9. [Asynchronous JS](contents/8-async.md)
 10. [Calling remote APIs](contents/9-calling-apis.md)
 11. [Challenge: Building a Thermostat](contents/10-weather-api.md)
-12. [Challenge (stretch): Building a Thermostat](contents/11-thermostat-web.md)
+12. [Challenge (stretch): Thermostat Web server](contents/11-thermostat-web.md)
 
 ## Workshops
 

@@ -32,7 +32,7 @@ Try with something simple like `2 + 2` and press `enter` to get the result. Cong
 
 ## About code snippets
 
-In this module, some examples will present code to be executed in the `node` REPL (similar to `irb`), this code will be written like this, with line starting with prompt indicators (`>`) indicating what should be typed, and other lines what should be printed.
+In this module, some examples will present code to be executed in the `node` REPL (similar to `irb`), this code will be written with lines starting with prompt indicators (`>`) indicating what should be typed, and other lines what should be printed.
 
 Other code examples without prompt indicators at all should be written to JavaScript files. Snippets starting with `$` will indicate commands to type in the terminal (outside the `node` program).
 
@@ -45,9 +45,8 @@ Here are two more lines of JS - resist the urge of pasting them into `node` righ
 > console.log('Hello, ' name);
 ```
 
-1. From those two lines of code, what are you finding similar to another programming language you already know? What is different?
-2. Try to describe to your pair (or to yourself) what this program is doing. What does `console.log` do?
-3. As you might have noticed already if you've tried running the code above, there is a syntax error. Can you spot where? Make the necessary fix so the code above prints the string "Hello, JavaScript" on the terminal.
+1. As you might have noticed already if you've tried running the code above, there is a syntax error. Can you spot where? Make the necessary fix so the code above prints the string "Hello, JavaScript" on the terminal.
+2. In the `node` REPL, change the value of `name` to your name, then use `console.log` again so it says hi — to you, rather than to JavaScript.
 
 ## A brief note; on semicolons
 

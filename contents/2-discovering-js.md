@@ -79,6 +79,8 @@ In the previous solution, we've just used something called a JS *template string
 
 1. In `node`, define a function `add` that takes two arguments and return their sum, so we can run the following:
 ```javascript
+// If your function is correct, it should give the following results in the REPL:
+
 > add(2, 4);
 6
 
@@ -104,7 +106,7 @@ let add = (a, b) => {
 0
 ```
 
-4. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`.
+4. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`. You should get the correct result (16).
 
 ## Exercise: a more complex function
 
@@ -146,15 +148,37 @@ let greet = sayHello;
 
 1. What will be the result of calling the `greet` function? Is it the same as calling `sayHello`?
 2. What can you say about the relationship between those two functions?
-3. Discuss with your pair - in JavaScript, do you think a function can also be a variable? Explain why. Is this different from another programming language you already know?
+3. Discuss with your pair (or yourself) - in JavaScript, do you think a function can also be a variable? Explain why. How is that different from another programming language you might already know?
 
 ## Exercise: a fizzBuzz function!
 
-1. After having been through those examples, make a list of the main differences you found so far with a another programming language you already know (maybe Ruby).
-2. Try to write a `fizzBuzz` function in JavaScript. As a reminder, this function should take a number as argument, and then either:
-  * Print "Fizz" if this number is divisible by 3.
-  * Print "Buzz" if this number is divisible by 5.
-  * Print "FizzBuzz" if this number is divisible by 5 and 3.
-  * Otherwise, print the number itself.
+To complete this exercise you'll need to:
+ * Define a function.
+ * Return a value from a function.
+ * Use conditionals.
+ * Use the modulo operator `%` to calculate the reminder of a division.
+ * Use `console.log` to print values to the terminal.
 
-  You will need to find how to write conditionals in JavaScript, and also how to find if a number is divisible by another. How would you write this in a language you know? Now what about JavaScript?
+1. Write a `fizzBuzz` function in JavaScript. As a reminder, this function should take a number as argument, and then either:
+  * Return "Fizz" if this number is divisible by 3.
+  * Return "Buzz" if this number is divisible by 5.
+  * Return "FizzBuzz" if this number is divisible by 5 and 3.
+  * Otherwise, Return the number itself.
+
+2. Iterate through numbers from 1 to 50 and print out the string `'Fizzbuzz result for X is Y'` (where X is the number, and Y the result of calling the `fizzBuzz` function with this number).
+
+If your code is correct, you should get the following output:
+
+```
+Fizzbuzz result for 1 is 1
+Fizzbuzz result for 2 is 2
+Fizzbuzz result for 3 is Fizz
+Fizzbuzz result for 4 is 4
+Fizzbuzz result for 5 is Buzz
+Fizzbuzz result for 6 is Fizz
+Fizzbuzz result for 7 is 7
+Fizzbuzz result for 8 is 8
+Fizzbuzz result for 9 is Fizz
+Fizzbuzz result for 10 is Buzz
+(...)
+```

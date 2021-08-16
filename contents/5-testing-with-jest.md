@@ -1,23 +1,25 @@
 # Testing in JavaScript
 
-Your friend's website is now online and delivering candies all over the world. Everything is great. Late at night, you decide to make a few improvements to the search function, and you update the website before going to have a well deserved night of sleep. However, a few hours later, the phone rings: your friend tells you there's a problem on the website — customers cannot search for candies anymore!
+Your friend's website is now online and delivering candies all over the world. Everything is great. Late at night, you decide to make a few improvements to the search function, and you update the website before going to have a well deserved night of sleep. A few hours later, the phone rings: your friend tells you there's a problem on the website — customers cannot search for candies anymore!
 
-You wake up groggy and have a first cup of well-needed coffee before you open your laptop to check the website, which is not working. No candies appear in the results, no matter what you search for, and you get a blank page instead. You have a look at the code you've deployed just before going to sleep, trying to understand what's wrong.
+You wake up groggy and have a first cup of well-needed coffee before you open your laptop to check the website, which is not working. You have a look at the code you've deployed just before going to sleep, trying to understand what's wrong.
 
 ```javascript
 const searchCandies = (searchPrefix, maxPrice) => {
   return candies
     .filter(candy => {
-      return candy[1].toLowerCase().startsWith(searchPrefix);
+      return candy[1].toLowerCase().startsWith(
+        searchPrefix.toLowerCase()
+      );
     }).filter(candy => {
       return candy[1] <= maxPrice;
-    });
+    }).map(candy => candy[0]);
 }
 ```
 
 1. Try this function again in `node`. What is wrong with it?
 
-You realise your mistake, quickly fix it and update the website. Phew, everything seems to be working again! You close your laptop before going back to bed, but you're struggling to sleep. How could such a silly error happen to you? On top of this, this is not nice for your friend's business.
+You realise your mistake, quickly fix it and update the website. Phew, everything seems to be working again! How could such a silly error happen to you? On top of this, this is not nice for your friend's business.
 
 If you think mistakes such as this one happen rarely in the "real world" — think twice. This kind of small errors is far too common in software, simply because code is written by humans, and humans do make mistakes. However, there are ways to avoid or mitigate such errors before the code is updated and impact users — as you might have guessed, one of the most important ways is to test your code and use TDD in your development process.
 
@@ -34,13 +36,9 @@ In this section, you'll learn about how to test your JavaScript code with simple
 
 ## Installing Jest
 
-In most programming languages, we can use libraries, which are made of code already written for us to solve a specific problem. For example, you might have one library to manipulate dates, and to quickly calculate how many days have passed since, let's  say, the 10th of March 2018. Another common example is a library to write automated tests, such as RSpec in Ruby.
+In most programming languages, we can use libraries, which are made of code already written for us to solve a specific problem. For example, you might have one library to easily manipulate dates. Another good example is a testing library, which allows us to run automated tests against our code. We'll install and use such a library in this section.
 
-In Ruby, for example, those libraries are called `gems` and we use the `bundle` command to install them. We list those gems inside the `Gemfile`.
-
-In JavaScript, they are called `packages` and are listed in a file called `package.json`.
-
-To create an empty `package.json` file, run the following command inside your project directory:
+In JavaScript, such libraries are called `packages` and are listed in a file called `package.json`, located in the project directory root. To create an empty `package.json` file, run the following command inside your project directory:
 ```
 $ npm init
 ```
@@ -93,13 +91,21 @@ We're going to test-drive a function called `add` which will take two numbers as
 $ touch add.test.js
 ```
 
-To complete this exercise, you will need to:
-  * use Jest test matchers (such as `expect().toBe()`)
-  * use `module.exports` and `require` to require a JavaScript "module".
+Below is the basic scaffolding for a test suite, using the `describe` function:
 
-## Questions
+```javascript
+describe('add', () => {
+  // test cases
+});
+```
 
-1. Below is the basic scaffolding for out test - fill in the the blanks (`__`), one with the call to the `add` function, and one with the actual result that the function should return. You'll need to [use the Jest syntax](https://jestjs.io/docs/expect#tobevalue) to do this.
+As usual when writing tests, we need to think *what is it* we want to test or verify. Let's imagine for a second that the function `add` exists, and that we can call it inside the REPL. How could we test that this function is working? We could simply call it with some given arguments and verify the result is correct:
+
+```javascript
+add(2, 2); // given we call `add` with 2 and 2, it should return 4
+```
+
+We can then translate this into a proper test case, using the `it` function:
 
 ```javascript
 describe('add', () => {
@@ -109,7 +115,16 @@ describe('add', () => {
 });
 ```
 
-2. Write the function `add` into its file `add.js` so it satisfies the test we just wrote.
+To complete the rest of this exercise, you will need to:
+  * use [Jest test matchers](https://jestjs.io/docs/using-matchers) (such as `expect().toBe()`)
+  * use `module.exports` and `require` to require a JavaScript "module".
+
+## Questions
+
+1. We've come up above with the basic scaffolding, using `it` to define the test case - fill in the the blanks (the inside of this test case), using Jest matchers to write a test. You'll need to [use the Jest syntax](https://jestjs.io/docs/expect#tobevalue) to do this.
+
+2. Write a second test case (a second `it` "block") testing with different numbers — perhaps adding 0 and 5.
+3. Write the function `add` into its file `add.js` so it satisfies the tests we just wrote.
 
 At this point, we should now have two files, one containing the function (`add.js`) and the other one the tests for this function (`add.test.js`). If we try to run Jest now, and we've written our code correctly, we should expect the tests to pass. Let's see what happens:
 ```
@@ -126,7 +141,7 @@ $ jest
 
 Something doesn't seem right. Jest doesn't seem to know about our `add` function.
 
-3. Have a look at [the first example from Jest's documentation](https://jestjs.io/docs/getting-started) — write the missing code so our function `add` is defined in our tests.
+4. Have a look at [the first example from Jest's documentation](https://jestjs.io/docs/getting-started) — write the missing code so our function `add` is defined in our tests.
 
 ## The missing export
 
@@ -157,40 +172,26 @@ Once this is done, we can run `jest` again, and we should see our test passing! 
 
 ## Exercise: testing the fizzBuzz function
 
-We're going to write a test for the `fizzBuzz` function we defined earlier. 
-
-Here's a basic skeleton of our test file, that we'll call `fizzbuzz.test.js`:
-
-```javascript
-// fizzbuzz.test.js
-
-describe('fizzBuzz', () => {
-  it('should return "Fizz" if divisible by 3', () => {
-
-  });
-
-  it('should return "Buzz" if divisible by 5', () => {
-    
-  });
-
-  it('should return "FizzBuzz" if divisible by 15', () => {
-    
-  });
-
-  it('should just return the number otherwise', () => {
-    
-  });
-});
-```
+We're going to write a test for the `fizzBuzz` function we defined earlier — we'll name the file containing the tests `fizzbuzz.test.js`.
 
 To complete this exercise, you'll need to: 
-  * use Jest matchers you've just learned to test the different cases above
+  * use `npm init` and `npm install` to setup a project directory and install a library.
+  * Use Jest's `describe` and `it` syntax.
+  * use Jest matchers you've just learned to test the different cases above.
   * use `module.exports` and `require`, like seen previously, to import the `fizzBuzz` function in the test file.
 
 ## Questions
 
-1. Write tests for the `fizzBuzz` function and make sure they pass.
-2. Modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)).
+Here's our acceptance criteria for this function:
+ * it should return "Fizz" if the number is divisible by 3 (e.g 3 or 9)
+ * it should return "Buzz" if  the number is divisible by 5 (e.g 5 or 10)
+ * it should return "FizzBuzz" if the number is divisible by 15 (e.g 15 or 30)
+ * it should just return the number the number is otherwise
+
+1. Initialize a new project directory with a `package.json` file and install Jest.
+2. Write one test case for each acceptance criteria above, using one `it` block for each, and matchers to test the function's return value.
+3. Write the `fizzBuzz` function in the file `fizzbuzz.js` to the four tests pass.
+4. Modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)).
 
 If you've done everything correctly, you should see something resembling the following output:
 
@@ -241,9 +242,26 @@ You're now ready to write tests for the function at the beginning of the file. Y
 
 ### Questions
 
-1. Write the tests for the `searchCandies` function and make sure they pass.
+1. Write the tests for the `searchCandies` function and make sure they pass — there should be at least one test case for each example in the acceptance criteria input/output above.
 2. Try to break the `searchCandies` function so at least one test doesn't pass anymore.
 
+Note: you might need to use the `.toEqual()` matcher rather than `.toBe()` — and research a bit how those two are different.
+
+Once completed, you should be able to run `jest --verbose` from the terminal and get an ouput similar to this one:
+
+```bash
+$ jest --verbose
+
+PASS  ./searchCandies.test.js
+  searchCandies
+    ✓ should return Mars and Maltesers (2 ms)
+    ✓ should return only Mars
+    ✓ should return Skitties, Skittles and Starbust
+    ✓ should return Skitties and Skittles (1 ms)
+    ✓ should return Skitties and Skittles for lowercase "s"
+
+Test Suites: 1 passed, 1 total
+```
 
 ## About TDD
 

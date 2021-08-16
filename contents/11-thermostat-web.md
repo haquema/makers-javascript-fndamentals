@@ -3,7 +3,7 @@
 ## Objectives
 
  * Use express to serve a simple web app.
- * Use express routes to run a JavaScript program.
+ * Use express routes to expose a JavaScript program.
 
 This will be a stretch goal. So far the only way to interact with our thermostat is to enter commands in a CLI. That's not very exciting, and you would definitely not expect your users to do this! However, if we were to transform our thermostat program into a Web API, we could then build a web application that people could use with their browser!
 
@@ -58,6 +58,13 @@ $ curl -XGET http://localhost:3000/counter
 
 ## Exercise: thermostat over the web
 
+To complete this exercise, you'll have to:
+  * instantiate and use the classes written before. 
+  * use express to define HTTP routes.
+  * use the function `JSON.stringify` to transform a JS object to a string that can be sent in a response.
+
+### Questions
+
 1. In the thermostat project directory, create a new file `web.js` for the code running the express web server.
 2. Implement a route `GET /temperature` to print the thermostat temperature.
 3. Implement a route `POST /up` to increase the temperature.
@@ -68,13 +75,16 @@ If your program is correct, you should be able to execute the following `curl` c
 
 ```bash
 $ curl -XGET http://localhost:3000/temperature 
-20
+{"temperature":20}
+
 $ curl -XPOST http://localhost:3000/up 
 $ curl -XPOST http://localhost:3000/up 
 $ curl -XGET http://localhost:3000/temperature 
-22
+{"temperature":22}
 
 $ curl -XDELETE http://localhost:3000/temperature
 $ curl -XGET http://localhost:3000/temperature 
-20
+{"temperature":20}
 ```
+
+Feel free to implement more HTTP routes to expose the other functions of the Thermostat program (for example, there could be an additional HTTP endpoint to enable or disable the power-saving mode).
