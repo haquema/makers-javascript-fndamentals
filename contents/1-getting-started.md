@@ -52,3 +52,14 @@ Here are two more lines of JS - resist the urge of pasting them into `node` righ
 
 You might have noticed every line of JavaScript ends with a semicolon (`;`). This is actually not specific to JS - other languages have similar syntax - but coming from Ruby, this might be rather unsettling. It might take some time for you to get used to type `;` at the end of every line, but don't worry too much: JS is usually quite permissive if you miss a semicolon, so that shouldn't create too many bugs. However, in case you're running into a weird bug, you might want to check there isn't a semicolon missing at the end of a line!
 
+
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/1-getting-started.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/1-getting-started.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/1-getting-started.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/1-getting-started.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/1-getting-started.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

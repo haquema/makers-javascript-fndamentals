@@ -1,8 +1,19 @@
 # Classes
 
+/** EDU
+  This section skips entirely the fact that ES6 classes are syntax-sugar for JS constructors and prototypal inheritance. 
+  And it's probably fine, this syntax has been around for a while, and they'll be able to discover by themselves how previous
+  and new ways of writing classes tie together if they need to (maybe if they find some older code examples online).
+  
+  Explaining how prototypal inheritance works would likely add a lot of overhead that they don't require to write JS programs.
+  We could potentially even give away by using just functions, which is why classes are introduced only now.
+**/
+
 Your friend's candies business is booming, and you're now working almost full time on the website — this is great! However, the more the features you implement, and the more code you add, the messier the project starts to feel. It might be time to tidy up things a bit.
 
-So far we've used only JavaScript functions, but much like other OOP languages, we can declare and use classes in JS to organise our code. Classes in JS work in a similar way to other languages, they are declared with methods — and perhaps attributes — and can be instantiated. By the end of this section, we'll write a few JavaScript classes that will allow us to execute code like this: 
+So far we've used only JavaScript functions, but much like other languages that support object-oriented design, we can declare and use classes in JS to organise our code.
+
+Classes in JS work in a similar way to other languages, they are declared with *methods* — and perhaps *attributes* — and can be instantiated when creating *instances*. By the end of this section, we'll write a few JavaScript classes that will allow us to execute code like this: 
 
 ```javascript
 let candy = new Candy('Mars', 4.99);
@@ -21,6 +32,7 @@ let totalPrice = basket.getTotalPrice();
  * Call a method on an instance.
  * Make two classes interact together.
  * Test-drive a class using Jest.
+ * Mock a class in unit tests.
 
 ## Exercise - a simple class
 
@@ -142,7 +154,7 @@ We're going to test-drive and implement the two classes `Candy` and `ShoppingBas
 
 ## Exercise - debugging
 
-1. Later, you're working to add a method `applyDiscount` to the class `ShoppingBasket` to apply a discount of a certain amount to the total price of the basket. However, something doesn't work — can you find the bug? (some of the code has been omitted for clarity)
+Later, you're working to add a method `applyDiscount` to the class `ShoppingBasket` to apply a discount of a certain amount to the total price of the basket. However, something doesn't work — can you find the bug? (some of the code has been omitted for clarity)
 
 ```javascript
 class ShoppingBasket {
@@ -164,3 +176,14 @@ class ShoppingBasket {
   }
 }
 ```
+
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/6-classes.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/6-classes.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/6-classes.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/6-classes.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/6-classes.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

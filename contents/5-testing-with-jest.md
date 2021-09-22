@@ -268,3 +268,13 @@ Test Suites: 1 passed, 1 total
 You might have noticed that, although we wrote tests, we didn't follow a strict TDD process — we wrote the `searchCandies` function before writing its tests. Ideally, we would have written the tests before, but sometimes it's not obvious to know what to test, and you might need to write a first "draft" version of the code first to have a clearer picture of what should be tested.
 
 Writing tests *before* the code is something that you'll get better with experience, so always try to have this in mind when writing code, even if it might feel like working backwards. In the case of our `searchCandies` function, one way to write tests first would have been to look at the acceptance criteria and "translate" them into Jest tests, before writing the actual function.
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/5-testing-with-jest.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/5-testing-with-jest.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/5-testing-with-jest.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/5-testing-with-jest.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/5-testing-with-jest.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

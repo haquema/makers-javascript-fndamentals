@@ -2,6 +2,15 @@
 
 In this section, you'll be discovering JavaScript's syntax and find some concepts you already know.
 
+/** EDU
+  Only `let` is used in the following few sections to declare variables and functions, to avoid confusion — `const` is introduced
+  a bit later when requiring functions from other files. The downside is that they might think `const` is only to be used when requiring modules
+  and `let` for the rest. It's probably OK, as they can learn later when to use one or the other, and that it's more a matter of code convention.
+
+  Arrays are introduced but not objects — we'll get there later. The term "object" in JS can also be confusing, as it refers to a Hash-like or map structure,
+  rather than always referring to an instance of a class like in Ruby, etc. That's probably something to look out for.
+**/
+
 ## Objectives
 
  * Use variables in JS.
@@ -77,6 +86,11 @@ In the previous solution, we've just used something called a JS *template string
 
 ## Exercise: returning values
 
+/** EDU
+  This exercise is intended to show that implicit returns are not possible in JS — as opposed to Ruby, for example.
+  They might get bitten by that on a few times, but some more exercises along the way will try to reinforce this.
+**/
+
 1. In `node`, define a function `add` that takes two arguments and return their sum, so we can run the following:
 ```javascript
 // If your function is correct, it should give the following results in the REPL:
@@ -138,6 +152,11 @@ To complete the following, you will have to:
 
 ## Exercise: functions and variables
 
+/** EDU
+  We're starting to touch on the concept of functions as values, and later higher-order functions. This is not really present in Ruby or other languages,
+  so it might need some time for them to consider functions as regular values in their own right. Reinforcing this is important as it'll make learning about callbacks (a bit) easier.
+**/
+
 ```javascript
 let sayHello = () => {
   return 'Hello!';
@@ -182,3 +201,13 @@ Fizzbuzz result for 9 is Fizz
 Fizzbuzz result for 10 is Buzz
 (...)
 ```
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/2-discovering-js.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/2-discovering-js.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/2-discovering-js.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/2-discovering-js.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/2-discovering-js.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

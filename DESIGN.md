@@ -2,8 +2,12 @@
 
 ## Learning objectives
 
-* Test-drive a simple Javascript program using Node.
-* Follow an effective process to learn a new language.
+* **Test-drive a simple Javascript program using Node**
+  Of similar complexity of the one in this module — Thermostat
+* **Explain how asynchronous programming is different from synchronous, blocking programming**
+  The most important concept is callbacks and how they can be used to handle asynchronous actions like remote API responses.
+* **Apply a coherent process to learn a new language.**
+  By working on programming projects they've done before that involve a wide range of different language concepts.
 
 ## Sequence
 
@@ -148,3 +152,14 @@ Scope:
     * Inheritance
     * Details of the event loop
     * Define AJAX = asynchronous JS and XML?
+
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=DESIGN.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=DESIGN.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=DESIGN.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=DESIGN.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=DESIGN.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

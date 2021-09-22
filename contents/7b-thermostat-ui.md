@@ -1,5 +1,10 @@
 # Coding challenge: Thermostat CLI
 
+/** EDU
+  Since asynchronous programming and callbacks are covered only in the last section, we're using `readline-sync` to read input from the CLI,
+  which behaves like Ruby's `gets` for example and will feel more familiar.
+**/
+
 We can now run tests to make sure all the methods of our `Thermostat` are correctly implemented. However we'd like to be able to interact with it as well - perhaps from the command line.
 
 We'll use a new npm package called `readline-sync` for this:
@@ -79,3 +84,14 @@ Enter command > up
 Temperature is 26
 ```
 
+
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/7b-thermostat-ui.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/7b-thermostat-ui.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/7b-thermostat-ui.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/7b-thermostat-ui.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/7b-thermostat-ui.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->

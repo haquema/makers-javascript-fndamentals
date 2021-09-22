@@ -1,4 +1,4 @@
-# Hello, Javascript
+# JavaScript Fundamentals
 
 JavaScript (or JS) is a fully-featured programming language. It is today one of the most popular languages used for the development of web applications, and also for a lot of different programs.
 
@@ -9,7 +9,8 @@ In this first module, you'll learn the basics of Javascript by pairing through a
 ## Learning objectives
 
 * Test-drive a simple Javascript program using Node.
-* Follow an effective process to learn a new language.
+* Explain how asynchronous programming is different from synchronous, blocking programming.
+* Apply a coherent process to learn a new language.
 
 ## Sequence
 
@@ -30,3 +31,13 @@ In this first module, you'll learn the basics of Javascript by pairing through a
 
  * [Asynchronous JS and callbacks](./workshops/async-js-and-callbacks)
  * Mocking with Jest
+
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
+
+---
+
+**How was this resource?**  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=README.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=README.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=README.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=README.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=README.md&prefill_Sentiment=😀)  
+Click an emoji to tell us.
+
+<!-- END GENERATED SECTION DO NOT EDIT -->
