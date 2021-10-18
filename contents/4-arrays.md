@@ -26,8 +26,8 @@ To complete this exercise you will have to find out:
 
 ### Questions
 
-1. Declare a function `addToBatch` that takes two arguments, an *array* and *a number*, and returns a new array by adding the number to the array.
-2. Make sure this function *does not* add the number if the array's length is already greater than 5 — it should just return the array untouched in that case.
+1. Declare a function `addToBatch` that takes two arguments, an *array* and *a number*, and returns a *new array* by adding the number to the array — the original array passed in argument should left untouched.
+2. Now, make sure this function *does not* add the number *if the array's length is already greater than 5* — it should just return the array untouched in that case.
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 
@@ -47,7 +47,7 @@ Once your function is written, you should be able to type the following code and
 
 ## Exercise - phone numbers
 
-Your friend now wants to launch a special promotion for a given list of loyal customers, and send a SMS to that list. They give you a long list of phone numbers so you can create a small program to text them about that promotion. However, when running the first version of your program, you notice something is not quite right: some lines in the file are not phone numbers, but some corrupted data:
+Your friend now wants to launch a special promotion for a given list of loyal customers, and send an SMS to that list. They give you a long list of phone numbers so you can create a small program to text them about that promotion. However, when running the first version of your program, you notice something is not quite right: some lines in the file are not phone numbers, but some corrupted data:
 
 ```
 17636873642
@@ -65,16 +65,17 @@ You realise that most phone numbers on the list are no longer than 10 digits. Ma
 
 To complete this exercise you will have to:
  * create a function that checks if a phone number is too long.
- * use Array's [filter method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to filter long numbers using this function.
+ * use Array's [filter method](https://www.w3schools.com/jsref/jsref_filter.asp) to filter long numbers using this function.
 
 ### Questions
 
-1. Declare a function `filterLongNumbers` that takes for argument an array of phone numbers. This function should return only numbers that contain *10 characters or less*.
+1. Declare a function `checkLength` that takes a phone number (as a string) as argument, and returns `true` if this phone number contains *10 characters or less*.
+2. Now declare a function `filterLongNumbers` that takes an array of phone numbers. This function should return only numbers that contain *10 characters or less*. It should make use of the function `checkLength` written previously.
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 
 ```javascript
-> let numbers = [
+> const numbers = [
   '17636873642',
   '47636873634',
   '78678678623',
@@ -91,14 +92,14 @@ Once your function is written, you should be able to type the following code and
 [ ]
 ```
 
-2. Bonus: modify `filterLongNumbers` so it accepts a second argument, which is the maximum length to allow for phone numbers (we currently harcoded this at 10).
+2. Bonus: modify `filterLongNumbers` so it accepts a second argument, which is the maximum length to allow for phone numbers (we currently hardcoded this at 10).
 
 ## Exercise - personalised messages
 
-Your friend now would you like to also generate a personalized message for the SMS promotion. Along with the phone numbers, you also now have a list of names:
+Your friend now would you like to also generate a personalised message for the SMS promotion. Along with the phone numbers, you also now have a list of names:
 
 ```javascript
-> let names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
+> const names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
 ```
 
 To complete this exercise you'll have to:
@@ -107,11 +108,11 @@ To complete this exercise you'll have to:
 
 ### Questions
 
-1. Write a function `generateMessages` that takes an array of names and returns an array of personalized messages for each name. For example, when given the array above, the function should return an array with the first element being the string `'Hi Anna! 50% off our best candies for you today!'`, the second element the string `'Hi Laura! 50% off our best candies for you today!'`, and so on. 
+1. Write a function `generateMessages` that takes an array of names and returns an array of personalised messages for each name. For example, when given the array above, the function should return an array with the first element being the string `'Hi Anna! 50% off our best candies for you today!'`, the second element the string `'Hi Laura! 50% off our best candies for you today!'`, and so on. 
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 ```javascript
-> let names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
+> const names = ['Anna', 'Laura', 'Josh', 'Min', 'Karla'];
 
 > generateMessages(names);
 [
@@ -129,7 +130,7 @@ Your friend now wants to have a specific discount percentage for each customer (
 
 ```javascript
 // yes, it's an array of smaller arrays!
-> let namesAndDiscounts = [
+> const namesAndDiscounts = [
   ['Anna', 50],
   ['Laura', 40],
   ['Josh', 30],
@@ -147,7 +148,7 @@ To complete this exercise, you'll have to:
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 ```javascript
-> let namesAndDiscounts = [
+> const namesAndDiscounts = [
   ['Anna', 50],
   ['Laura', 40],
   ['Josh', 30],
@@ -170,7 +171,7 @@ Once your function is written, you should be able to type the following code and
 You might have written some code similar to this in the previous exercises:
 
 ```javascript
-let isLengthValid = (number) => {
+const isLengthValid = (number) => {
   return number.length <= 10;
 }
 
@@ -185,7 +186,7 @@ Remember that in JavaScript, functions are considered as values of their own kin
 
 ## Exercise - a search engine for candies
 
-Proud of the work you've accomplished so far, you suddendly get a new idea for your friend's website. What if people could search for candies on the website, instead of spending ages browsing for what they want? Excited by that idea, your friend — slightly surprised you're asking for *even more* work —  asks if you could implement this right away!
+Proud of the work you've accomplished so far, you suddenly get a new idea for your friend's website. What if people could search for candies on the website, instead of spending ages browsing for what they want? Excited by that idea, your friend — slightly surprised you're asking for *even more* work —  asks if you could implement this right away!
 
 Given the following array (you can paste it directly into `node` — it's a long array!):
 ```javascript
@@ -236,19 +237,19 @@ You'll note that we didn't have to pass the list of `candies` as an argument to 
 Several weeks later, you are now mentoring a junior developer who's just learning how to manipulate arrays in JS, just like you did. They're trying to write the code to filter only *even numbers* from a list of numbers. However, when they run their code, something is not working — can you help them?
 
 ```javascript
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let isEvenNumber = (number) => {
+const isEvenNumber = (number) => {
   number % 2 == 0;
 }
 
-let evenNumbers = numbers.filter(isEvenNumber);
+const evenNumbers = filter(isEvenNumber(numbers));
 ```
 
 ### Questions
 
-1. Run the code yourself. What is the issue with the value of `evenNumbers`?
-2. Can you spot the bug with this code? Make the fix so it runs as expected.
+1. Run the code yourself. What is the issue with the way the list of numbers is filtered? You can double check how to call `filter` on an array if that helps.
+2. Can you spot the bug(s) with this code? Make the fix so it runs as expected.
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 

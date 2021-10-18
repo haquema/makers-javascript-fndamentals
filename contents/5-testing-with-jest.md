@@ -43,7 +43,9 @@ In JavaScript, such libraries are called `packages` and are listed in a file cal
 $ npm init
 ```
 
-You will have to answer a bunch of questions about your program - but they don't really matter for now. You can skip them all pressing `enter` until your `package.json` file is generated. If you're curious though, feel free to fill some of the required inputs and see how this affects the `package.json` file!
+You will have to answer a bunch of questions about your program - but they don't really matter for now. You can skip them all pressing `enter` until your `package.json` file is generated (or, even faster, you can run directly `npm init -y` to automatically set all the defaults).
+
+If you're curious though, feel free to fill some of the required inputs and see how this affects the `package.json` file!
 
 You should now have something that looks like this:
 ```json
@@ -65,7 +67,9 @@ You should now have something that looks like this:
 
 We're going to install our first package: `jest`. We'll use it to run unit tests for our JS code. To install it, run `npm install jest` inside the project directory.
 
-That might be the time for a quick tea or coffee break. If everything worked, you should see an ouput similar to this one inside your terminal:
+This tells the node package manager (npm) that we are going to use Jest in this project, and to download the code for the 'Jest' package. It saves this code in the `node_modules` folder. This folder can get very big, so if you are planning on committing this project, you should add `node_modules` to your `.gitignore` file before you do. It also allows us to use the jest command when we are in this folder.
+
+That might be the time for a quick tea or coffee break. If everything worked, you should see an output similar to this one inside your terminal:
 
 ```
 npm notice created a lockfile as package-lock.json. You should commit this file.
@@ -121,7 +125,7 @@ To complete the rest of this exercise, you will need to:
 
 ## Questions
 
-1. We've come up above with the basic scaffolding, using `it` to define the test case - fill in the the blanks (the inside of this test case), using Jest matchers to write a test. You'll need to [use the Jest syntax](https://jestjs.io/docs/expect#tobevalue) to do this.
+1. We've come up above with the basic scaffolding, using `it` to define the test case - fill in the blanks (the inside of this test case), using Jest matchers to write a test. You'll need to [use the Jest syntax](https://jestjs.io/docs/expect#tobevalue) to do this.
 
 2. Write a second test case (a second `it` "block") testing with different numbers — perhaps adding 0 and 5.
 3. Write the function `add` into its file `add.js` so it satisfies the tests we just wrote.
@@ -150,7 +154,7 @@ In the previous exercise, we needed a way to `require` our function in our test 
 ```javascript
 // sayHello.js
 
-let sayHello = () => {
+const sayHello = () => {
   return 'Hello';
 }
 
@@ -165,8 +169,6 @@ const sayHello = require('./sayHello');
 // we can now use the sayHello function
 sayHello();
 ```
-
-Note: we're using `const` instead of `let` when requiring the function. The behaviour is the same than `let` - it declares a variable - however `sayHello` cannot be reassigned to something else later. This is a good practice in idiomatic JavaScript to always use `const` for functions that are required from other files, so we'll use it rather than `let`.
 
 Once this is done, we can run `jest` again, and we should see our test passing! Congratulations, you've just wrote your first Jest test!
 
@@ -188,7 +190,7 @@ Here's our acceptance criteria for this function:
  * it should return "FizzBuzz" if the number is divisible by 15 (e.g 15 or 30)
  * it should just return the number the number is otherwise
 
-1. Initialize a new project directory with a `package.json` file and install Jest.
+1. Initialise a new project directory with a `package.json` file and install Jest.
 2. Write one test case for each acceptance criteria above, using one `it` block for each, and matchers to test the function's return value.
 3. Write the `fizzBuzz` function in the file `fizzbuzz.js` to the four tests pass.
 4. Modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)).
@@ -247,7 +249,7 @@ You're now ready to write tests for the function at the beginning of the file. Y
 
 Note: you might need to use the `.toEqual()` matcher rather than `.toBe()` — and research a bit how those two are different.
 
-Once completed, you should be able to run `jest --verbose` from the terminal and get an ouput similar to this one:
+Once completed, you should be able to run `jest --verbose` from the terminal and get an output similar to this one:
 
 ```bash
 $ jest --verbose
@@ -265,7 +267,7 @@ Test Suites: 1 passed, 1 total
 
 ## About TDD
 
-You might have noticed that, although we wrote tests, we didn't follow a strict TDD process — we wrote the `searchCandies` function before writing its tests. Ideally, we would have written the tests before, but sometimes it's not obvious to know what to test, and you might need to write a first "draft" version of the code first to have a clearer picture of what should be tested.
+You might have noticed that, although we wrote tests, we didn't follow a strict TDD process — we wrote the `searchCandies` function before writing its tests, for the sake of simplicity in that exercise. Ideally, we would have written the tests before.
 
 Writing tests *before* the code is something that you'll get better with experience, so always try to have this in mind when writing code, even if it might feel like working backwards. In the case of our `searchCandies` function, one way to write tests first would have been to look at the acceptance criteria and "translate" them into Jest tests, before writing the actual function.
 

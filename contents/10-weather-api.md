@@ -16,7 +16,9 @@ We'll use the [OpenWeather API](https://openweathermap.org/api). You'll need to 
 
 Once your account is created, head to the [API keys section](https://home.openweathermap.org/api_keys) page on the website, where you'll find your API key. Copy that key somewhere safe on your laptop, but be mindful of *not* including it in a file pushed on your coding challenge Github repository. Ideally, this key shouldn't leave your computer (or your pair's computer)!
 
-You can try having a look at what data this API can return by going to the following URL (your api key should replace the placeholder, including brackets):
+**Once again, take the habit of *not saving* your API keys and secrets into a file committed with git.**
+
+You can try having a look at what data this API can return by going to the following URL (your API key should replace the placeholder, including brackets):
 ```
 https://api.openweathermap.org/data/2.5/weather?units=metric&q=London&appid={YOUR API KEY HERE}
 ```
@@ -103,7 +105,7 @@ We can start to see some interesting things in here. The `main` object is probab
 1. Create a new class `WeatherApi` that implements one method `fetchWeatherData`, taking a city name as argument and fetching the weather from the OpenWeather API. The response from the API should be logged to the terminal. You should be able to use the class like this:
 
 ```javascript
-> let weather = new Weather();
+> const weather = new Weather();
 > weather.fetchWeatherData('London');
 
 {
@@ -123,7 +125,7 @@ We can start to see some interesting things in here. The `main` object is probab
 
 2. Instead of logging the response, we want to get it back using a callback. Modify the method `fetchWeatherData` so it accepts a callback in second argument — and we're able to run the following code:
 ```javascript
-> let weather = new Weather();
+> const weather = new Weather();
 > weather.fetchWeatherData('London', (weatherData) => {
   console.log(weatherData);
 });
@@ -146,8 +148,8 @@ We can start to see some interesting things in here. The `main` object is probab
 3. Modify the `Thermostat` class so it accepts an instance of `Weather` when it is created. Also, add a method `setCity` on the `Thermostat` that calls `weather.fetchWeatherData` and sets the thermostat's temperature from the fetched data. We should be able to execute the following code:
 
 ```javascript
-> let weather = new Weather();
-> let thermostat = new Thermostat(weather);
+> const weather = new Weather();
+> const thermostat = new Thermostat(weather);
 
 > thermostat.setCity('London');
 

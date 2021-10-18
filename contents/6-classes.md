@@ -16,12 +16,12 @@ So far we've used only JavaScript functions, but much like other languages that 
 Classes in JS work in a similar way to other languages, they are declared with *methods* — and perhaps *attributes* — and can be instantiated when creating *instances*. By the end of this section, we'll write a few JavaScript classes that will allow us to execute code like this: 
 
 ```javascript
-let candy = new Candy('Mars', 4.99);
+const candy = new Candy('Mars', 4.99);
 
-let basket = new ShoppingBasket();
+const basket = new ShoppingBasket();
 basket.addItem(candy);
 
-let totalPrice = basket.getTotalPrice();
+const totalPrice = basket.getTotalPrice();
 ```
 
 ## Objectives
@@ -39,7 +39,7 @@ let totalPrice = basket.getTotalPrice();
 We would like to create a class to represent a user account. Here is how we should be able to use this class:
 
 ```javascript
-> let user = new User('Uma');
+> const user = new User('Uma');
 
 > user.getName(); 
 'Uma'
@@ -50,7 +50,7 @@ We would like to create a class to represent a user account. Here is how we shou
 
 To complete this exercise, you will have to:
  * Learn how to declare a class and its methods. Having a look at the [Classes MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#class_declarations) is a good start.
- * Initialize an attribute within the [constructor special method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+ * Initialise an attribute within the [constructor special method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
 
 ### Questions
 
@@ -74,7 +74,7 @@ const User = require('./user');
 Given the following *array* of `User` instances (the class from the previous exercise):
 
 ```javascript
-let users = [
+const users = [
   new User('Uma'),
   new User('Josh'),
   new User('Ollie')
@@ -84,7 +84,7 @@ let users = [
 We'd now like to have a class `UserBase` that behaves like this:
 
 ```javascript
-> let userBase = new UserBase(users);
+> const userBase = new UserBase(users);
 
 > userBase.count();
 3
@@ -118,18 +118,19 @@ To complete this exercise, you'll have to:
   * write Jest tests cases for a class.
   * declare a class and its methods.
   * use [Jest mocks](https://jestjs.io/docs/es6-class-mocks#automatic-mock) to mock one class in unit tests.
+  * [use `let` rather than `const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) to make a variable able to change.
 
 We're going to test-drive and implement the two classes `Candy` and `ShoppingBasket` so we can execute the following code:
 
 ```javascript
-> let candy = new Candy('Mars', 4.99);
+> const candy = new Candy('Mars', 4.99);
 
 > candy.getName();
 'Mars'
 > candy.getPrice();
 4.99
 
-> let basket = new ShoppingBasket();
+> const basket = new ShoppingBasket();
 > basket.getTotalPrice();
 0
 

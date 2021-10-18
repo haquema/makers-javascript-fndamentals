@@ -28,13 +28,13 @@ console.log(`Server listening on ${port}`);
 app.listen(port);
 ```
 
-1. Run this code from a file called `server.js`. Head to http://localhost:3000 - what do you see?
+1. Run this code from a file called `server.js`. Head to `http://localhost:3000` - what do you see?
 2. What is logged on the terminal when the server starts? When does the function that responds with 'Hello, express!' is executed?
 3. Is this web server a *synchronous* or *asynchronous* program? Explain why.
 
 ## Exercise: adding routes
 
-Note: in order to test out the following exercise, you can use [the `curl` utility program](https://idratherbewriting.com/learnapidoc/docapis_install_curl.html#make-a-test-api-call) from your terminal, rather than the browser. The option `-X` allow us to use a HTTP method other than `GET`. For example, to test a `POST` HTTP request at the url http://localhost:3000/something:
+Note: in order to test out the following exercise, you can use [the `curl` utility program](https://idratherbewriting.com/learnapidoc/docapis_install_curl.html#make-a-test-api-call) from your terminal, rather than the browser. The option `-X` allow us to use a HTTP method other than `GET`. For example, to test a `POST` HTTP request at the url `http://localhost:3000/something`:
 
 ```
 $ curl -XPOST http://localhost:3000/something

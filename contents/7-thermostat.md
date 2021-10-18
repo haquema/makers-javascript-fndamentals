@@ -21,7 +21,7 @@ You'll build, test-driving your code, a simple program to manage a thermostat. H
 You'll know if your class `Thermostat` is correctly implemented if you can run the following code. Your tests should also reflect the same requirements.
 
 ```javascript
-let thermostat = new Thermostat();
+const thermostat = new Thermostat();
 
 thermostat.getTemperature(); // should return 20
 
@@ -56,10 +56,10 @@ If you're having trouble, here's a more detailed walkthrough you can follow:
 <details><summary>Reveal walkthrough steps</summary>
 <p>
 
-1. To setup the project, create a directory and initialize the `package.json` file using `npm init`.
+1. To setup the project, create a directory and initialise the `package.json` file using `npm init`.
 2. Install the Jest library using `npm install`.
-3. Now write a first test file named `thermostat.test.js` and write a simple unit test for the `Thermostat` class. A new instance of this class should be initialized with a  property `temperature` set to 20. You may have a `getTemperature` method on this instance to retrieve this value. This is the method you should test.
-4. Now write the class `Thermostat` in its file `thermostat.js`. Implement the constructor to initialize the `temperature` property to 20, and the `getTemperature` method.
+3. Now write a first test file named `thermostat.test.js` and write a simple unit test for the `Thermostat` class. A new instance of this class should be initialised with a  property `temperature` set to 20. You may have a `getTemperature` method on this instance to retrieve this value. This is the method you should test.
+4. Now write the class `Thermostat` in its file `thermostat.js`. Implement the constructor to initialise the `temperature` property to 20, and the `getTemperature` method.
 5. Verify your code by running `jest`. Don't forget to use `module.exports` and `require` to use the class in the test file!
 6. Test-drive and implement the two other methods `up` and `down`, following the same process.
 7. Having a minimum temperature will likely require a condition to check whether we can decrease the temperature further in `down`. Don't forget to test-drive this step as well!

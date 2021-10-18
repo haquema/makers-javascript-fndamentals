@@ -1,14 +1,20 @@
 # Asynchronous JavaScript
 
+/** EDU
+  This section is intended to lead learners to develop an intuition for asynchronous programming v/s synchronous programming, like they've been mostly used to working with Ruby previously (or another language).
+
+  It mainly focuses on callback functions and how they work, and the issue of "returning" values from callbacks. It doesn't introduce promises and async/await to avoid overloading learners with too much new information — getting your head around asynchronous behaviour is already a big paradigm shift.
+**/
+
 Here's a hard truth: even if we would have the fastest, most efficient computer ever to run our programs and web applications, our programs could still be slow. 
 
 Why? Let's take an example: imagine you're browsing your favourite social media. The homepage might load instantly but, in the first few fractions of time before everything is completely loaded, you can still see "empty" parts of the page that are still loading. Meanwhile, some JavaScript code is likely fetching the relevant data to display — and once the data is received, replaces those empty parts with actual content. But such data travels over the network, which could be slow and unreliable. Maybe your connection will drop, in which case this data might never come back to your computer!
 
-The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some conditon will be met. This condition might be to receive some data back from a remote server, a database, or it can be waiting for a delay, etc.
+The key thing to understand is that some parts of our programs will need to execute not right now, but at a *later time* in the future, when some condition will be met. This condition might be to receive some data back from a remote server, a database, or it can be waiting for a delay, etc.
 
 However, we *do not* want to block the rest of our program until the data has been received. Going back to the example above, you wouldn't want the website to freeze while the data is still loading! This kind of behaviour is called *asynchronous programming* — it means we are able to execute some part of the code at a *later time*, without blocking the code that needs to execute before.
 
-For example, visiting the [homepage of Github](https://github.com/), we can see for a brief moment some parts of the page are still loading, while the main page structure is already being displayed. Only when the data needed to diplay those sections is received, they are then displayed. This allow for a faster and better user experience, and most modern web applications will function in such a way. In the next module, you'll learn more about such web applications, but for now we need to understand the building blocks of it — asynchronous programming and callbacks.
+For example, visiting the [homepage of Github](https://github.com/), we can see for a brief moment some parts of the page are still loading, while the main page structure is already being displayed. Only when the data needed to display those sections is received, they are then displayed. This allow for a faster and better user experience, and most modern web applications will function in such a way. In the next module, you'll learn more about such web applications, but for now we need to understand the building blocks of it — asynchronous programming and callbacks.
 
 
 ## Exercise - a delay
@@ -18,7 +24,7 @@ The best example of asynchronous behaviour in JavaScript is when we need to fetc
 Databases are a good example of this. Let's go back to our candies ecommerce website for a bit, and let's imagine candies are stored inside a database. We have a function `fetchCandiesFromDatabase` to retrieve this data.
 
 ```javascript
-let fetchCandiesFromDatabase = () => {
+const fetchCandiesFromDatabase = () => {
   // fetch candies...
 }
 ```
@@ -40,12 +46,12 @@ Note: the function passed in argument to `setTimeout`, that prints the message, 
 
 ## Exercise - getting back the candies
 
-Printing a message is not really useful, let's add an array of candies that we can return, to represent the data fetched from the DB — we'll write its name in uppercase, to denote it represents our "database", and differenciate it from other variables:
+Printing a message is not really useful, let's add an array of candies that we can return, to represent the data fetched from the DB — we'll write its name in uppercase, to denote it represents our "database", and differentiate it from other variables:
 
 ```javascript
 const CANDIES_DB = ['Mars', 'Maltesers', 'Skittles', 'Fraise Tagada'];
 
-let fetchCandiesFromDatabase = () => {
+const fetchCandiesFromDatabase = () => {
   // ...
 }
 ```
@@ -62,7 +68,7 @@ let fetchCandiesFromDatabase = () => {
 2. Now modify the function so it returns the `CANDIES_DB` array *after 2 seconds* (like when printing the message in the previous exercise). What does the function return, this time?
 
 ```javascript
-> let result = fetchCandiesFromDatabase();
+> const result = fetchCandiesFromDatabase();
 undefined
 > result;
 undefined
@@ -78,7 +84,7 @@ So `result` can never get the value returned by `fetchCandiesFromDatabase` - it 
 
 ![Diagram](images/async-return-value.svg)
 
-Since we can't `return` values, we need to use other solutions - one of them is to use *callback* functions, again, to tackle this asynchronous problem.
+Since we can't `return` values, we need to use other solutions - one of them is to use a function *as a callback*, again, to tackle this asynchronous problem.
 
 **It's important to note that callbacks function *are not* a different kind of function than regular JS functions — this is often a source of confusion. We call a function "callback" because it is used as such, and passed to another function so it is executed at a later point. But "callback" functions are no more than regular JS functions, and they're defined the same way, with the same syntax.**
 
@@ -87,9 +93,11 @@ Remember that, in JavaScript, functions can be treated as regular values — the
 1. Modify the function `fetchCandiesFromDatabase` so it accepts a function as an argument. When this is done, you should be able to execute the function like this in the REPL:
 
 ```javascript
-> fetchCandiesFromDatabase((result) => {
+> const handleResult = (result) => {
   console.log(result);
-});
+}
+
+> fetchCandiesFromDatabase(handleResult);
 
 // 2 seconds should lapse
 
@@ -107,9 +115,11 @@ We now have a function that fetches candies from a database — or at least, pre
 2. Modify the function so it accepts a callback function as a second argument, and calls it *after* the new candy is added. Calling this function in the REPL should yield the following output:
 
 ```javascript
-> addCandy('Raffaello', () => {
+> const onAddCandyCompleted = () => {
   console.log('candy added');
-});
+}
+
+> addCandy('Raffaello', onAddCandyCompleted);
 
 > CANDIES_DB; // should be the same as before
 [ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
@@ -129,12 +139,14 @@ candy added
 Remember to indent your code properly, otherwise it might be harder to spot mistakes, especially when dealing with callbacks! Calling this function in the REPL should yield the following output:
 
 ```javascript
-CANDY_DB;
+> CANDY_DB;
 [ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
 
-addCandyThenFetchCandies('Raffaello', (newCandiesList) => {
+> const handleCandiesList = (newCandiesList) => {
   console.log(newCandiesList);
-});
+}
+
+> addCandyThenFetchCandies('Raffaello', handleCandiesList);
 
 // *5 SECONDS* should now lapse before printing
 
@@ -147,7 +159,7 @@ Earlier we used the package `readline-sync` to read user input in a JS program. 
 
 ```javascript
 const readline = require('readline-sync');
-let name = readline.question('Enter your name');
+const name = readline.question('Enter your name');
 
 console.log(`Your name is {name}`);
 ```
@@ -158,12 +170,12 @@ As we've just seen above, it can be different with JavaScript. In the previous e
 
 There is a version of the `readline-sync` gem, [simply named `readline`](https://node.readthedocs.io/en/stable/api/readline/), that also reads user input, but in an asynchronous way.
 
-1. After looking at the documentation for the `readline` package, reimplement the program that asks a user for their name and print "Your name is [name]", using `readline` instead of `readline-sync`.
+1. After looking at the documentation for the `readline` package, re-implement the program that asks a user for their name and print "Your name is [name]", using `readline` instead of `readline-sync`.
 2. In which order do the different steps of the program happen? How is it different from the version using `readline-sync`?
 
 ## Exercise: debugging
 
-Someone in your cohort wrote the following program to ask a user what is their favourite color using the `readline` module, however it doesn't work as expected. They just sent you the code, so you can help debug it. 
+Someone in your cohort wrote the following program to ask a user what is their favourite colour using the `readline` module, however it doesn't work as expected. They just sent you the code, so you can help debug it. 
 
 ```javascript
 const readline = require('readline');
@@ -173,7 +185,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let answer = rl.question('What is your favourite color? ');
+const answer = rl.question('What is your favourite color? ');
 
 console.log(answer); // prints undefined...
 ```

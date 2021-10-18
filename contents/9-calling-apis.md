@@ -10,16 +10,10 @@
 
 ## Objects intermezzo
 
-In other languages, you might have learned to think about objects as "instances of a class" - for example, in the following Ruby code, `bike` would be an object (instance of the `Bike` class):
-
-```ruby
-bike = Bike.new
-```
-
-However, in JavaScript, objects designate a different kind of values, quite similar to Ruby hashes. Here's an example of a JavaScript object:
+Remember that an "object" is, in JavaScript, a data structure composed of key-value pairs (also called in other languages a "map" or "hash"):
 
 ```javascript
-let person = {
+const person = {
   name: 'Maxine',
   age: 32,
   address: 'London, E1 123'
@@ -28,26 +22,7 @@ let person = {
 // both ways can be used to access an object's property:
 console.log(person.name);
 console.log(person['name']);
-
 ```
-
-## Exercise: accessing object values
-
-An object is composed of *key-values* pairs. Those values can be any primitive values such as strings or numbers, as in the example above, or they can be more complex things, such as other objects, arrays, or even functions:
-```javascript
-let person = {
-  name: 'Maxine',
-  age: 32,
-  address: {
-    city: 'London',
-    postcode: 'E1 123'
-  },
-  hobbies: ['writing', 'tennis', 'cooking']
-};
-```
-
-1. Print the value of the `city` attribute ('London').
-2. Print the value of the second `hobbies` value ('tennis').
 
 ## Asynchronous data
 
@@ -57,7 +32,7 @@ Another common example of asynchronous behaviour in JavaScript is when we need t
 
 After all, you wouldn't expect your phone screen to freeze completely while its fetching the latest weather data, or refreshing your work schedule in the background? In the same way, we don't want our program to be unresponsive while we're fetching remote data. 
 
-A good example of such an API is Github's one. If you want to see what it looks like, let's have a look at the [URL for Ruby's Sinatra github repo.](https://api.github.com/repos/sinatra/sinatra) If you open this link in your browser, you'll see only data (in the JSON format):
+A good example of such an API is Github's one. If you want to see what it looks like, let's have a look at the [URL for Ruby's Sinatra Github repo.](https://api.github.com/repos/sinatra/sinatra) If you open this link in your browser, you'll see only data (in the JSON format):
 
 ```json
 {
@@ -83,7 +58,7 @@ In the same directory, create a file named `github.js` and write the following c
 ```javascript
 const got = require('got');
 
-let handleReceivedResponse = (response) => {
+const handleReceivedResponse = (response) => {
   console.log(response.body);
 }
 
@@ -97,7 +72,7 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 If you've run the program above, you'll see we received the same data seen previously on the browser. Good! However it's a bit messy and hard to read. What we can do is *convert* the string data into a JavaScript *object* so it is formatted properly. We can do this using `JSON.parse`:
 
 ```javascript
-object_value = JSON.parse(string_value)
+const object_value = JSON.parse(string_value)
 ```
 
 ## Exercise 
@@ -134,7 +109,7 @@ got('https://api.github.com/repos/sinatra/sinatra').then((response) => {
 });
 ```
 
-Someone from your cohort has then decided to wrap this whole code into a function,  called `fetchRepoInfo`, so it can be reused for any github repo. They made the URL dynamic with the repo name, and they `return` the response data from the function, as shown below:
+Someone from your cohort has then decided to wrap this whole code into a function,  called `fetchRepoInfo`, so it can be reused for any Github repo. They made the URL dynamic with the repo name, and they `return` the response data from the function, as shown below:
 ```javascript
 
 const fetchRepoInfo = (repoName) => {
@@ -143,7 +118,7 @@ const fetchRepoInfo = (repoName) => {
   });
 }
 
-let repoResponse = fetchRepoInfo('sinatra/sinatra');
+const repoResponse = fetchRepoInfo('sinatra/sinatra');
 
 console.log(repoResponse);
 ```
