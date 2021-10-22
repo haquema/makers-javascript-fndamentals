@@ -251,6 +251,8 @@ const evenNumbers = filter(isEvenNumber(numbers));
 1. Run the code yourself. What is the issue with the way the list of numbers is filtered? You can double check how to call `filter` on an array if that helps.
 2. Can you spot the bug(s) with this code? Make the fix so it runs as expected.
 
+[Next Challenge](05_testing_with_jest.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -260,6 +262,3 @@ const evenNumbers = filter(isEvenNumber(numbers));
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](05_testing_with_jest.md)

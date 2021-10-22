@@ -271,6 +271,8 @@ You might have noticed that, although we wrote tests, we didn't follow a strict 
 
 Writing tests *before* the code is something that you'll get better with experience, so always try to have this in mind when writing code, even if it might feel like working backwards. In the case of our `searchCandies` function, one way to write tests first would have been to look at the acceptance criteria and "translate" them into Jest tests, before writing the actual function.
 
+[Next Challenge](06_classes.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -280,6 +282,3 @@ Writing tests *before* the code is something that you'll get better with experie
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](06_classes.md)

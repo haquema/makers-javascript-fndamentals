@@ -41,6 +41,8 @@ npx prettier --write .
 
 If you don't want to overwrite files, but only check if they're properly formatted, you can use the `--check` option instead of `--write`. The [VSCode extension is also available](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to make your life easier, if you're using that editor.
 
+[Next Challenge](03_discovering_js.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -50,6 +52,3 @@ If you don't want to overwrite files, but only check if they're properly formatt
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](03_discovering_js.md)

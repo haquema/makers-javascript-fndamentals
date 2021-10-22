@@ -163,6 +163,8 @@ We can start to see some interesting things in here. The `main` object is probab
 
 
 
+[Next Challenge](12_thermostat_web.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -172,6 +174,3 @@ We can start to see some interesting things in here. The `main` object is probab
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](12_thermostat_web.md)

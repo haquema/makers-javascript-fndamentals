@@ -172,6 +172,8 @@ class ShoppingBasket {
 ```
 
 
+[Next Challenge](07_thermostat.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -181,6 +183,3 @@ class ShoppingBasket {
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](07_thermostat.md)

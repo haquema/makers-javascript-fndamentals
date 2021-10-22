@@ -83,6 +83,8 @@ Temperature is 26
 
 
 
+[Next Challenge](09_async.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -92,6 +94,3 @@ Temperature is 26
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](09_async.md)

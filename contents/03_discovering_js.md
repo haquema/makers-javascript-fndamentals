@@ -315,6 +315,8 @@ const person = {
 1. Print the value of the `city` attribute ('London').
 2. Print the value of the second `hobbies` value ('tennis').
 
+[Next Challenge](04_arrays.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -324,6 +326,3 @@ const person = {
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](04_arrays.md)

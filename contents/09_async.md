@@ -189,6 +189,8 @@ console.log(answer); // prints undefined...
 1. Can you spot what the issue is?
 2. Modify the code above so it has the expected behaviour and prints the message `'Your favourite color is [color]'` after the user entered it. 
 
+[Next Challenge](10_calling_apis.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -198,6 +200,3 @@ console.log(answer); // prints undefined...
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](10_calling_apis.md)

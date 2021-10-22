@@ -143,6 +143,8 @@ fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
   
 
 
+[Next Challenge](11_weather_api.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -152,6 +154,3 @@ fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](11_weather_api.md)

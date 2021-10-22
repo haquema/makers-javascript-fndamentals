@@ -51,6 +51,8 @@ Here are two more lines of JS - resist the urge of pasting them into `node` righ
 2. In the `node` REPL, change the value of `name` to your name, then use `console.log` again so it says hi — to you, rather than to JavaScript.
 
 
+[Next Challenge](02_running_js_files.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -60,6 +62,3 @@ Here are two more lines of JS - resist the urge of pasting them into `node` righ
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](02_running_js_files.md)

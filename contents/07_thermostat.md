@@ -73,6 +73,8 @@ It's important that you try to implement a solution to this exercise, however in
 
 
 
+[Next Challenge](08_thermostat_cli.md)
+
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
@@ -82,6 +84,3 @@ It's important that you try to implement a solution to this exercise, however in
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
-
-
-[Next Challenge](08_thermostat_cli.md)
