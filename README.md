@@ -24,22 +24,23 @@ build a more complex coding challenge using all of those new concepts.
 
 ## Sequence
 
-1. [Getting started](contents/1-getting-started.md)
-2. [Running files](contents/2-running-js-files.md)
-3. [Discovering Javascript](contents/3-discovering-js.md)
-4. [Arrays and functions](contents/4-arrays.md)
-5. [Testing with Jest](contents/5-testing-with-jest.md)
-6. [Classes](contents/6-classes.md)
-7. [Challenge: Building a Thermostat](contents/7-thermostat.md)
-8. [Challenge: Building a Thermostat](contents/7b-thermostat-ui.md)
-9. [Asynchronous JS](contents/8-async.md)
-10. [Calling remote APIs](contents/9-calling-apis.md)
-11. [Challenge: Building a Thermostat](contents/10-weather-api.md)
-12. [Challenge (stretch): Thermostat Web server](contents/11-thermostat-web.md)
+1. [Getting started](contents/01_getting_started.md)
+2. [Running files](contents/02_running_js_files.md)
+3. [Discovering Javascript](contents/03_discovering_js.md)
+4. [Arrays and functions](contents/04_arrays.md)
+5. [Testing with Jest](contents/05_testing_with_jest.md)
+6. [Classes](contents/06_classes.md)
+7. [Challenge: Building a Thermostat](contents/07_thermostat.md)
+8. [Challenge: Building a Thermostat](contents/08_thermostat_ui.md)
+9. [Asynchronous JS](contents/09_async.md)
+10. [Calling remote APIs](contents/10_calling_apis.md)
+11. [Challenge: Building a Thermostat](contents/11_weather_api.md)
+12. [Challenge (stretch): Thermostat Web server](contents/12_thermostat_web.md)
 
-## Practicals
+## Practicals and other resources
  * [Learning a new language by translation](https://hackmd.io/kMNgXiPHQf2Q_P9A-tnS9A)
  * [Explore asynchronicity in JavaScript with callback functions](./practicals/callbacks)
+ * [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
  * [Manipulating functions](./practicals/functions)
  * [Closures](https://hackmd.io/cIFsMAqISHqVHN_-p9hY0Q)
  * [Stretch — build a web server with JavaScript](./practicals/web-server)
@@ -51,7 +52,13 @@ build a more complex coding challenge using all of those new concepts.
 
 ## Resources
 
-* [Technical Learning Resources](https://airtable.com/shrbaXgV5mQnsvuGe/tblokmw6yNUO75ge6?blocks=hide)
+* [The function keyword in JS](https://github.com/makersacademy/course/blob/main/pills/js_functions.md)
+* [JavaScript versions - ES6 and before](https://www.codecademy.com/articles/javascript-versions)
+* [Testing with Jest (video)](https://www.youtube.com/watch?v=8gHEv5iNRKk)
+* [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
+* [Understanding Jest
+  mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+* [Build a simple web server with express](https://expressjs.com/en/starter/hello-world.html)
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
