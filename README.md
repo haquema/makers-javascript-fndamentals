@@ -44,6 +44,7 @@ build a more complex coding challenge using all of those new concepts.
  * [Manipulating functions](./practicals/functions)
  * [Closures](https://hackmd.io/cIFsMAqISHqVHN_-p9hY0Q)
  * [Stretch — build a web server with JavaScript](./practicals/web-server)
+ * [Technical learning resources](https://airtable.com/shrgYePUbXMJBSZQW/tblokmw6yNUO75ge6)
 
 ## Workshops
 

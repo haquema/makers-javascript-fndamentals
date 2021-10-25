@@ -6,11 +6,26 @@
  * Understand how asynchronous behaviour is different from synchronous
  * Follow the flow of control to help you understand how callbacks work.
 
+## Intro
+
+Opening [Github's homepage](https://github.com/), we can notice some sections of the page — like the activity feed — are still loading "in the background" when the page is shown.
+
+We can simulate this delay with the following function:
+
+```js
+const fetchActivityFeed = () => {
+  // execute code after 2 seconds
+  setTimeout(() => {
+    console.log('feed loaded');
+  }, 2000);
+}
+```
+
+This is called *asynchronous* programming — we execute some code *when* something else happens. In the above example, "something else" is simply a timer, but for a real example (like Github's homepage), it can be "as soon as an HTTP request is received".
+
+This workshop intends to develop an intuition for asynchronous behaviour, how it differs from classic, "blocking" programming, and how callbacks work in JS.
+
 ## Instructions
-
-### High level goal for the week
-
-At a high level, this week is about building the skills that let you learn a new language and its patterns.  In this workshop, you'll practice following the flow of control to understand the callbacks JavaScript pattern.
 
 ### Following the flow of control
 
