@@ -21,7 +21,7 @@ You are helping your friend, who owns a candies business, with their ecommerce w
 Your friend would like to create batches of five order IDs to make the processing of deliveries simpler, rather than handling IDs one by one. They ask you if you could give a hand and write a small program to do this.
 
 To complete this exercise you will have to find out:
- * how to add elements to an array
+ * how to [add elements to an array with the `.concat` method](https://www.samanthaming.com/tidbits/87-5-ways-to-append-item-to-array/)
  * how to get the length of an array
 
 ### Questions
@@ -91,8 +91,6 @@ Once your function is written, you should be able to type the following code and
 > filterLongNumbers([])
 [ ]
 ```
-
-2. Bonus: modify `filterLongNumbers` so it accepts a second argument, which is the maximum length to allow for phone numbers (we currently hardcoded this at 10).
 
 ## Exercise - personalised messages
 

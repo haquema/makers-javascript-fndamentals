@@ -25,6 +25,8 @@ When running the program, the counter should be at 5 after about 5 seconds, at 1
 
 ## Exercise 3 - returning a value
 
+***Troubleshooting**: If the cats API used in the exercise below is not working or responding, you can use this Github API endpoint to get the list of repos from the Makers organisation: https://api.github.com/orgs/makersacademy/repos*
+
 To complete the following exercise, you'll have to:
  * Use the `got` NPM package
 
@@ -70,7 +72,6 @@ response = fetchCatFacts((response) => {
 ```
 
 5. Make a diagram of the different steps that happen in this exercise. 
-
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
