@@ -50,12 +50,12 @@ Once your function is written, you should be able to type the following code and
 Your friend now wants to launch a special promotion for a given list of loyal customers, and send an SMS to that list. They give you a long list of phone numbers so you can create a small program to text them about that promotion. However, when running the first version of your program, you notice something is not quite right: some lines in the file are not phone numbers, but some corrupted data:
 
 ```
-17636873642
-47636873634
-78678678623
+1763687364
+4763687363
+7867867862
 AAAA#####AAAA#87@768767382672  <-- not a phone number!
-47636873634
-47636873638
+4763687363
+4763687363
 (...)
 ```
 
@@ -76,17 +76,17 @@ Once your function is written, you should be able to type the following code and
 
 ```javascript
 > const numbers = [
-  '17636873642',
-  '47636873634',
-  '78678678623',
+  '1763687364',
+  '4763687363',
+  '7867867862',
   'aaaaaaaabbbbbbbcccccdddddddd' // this element should be filtered
 ];
 
 > filterLongNumbers(numbers);
-[ '17636873642', '47636873634', '78678678623' ]
+[ '1763687364', '4763687363', '7867867862' ]
 
-> filterLongNumbers(['47636873634', '78678678623']); // no number to filter out
-[ '47636873634', '78678678623' ]
+> filterLongNumbers(['4763687363', '7867867862']); // no number to filter out
+[ '4763687363', '7867867862' ]
 
 > filterLongNumbers([])
 [ ]
