@@ -65,7 +65,11 @@ You should now have something that looks like this:
 }
 ```
 
-We're going to install our first package: `jest`. We'll use it to run unit tests for our JS code. To install it, run `npm install jest` inside the project directory.
+We're going to install our first package: `jest`. We'll use it to run unit tests for our JS code.
+
+To install it, run `npm install -g jest`. The `-g` option installs Jest "globally", so we can later run tests in a given project using the command `jest` — this will make our life easier.
+
+We *also* need to run `npm install jest` *inside the project directory*.
 
 This tells the node package manager (npm) that we are going to use Jest in this project, and to download the code for the 'Jest' package. It saves this code in the `node_modules` folder. This folder can get very big, so if you are planning on committing this project, you should add `node_modules` to your `.gitignore` file before you do. It also allows us to use the jest command when we are in this folder.
 
