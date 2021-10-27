@@ -27,6 +27,8 @@ This workshop intends to develop an intuition for asynchronous behaviour, how it
 
 ## Instructions
 
+Copy the contents of this directory (or [download the zip file here](exercise.zip)) and run `npm install` to install dependencies.
+
 ### Following the flow of control
 
 Imagine you want to follow the flow of control in this code. That is, you want to understand what parts run and in what order they run. Consider this example taken from the file `index.js`:
@@ -37,7 +39,7 @@ rl.question('What is the secret word? ', (answer) => {
 });
 ```
 
-1. Before running the code with `node`, add some `console.log`s.  Log `console.log(1)` in the bit of code you think will get run first, `console.log(2)` in the bit of code you think will get run second, and so on. For example:
+1. Before running the code with `node index.js`, add some `console.log`s.  Log `console.log(1)` in the bit of code you think will get run first, `console.log(2)` in the bit of code you think will get run second, and so on. For example:
 
 ```js
 console.log(1);
@@ -55,7 +57,7 @@ console.log(4);
 
 3. If your prediction is incorrect, examine the code and experiment with it to try to figure out why. Once you have more information, update your `console.log`s to reflect your prediction and return to step 2.
 
-#### Following the flow fast
+### Following the flow fast
 
 A developer constantly analyses the flow of control of their code.  Keep trying to improve this skill.  The more adept you are at reading the flow of control without running the code, the faster you'll be.  Build this intuition by making predictions and checking if your prediction is right.
 
@@ -69,7 +71,7 @@ rl.question('What is the secret word? ', (answer) => {
 });
 ```
 
-### Work through the questions (40 mins)
+## Work through the questions (40 mins)
 
 * Pair up.
 
@@ -89,7 +91,7 @@ rl.question('What is the secret word? ', (answer) => {
 
 * Swap driver and navigator. Continue with the next question.
 
-## Questions
+### Questions
 
 Follow the process for understanding the flow of control that we used in the demo. Some of the examples below also have additional questions to answer with your pair partner(s).
 
@@ -158,6 +160,7 @@ We'll come back together for a short plenary to discuss our understanding of fol
 
 ## Resources
 
+* [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
 * [JavaScript event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 * [Callbacks explained with examples and links to other resources](https://www.sandersdenardi.com/understanding-javascript-callbacks/)
 * [Callbacks tutorial](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
