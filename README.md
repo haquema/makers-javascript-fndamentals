@@ -31,7 +31,7 @@ build a more complex coding challenge using all of those new concepts.
 5. [Testing with Jest](contents/05_testing_with_jest.md)
 6. [Classes](contents/06_classes.md)
 7. [Challenge: Building a Thermostat](contents/07_thermostat.md)
-8. [Challenge: Building a Thermostat](contents/08_thermostat_ui.md)
+8. [Challenge: Building a Thermostat](contents/08_thermostat_cli.md)
 9. [Asynchronous JS](contents/09_async.md)
 10. [Calling remote APIs](contents/10_calling_apis.md)
 11. [Challenge: Building a Thermostat](contents/11_weather_api.md)
