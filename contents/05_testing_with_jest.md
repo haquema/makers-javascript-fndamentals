@@ -230,19 +230,19 @@ Fizz
 You're now ready to write tests for the function at the beginning of the file. You can save it to a file called `searchCandies.js` and write the test file as `searchCandies.test.js`. You may use the acceptance criteria for this function to write the Jest test cases:
 
 ```javascript
-> searchCandies('Ma', 10);
-[ 'Mars', 'Maltesers' ]
+> searchCandies('Ma', 10).sort(); // using sort so the order of values is not random
+[ 'Maltesers', 'Mars' ]
 
-> searchCandies('Ma', 2); // Maltesers excluded: it's more than 2
+> searchCandies('Ma', 2).sort(); // Maltesers excluded: it's more than 2
 [ 'Mars' ]
 
-> searchCandies('S', 10); 
+> searchCandies('S', 10).sort(); 
 [ 'Skitties', 'Skittles', 'Starburst' ]
 
-> searchCandies('S', 4); 
+> searchCandies('S', 4).sort(); 
 [ 'Skitties', 'Skittles' ] // Starbust excluded: it's more than 4
 
-> searchCandies('s', 4); 
+> searchCandies('s', 4).sort(); 
 [ 'Skitties', 'Skittles' ] // works with lowercase search prefix too
 ```
 

@@ -159,7 +159,7 @@ We can start to see some interesting things in here. The `main` object is probab
 21.3 // this will be different for you depending on the actual weather data returned by the server
 ```
 
-4. Modify the tests in `thermostat.test.js` so the `Weather` class is mocked, perhaps using something like [Jest mocks](https://jestjs.io/docs/es6-class-mocks#the-4-ways-to-create-an-es6-class-mock).
+4. Modify the tests in `thermostat.test.js` so the `Weather` object is mocked.
 
 
 

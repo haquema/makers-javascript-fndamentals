@@ -1,6 +1,5 @@
 const readline = require('readline');
 const got = require('got');
-const { exec } = require('child_process');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,13 +8,8 @@ const rl = readline.createInterface({
 
 //  ----- Do not touch anything above this line! ;-) --------
 
-const executeAfterDelay = (callback) => {
-  setTimeout(() => {
-    let result = 2 + 2;
-    callback(result);
-  }, 2000);
-}
 
-executeAfterDelay((result) => {
-  console.log(result);
+
+rl.question('What is the secret word? ', (answer) => {
+  console.log(`Thanks for entering the secret word: ${answer}. You can go on.`);
 });

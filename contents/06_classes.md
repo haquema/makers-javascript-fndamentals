@@ -110,7 +110,7 @@ To complete this exercise, you'll have to:
   * use `npm init` and `npm install` to setup a project directory and install Jest.
   * write Jest tests cases for a class.
   * declare a class and its methods.
-  * use [Jest mocks](https://jestjs.io/docs/es6-class-mocks#automatic-mock) to mock one class in unit tests.
+  * use a JS object as a "double" or mock.
   * [use `let` rather than `const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) to make a variable able to change.
 
 We're going to test-drive and implement the two classes `Candy` and `ShoppingBasket` so we can execute the following code:
@@ -139,12 +139,33 @@ We're going to test-drive and implement the two classes `Candy` and `ShoppingBas
 12.97
 ```
 
+### A note about mocking
+
+JavaScript is a dynamically typed language, which means we can create mocks using simple "placeholder" JS objects — similar to how doubles work in RSpec, for example.
+
+If what we want from a mock is only to get a predictable return value from a method, then a simple JS  object can also act as a double or mock for something else — let's say, as an example, that we want to mock the native `String` class:
+
+```js
+const name = "James"; // a string
+name.length(); // 5
+
+// let's now mock .length()
+// the following object has one property .name,
+// which is just a function that returns 3
+
+const nameDouble = { length: () => 3 };
+
+// so we can call nameDouble.length()
+// which means it's a drop-in replacement for "real" String object,
+// *as long as we only want* to use .length() on it.
+```
+
 ### Questions:
 
 1. Setup the project directory and install Jest.
 2. Test-drive and implement the `Candy` class (test file should be `candy.test.js`).
 3. Test-drive and implement the `ShoppingBasket` class (test file should be `shoppingBasket.test.js`).
-4. Our class `ShoppingBasket` depends on the `Candy` class, we need to properly isolate it in our unit tests — [mock the `Candy` class](https://jestjs.io/docs/es6-class-mocks#automatic-mock) inside the test file `shoppingBasket.test.js`.
+4. Our class `ShoppingBasket` depends on the `Candy` class (because it calls a method or property from this class). We need to properly isolate it in our unit tests — use a JS object as a "mock" as explained above.
 
 ## Exercise - debugging
 

@@ -60,13 +60,13 @@ $ curl -XGET http://localhost:3000/message
 { "message": "" }
 
 
-$ curl -XPOST http://localhost:3000/message -H 'content-type: application/json` -d '{ "message": "Hello, Makers" }'
+$ curl -XPOST http://localhost:3000/message -H 'content-type: application/json' -d '{ "message": "Hello, Makers" }'
 
 
 $ curl -XGET http://localhost:3000/message 
 { "message": "Hello, Makers" }
 
-$ curl -XPOST http://localhost:3000/message -H 'content-type: application/json` -d '{ "message": "Good bye!" }'
+$ curl -XPOST http://localhost:3000/message -H 'content-type: application/json' -d '{ "message": "Good bye!" }'
 
 $ curl -XGET http://localhost:3000/message 
 { "message": "Good bye!" }

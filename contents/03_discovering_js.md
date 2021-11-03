@@ -114,7 +114,7 @@ const add = (a, b) => {
 
 ## Exercise: shorthand syntax
 
-The previous functions `add` and `multiply` are simple enough that [they can be rewritten using a shorthand syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#:~:text=//%202.%20Remove%20the%20body%20braces%20and%20word%20%22return%22%20--%20the%20return%20is%20implied.): modify the code so those two functions do not use the `return` keyword (and do not need curly brackets `{` and `}` as well), but still work as expected.
+The previous functions `add` and `multiply` are simple enough that [they can be rewritten using a shorthand syntax](https://www.javascripttutorial.net/es6/javascript-arrow-function/): modify the code so those two functions do not use the `return` keyword (and do not need curly brackets `{` and `}` as well), but still work as expected.
 
 ## Exercise: a more complex function
 
