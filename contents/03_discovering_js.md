@@ -56,7 +56,7 @@ console.log(sayHello);
 'Hello Sarah'
 ```
 
-4. Bonus: can you find another way to write the `sayHello` function, without using the sign `+` to concatenate the strings?
+4. Bonus: can you find another way to write the `sayHello` function, [without using the sign `+` to concatenate the strings?](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#syntax)
 
 When you've completed the exercises above, you can reveal the solution:
 
@@ -112,6 +112,24 @@ const add = (a, b) => {
 
 4. Using the functions `add` and `multiply`, write the code that calculate and print the following: `2 * (4 + 4)`. You should get the correct result (16).
 
+<details>
+<summary>Reveal solution</summary>
+
+```javascript
+const add = (a, b) => {
+  return a + b;
+}
+
+const multiply = (a, b) => {
+  return a * b;
+}
+
+console.log(multiply(2, add(4, 4)));
+```
+
+</details>
+
+
 ## Exercise: shorthand syntax
 
 The previous functions `add` and `multiply` are simple enough that [they can be rewritten using a shorthand syntax](https://www.javascripttutorial.net/es6/javascript-arrow-function/): modify the code so those two functions do not use the `return` keyword (and do not need curly brackets `{` and `}` as well), but still work as expected.
@@ -135,45 +153,24 @@ To complete the following, you will have to:
 'negative'
 ```
 
-2. Modify the function so it returns the string 'invalid number' if the given value is not a number. Hint: you might want to use [the strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality)
-
-```javascript
-> getNumberSign('2');
-'invalid number'
-```
-
 *Note*: in all the following examples, we'll use the strict equality operator `===` (instead of `==`), as it can prevent some bugs, and is viewed as one of the best practices in the JavaScript community. In your code, you should ideally use `===` as well when doing comparisons (unless you have a good reason not to!).
 
-## Exercise: functions and variables
-
-<!-- OMITTED -->
+<details>
+<summary>Reveal solution</summary>
 
 ```javascript
-const sayHello = () => {
-  return 'Hello!';
+const getNumberSign = (number) => {
+  if (number === 0) { // we use '===' instead of '=='
+    return 'zero';
+  } else if (number > 0) {
+    return 'positive';
+  } else {
+    return 'negative';
+  }
 }
-
-console.log(sayHello);
 ```
-1. What does the previous code print?
 
-2. Now modify this example by adding the following code:
-```javascript
-const greet = sayHello;
-console.log(greet);
-```
-What is printed? 
-
-3. What will be the result of calling the `greet` function? Is it the same as calling `sayHello`?
-4. What can you say about the relationship between those two functions?
-5. Discuss with your pair (or yourself) - in JavaScript, do you think a function can also be a variable? Explain why. How is that different from another programming language you might already know?
-
-
-## Exercise
-
-1. In a file named `longest.js`, write a function `findLongest` that takes an array of names and returns the longest of them.
-2. In the same file, use `console.log` to print out the result of calling this function with a few names.
-3. Run this file with the command line. If done right, you should see the value of the longest name printed.
+</details>
 
 ## Exercise: code review
 
@@ -209,14 +206,15 @@ To complete this exercise you'll need to:
  * Use conditionals.
  * Use the modulo operator `%` to calculate the reminder of a division.
  * Use `console.log` to print values to the terminal.
+ * Use [a for loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration).
 
 1. Write a `fizzBuzz` function in JavaScript. As a reminder, this function should take a number as argument, and then either:
   * Return "Fizz" if this number is divisible by 3.
   * Return "Buzz" if this number is divisible by 5.
-  * Return "FizzBuzz" if this number is divisible by 5 and 3.
+  * Return "FizzBuzz" if this number is divisible by *both* 5 and 3.
   * Otherwise, Return the number itself.
 
-2. Iterate through numbers from 1 to 50 and print out the string `'Fizzbuzz result for X is Y'` (where X is the number, and Y the result of calling the `fizzBuzz` function with this number).
+2. [Using a for loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration), iterate through numbers from 1 to 50 and print out the string `'Fizzbuzz result for X is Y'` (where X is the number, and Y the result of calling the `fizzBuzz` function with this number).
 
 If your code is correct, you should get the following output:
 
@@ -232,9 +230,36 @@ Fizzbuzz result for 8 is 8
 Fizzbuzz result for 9 is Fizz
 Fizzbuzz result for 10 is Buzz
 (...)
+Fizzbuzz result for 15 is FizzBuzz
+(...)
 ```
 
-## Exercise (stretch) — passing functions
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const fizzBuzz = (number) => {
+  if (number % 3 === 0 && number % 5 === 0) {
+    return 'FizzBuzz';
+  } else if (number % 3 === 0) {
+    return 'Fizz';
+  } else if (number % 5 === 0) {
+    return 'Buzz';
+  } else {
+    return number;
+  }
+}
+
+for (let i = 1 ; i <= 50 ; i++) {
+  console.log(`Fizzbuzz result for ${i} is ${fizzBuzz(i)}`);
+}
+```
+
+</details>
+
+## Exercise — passing functions
+
+<!-- OMITTED -->
 
 You've previously learned how to declare a function, and you've also seen that a function can be assigned just like a variable. To complete this exercise, you'll have to pass a function *as an argument* to another function.
 
@@ -242,8 +267,29 @@ You've previously learned how to declare a function, and you've also seen that a
 2. Declare a function `notifyByText` that accepts a phone number (as a string) as argument and returns the string `'Text sent to: <PHONE NUMBER>'`.
 3. Now declare a generic function `notify` that accepts a first string argument (either an email or a phone), and *the function to use* in second argument. This function should only rely on calling the function passed in second argument, not declare a string by itself.
 4. Use the function `notify` with the two previous functions to:
-    * send an email and get the expected output.
-    * send a text and get the expected output.
+    * send an email to `hello@makers.tech.test` and get the expected output.
+    * send a text to `+10000000000` and get the expected output.
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const notifyByEmail = (email) => {
+  return `Email sent to: ${email}`;
+}
+
+const notifyByText = (phoneNumber) => {
+  return `Text sent to: ${phoneNumber}`;
+}
+
+const notify = (emailOrPhone, notifyFunction) => {
+  return notifyFunction(emailOrPhone);
+}
+
+console.log(notify('hello@makers.tech.test', notifyByEmail));
+console.log(notify('+10000000000', notifyByText));
+```
+</details>
 
 ## A note about syntax
 

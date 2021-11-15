@@ -62,6 +62,46 @@ module.exports = User;
 const User = require('./user');
 ```
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+1. Contents of `user.js`:
+```javascript
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  getIntroduction() {
+    return `Hi, my name is ${this.name}`;
+  }
+}
+
+module.exports = User;
+```
+
+2. Contents of `user.test.js`:
+```javascript
+const User = require('./user');
+
+describe('User class', () => {
+  it('gets name', () => {
+    const user = new User('Uma');
+    expect(user.getName()).toBe('Uma');
+  });
+
+  it('gets introduction', () => {
+    const user = new User('Uma');
+    expect(user.getIntroduction()).toBe('Hi, my name is Uma');
+  });
+});
+```
+</details>
+
 ## Exercise - a class using a class
 
 Given the following *array* of `User` instances (the class from the previous exercise):

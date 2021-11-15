@@ -26,7 +26,7 @@ To complete this exercise you will have to find out:
 
 ### Questions
 
-1. Declare a function `addToBatch` that takes two arguments, an *array* and *a number*, and returns a *new array* by adding the number to the array — the original array passed in argument should left untouched.
+1. Declare a function `addToBatch` that takes two arguments, an *array* and *a number*, and returns a *new array* by adding the number to the array.
 2. Now, make sure this function *does not* add the number *if the array's length is already greater than 5* — it should just return the array untouched in that case.
 
 Once your function is written, you should be able to type the following code and have the exact same output:
@@ -44,6 +44,21 @@ Once your function is written, you should be able to type the following code and
 > addToBatch([1, 2, 3, 4, 5, 6], 7); 
 [ 1, 2, 3, 4, 5, 6 ]
 ```
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const addToBatch = (array, number) => {
+  if (array.length > 5) {
+    return array;
+  }
+
+  return array.concat(number);
+}
+```
+
+</details>
 
 ## Exercise - phone numbers
 
@@ -92,6 +107,20 @@ Once your function is written, you should be able to type the following code and
 [ ]
 ```
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const checkLength = (phoneNumber) => {
+  return phoneNumber.length <= 10;
+}
+
+const filterLongNumbers = (phoneNumbers) => {
+  return phoneNumbers.filter(checkLength);
+}
+```
+</details>
+
 ## Exercise - personalised messages
 
 Your friend now would you like to also generate a personalised message for the SMS promotion. Along with the phone numbers, you also now have a list of names:
@@ -121,6 +150,18 @@ Once your function is written, you should be able to type the following code and
   'Hi Karla! 50% off our best candies for you today!'
 ]
 ```
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const generateMessages = (names) => {
+  return names.map(name => {
+    return `Hi ${name}! 50% off our best candies for you today!`;
+  });
+}
+```
+</details>
 
 ## Exercise - personalised messages 2.0
 
@@ -164,6 +205,20 @@ Once your function is written, you should be able to type the following code and
 ]
 ```
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const generateMessages = (namesAndDiscounts) => {
+  return namesAndDiscounts.map(nameAndDiscount => {
+    const name = nameAndDiscount[0];
+    const discount = nameAndDiscount[1];
+    return `Hi ${name}! ${discount}% off our best candies for you today!`;
+  });
+}
+```
+</details>
+
 ## A world of functions
 
 You might have written some code similar to this in the previous exercises:
@@ -174,13 +229,19 @@ const isLengthValid = (number) => {
 }
 
 numbers.filter(isLengthValid);
+
+// Or, alternatively, the shorter version:
+
+numbers.filter((number) => {
+  return number.length <= 10;
+});
 ```
 
-The `filter` function will call `isLengthValid` for each phone number in the array `numbers`. You can notice `isLengthValid` is a function, but so is `filter` - we've given one function as an argument to another function.
+The `filter` function will call `isLengthValid` (or the given anonymous function, in case of the alternative) for each phone number in the array `numbers`. You can notice `isLengthValid` is a function, but so is `filter` - we've given one function as an argument to another function.
 
 In JavaScript, this concept is very powerful - you might read about it in the terms of "higher-order functions". A *higher-order function* is a function that, like `filter`, `map` or `forEach`, takes another function in its arguments in order to do its work.
 
-Remember that in JavaScript, functions are considered as values of their own kind, like numbers, strings or arrays. Hence we can give functions to other functions.
+Remember that in JavaScript, functions are considered as values in their own right, just like numbers, strings or arrays. Hence we can give functions to other functions.
 
 ## Exercise - a search engine for candies
 
@@ -225,6 +286,25 @@ Once your function is written, you should be able to type the following code and
 > searchCandies('ma', 10);
 [ 'Mars', 'Maltesers' ]
 ```
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const candies = [['Aero', 1.99], ['Skitties', 2.99], ['Maltesers', 3.49], ['Mars', 1.49], ['Skittles', 1.49], ['Starburst', 5.99], ['Ricola', 1.99], ['Polkagris', 5.99], ['Pastila', 4.99], ['Mentos', 8.99], ['Raffaello', 7.99], ['Gummi bears', 10.99], ['Fraise Tagada', 5.99]];
+
+const searchCandies = (searchPrefix, maxPrice) => {
+  return candies
+    .filter(candy => {
+      return candy[0].toLowerCase().startsWith(
+        searchPrefix.toLowerCase()
+      );
+    }).filter(candy => {
+      return candy[1] <= maxPrice;
+    }).map(candy => candy[0]);
+}
+```
+</details>
 
 ### A note on scope
 

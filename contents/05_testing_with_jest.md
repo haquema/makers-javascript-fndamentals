@@ -151,6 +151,30 @@ Something doesn't seem right. Jest doesn't seem to know about our `add` function
 
 4. Have a look at [the first example from Jest's documentation](https://jestjs.io/docs/getting-started) — write the missing code so our function `add` is defined in our tests.
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+1. Contents of `add.js`:
+```javascript
+const add = (a, b) => {
+  return a + b;
+}
+
+module.exports = add;
+```
+
+2. Contents of `add.test.js`:
+```javascript
+const add = require('./add');
+
+describe('add', () => {
+  it('adds 2 and 2', () => {
+    expect(add(2, 2)).toBe(4);
+  });
+});
+```
+</details>
+
 ## The missing export
 
 In the previous exercise, we needed a way to `require` our function in our test file. In JavaScript, this is done using something called `module.exports` and `require`. Those two things are the two halves of the solution - here's how we use it to "export" a function and "require" it from another file:
@@ -195,35 +219,35 @@ Here's our acceptance criteria for this function:
  * it should just return the number the number is otherwise
 
 1. Initialise a new project directory with a `package.json` file and install Jest.
-2. Write one test case for each acceptance criteria above, using one `it` block for each, and matchers to test the function's return value.
+2. In a file `fizzbuzz.test.js`, Write one test case for each acceptance criteria above, using one `it` block for each, and matchers to test the function's return value.
 3. Write the `fizzBuzz` function in the file `fizzbuzz.js` to the four tests pass.
-4. Modify the file `fizzbuzz.js` so, when run from the command line, it prints the result of calling the `fizzBuzz` function for the numbers from 1 to 50 (hint: you can use [a `for` loop to do this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)).
 
-If you've done everything correctly, you should see something resembling the following output:
+<details>
+<summary>Reveal suggested solution</summary>
 
+Contents of `fizzbuzz.test.js`:
+```javascript
+const fizzBuzz = require('./fizzbuzz');
+
+describe('fizzBuzz', () => {
+  it('returns Fizz when number is 3', () => {
+    expect(fizzBuzz(3)).toBe('Fizz');
+  });
+
+  it('returns Buzz when number is 5', () => {
+    expect(fizzBuzz(5)).toBe('Buzz');
+  });
+
+  it('returns FizzBuzz when number is 5', () => {
+    expect(fizzBuzz(15)).toBe('FizzBuzz');
+  });
+
+  it('returns the number when otherwise', () => {
+    expect(fizzBuzz(2)).toBe(2);
+  });
+});
 ```
-$ node fizzbuzz.js
-
-1
-2
-Fizz
-4
-Buzz
-Fizz
-7
-8
-Fizz
-Buzz
-11
-Fizz
-13
-14
-FizzBuzz
-16
-17
-Fizz
-...
-```
+</details>
 
 ## Exercise — testing the `searchCandies` function
 

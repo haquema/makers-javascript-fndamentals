@@ -40,6 +40,18 @@ candies loaded
 
 Note: the function passed in argument to `setTimeout`, that prints the message, is called a *callback function*. It is called like this simply because it is "called back" at a later point in the execution of the program (in that case, after 2 seconds).
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const fetchCandiesFromDatabase = () => {
+  setTimeout(() => {
+    console.log('candies loaded');
+  }, 2000);
+}
+```
+</details>
+
 ## Exercise - getting back the candies
 
 Printing a message is not really useful, let's add an array of candies that we can return, to represent the data fetched from the DB — we'll write its name in uppercase, to denote it represents our "database", and differentiate it from other variables:
@@ -54,27 +66,33 @@ const fetchCandiesFromDatabase = () => {
 
 ### Questions
 
-1. Modify the function `fetchCandiesFromDatabase` so it returns (immediately) the `CANDIES_DB` array. Running the function in the `node` REPL should yield the following output in the terminal:
+1. Modify the function `fetchCandiesFromDatabase` so, instead of just logging something, it *returns* the `CANDIES_DB` array after 2 seconds.
+
+<details>
+<summary>Reveal suggested solution</summary>
 
 ```javascript
-> fetchCandiesFromDatabase();
-[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
+const CANDIES_DB = ['Mars', 'Maltesers', 'Skittles', 'Fraise Tagada'];
+
+const fetchCandiesFromDatabase = () => {
+  setTimeout(() => {
+    return CANDIES_DB;
+  }, 2000);
+}
 ```
+</details>
 
-2. Now modify the function so it returns the `CANDIES_DB` array *after 2 seconds* (like when printing the message in the previous exercise). What does the function return, this time?
-
-```javascript
-> const result = fetchCandiesFromDatabase();
-undefined
-> result;
-undefined
-```
-
-Our function seems to return `undefined`, and we have no sign of our candies, even when waiting 2 seconds. Is there no way of returning values that are available after some time?
+If we try to call it using `fetchCandiesFromDatabase()`, our function seems to return `undefined`, and we have no sign of our candies, even when waiting 2 seconds. Is there no way of returning values that are available after some time?
 
 ## Exercise - returning values
 
-In short, it's not possible to return values from a *callback function* the same way as for "normal" functions, using `return`. That is because, in the example above, `result` is assigned right after `fetchCandiesFromDatabase` is executed. But, at that point (about zero second after the program starts), the callback in `setTimeout` has not executed yet - it will only execute 2 seconds later.
+Let's have a closer look at why the previous example doesn't work as expected:
+
+```javascript
+const result = fetchCandiesFromDatabase();
+```
+
+In short, it's not possible to return values from a function used as a *callback* the same way as for "normal" functions, using `return`. That is because, in the example above, `result` is assigned right after `fetchCandiesFromDatabase` is executed. But, at that point (about zero second after the program starts), the callback in `setTimeout` has not executed yet - it will only execute 2 seconds later.
 
 So `result` can never get the value returned by `fetchCandiesFromDatabase` - it cannot get a value from the future! Our candies are, in a way, lost (sad, isn't it). This is shown on the diagram below:
 
@@ -95,59 +113,24 @@ Remember that, in JavaScript, functions can be treated as regular values — the
 
 > fetchCandiesFromDatabase(handleResult);
 
-// 2 seconds should lapse
-
+// 2 seconds should now lapse before this is printed:
 [ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
 ```
 
-## Exercise - adding a candy
-
-We now have a function that fetches candies from a database — or at least, pretends to do so. What if we'd like to add a new candy to the array?
-
-### Questions
-
-1. Implement a function `addCandy` that takes a candy name in argument, and *adds* it to the `CANDIES_DB` array, *3 seconds after the function is called*. Calling this function in the REPL should yield the following output:
-
-2. Modify the function so it accepts a callback function as a second argument, and calls it *after* the new candy is added. Calling this function in the REPL should yield the following output:
+<details>
+<summary>Reveal suggested solution</summary>
 
 ```javascript
-> const onAddCandyCompleted = () => {
-  console.log('candy added');
+const CANDIES_DB = ['Mars', 'Maltesers', 'Skittles', 'Fraise Tagada'];
+
+// handleResultCallback is given as argument, and our function *calls it back* with the data
+const fetchCandiesFromDatabase = (handleResultCallback) => {
+  setTimeout(() => {
+    handleResultCallback(CANDIES_DB);
+  }, 2000);
 }
-
-> addCandy('Raffaello', onAddCandyCompleted);
-
-> CANDIES_DB; // should be the same as before
-[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
-
-// wait 3 seconds — the message should appear, and CANDY_DB should have the new value
-
-candy added
-
-> CANDIES_DB;
-[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada', 'Raffaello' ]
 ```
-
-3. Write a function `addCandyThenFetchCandies` that does those things in order: adds a new candy, then only when it is added, returns the value of all candies using a callback. To complete this, you will need to:
-    * call `addCandy` and `fetchCandiesFromDatabase` inside this function.
-    * use two callbacks
-
-Remember to indent your code properly, otherwise it might be harder to spot mistakes, especially when dealing with callbacks! Calling this function in the REPL should yield the following output:
-
-```javascript
-> CANDY_DB;
-[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada' ]
-
-> const handleCandiesList = (newCandiesList) => {
-  console.log(newCandiesList);
-}
-
-> addCandyThenFetchCandies('Raffaello', handleCandiesList);
-
-// *5 SECONDS* should now lapse before printing
-
-[ 'Mars', 'Maltesers', 'Skittles', 'Fraise Tagada', 'Raffaello' ]
-```
+</details>
 
 ## Exercise: asynchronous user input
 
@@ -168,6 +151,24 @@ There is a version of the `readline-sync` gem, [simply named `readline`](https:/
 
 1. After looking at the documentation for the `readline` package, re-implement the program that asks a user for their name and print "Your name is [name]", using `readline` instead of `readline-sync`.
 2. In which order do the different steps of the program happen? How is it different from the version using `readline-sync`?
+
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question("What is your name ", (answer) => {
+  console.log(`Your name is ${answer}`);
+
+  rl.close();
+});
+```
+</details>
 
 ## Exercise: debugging
 

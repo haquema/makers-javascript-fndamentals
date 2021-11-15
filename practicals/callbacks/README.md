@@ -21,7 +21,7 @@ To complete the following exercise, you'll have to:
 
 In a file `index.js`, declare a variable `counter` initialised to 0, and a function `incrementCounter` that... increments that counter value by 1. Then, use the native `setInterval` function to call `incrementCounter` every second.
 
-When running the program, the counter should be at 5 after about 5 seconds, at 10 after about 10 seconds, etc. Use `console.log` to verify that your code is working.
+When running the program, the counter should be at 5 after about 5 seconds, at 10 after about 10 seconds, etc. You can use `console.log` inside the function given to `setInterval` to verify that your code is working.
 
 ## Exercise 3 - returning a value
 
@@ -66,12 +66,26 @@ console.log(response);
 This is not working though. Modify the function `fetchCatFacts` so it accepts a function in argument, that will get called once the response is received. Once this is done, you should be able to call the function in this way:
 
 ```js
-response = fetchCatFacts((response) => {
+fetchCatFacts((response) => {
   console.log(response);
 });
 ```
 
 5. Make a diagram of the different steps that happen in this exercise. 
+
+<details>
+<summary>Reveal suggested solution for the `fetchCatFacts` function</summary>
+
+```javascript
+const got = require('got');
+
+const fetchCatFacts = (callback) => {
+  got('https://cat-fact.herokuapp.com/facts').then(response => {
+    callback(response);
+  });
+}
+```
+</details>
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 

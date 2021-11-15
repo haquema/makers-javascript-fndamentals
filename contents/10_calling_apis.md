@@ -8,7 +8,7 @@
  * Use a library to request data from an API.
  * Use a callback function to handle response from an API.
 
-## Objects intermezzo
+## Reminder about JS objects
 
 Remember that an "object" is, in JavaScript, a data structure composed of key-value pairs (also called in other languages a "map" or "hash"):
 
@@ -66,13 +66,15 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 ```
 
 1. Describe the previous program and the order in which things are happening. When will execute the function `handleReceivedResponse`? Is this behaviour *synchronous* or *asynchronous*?
-2. Run the program to verify your assumptions. 
-3. How would you qualify the function `handleReceivedResponse`?
+2. Run the program to verify your assumptions.
 
 If you've run the program above, you'll see we received the same data seen previously on the browser. Good! However it's a bit messy and hard to read. What we can do is *convert* the string data into a JavaScript *object* so it is formatted properly. We can do this using `JSON.parse`:
 
 ```javascript
-const object_value = JSON.parse(string_value)
+const stringValue = '{ "name": "John" }';
+const objectValue = JSON.parse(stringValue);
+
+console.log(objectValue); // { name: 'John' }
 ```
 
 ## Exercise 
@@ -99,9 +101,24 @@ node github.js
 }
 ```
 
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const got = require('got');
+
+const handleReceivedResponse = (response) => {
+  const responseObject = JSON.parse(response.body);
+  console.log(responseObject);
+}
+
+got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse);
+```
+</details>
+
 ## Exercise: wrapping inside a function
 
-As you might have guessed already, we can skip naming the callback function, and write the same code in a more concise way:
+We can write the previous code in a more concise way, using an anonymous function:
 
 ```javascript
 got('https://api.github.com/repos/sinatra/sinatra').then((response) => {
@@ -109,25 +126,19 @@ got('https://api.github.com/repos/sinatra/sinatra').then((response) => {
 });
 ```
 
-Someone from your cohort has then decided to wrap this whole code into a function,  called `fetchRepoInfo`, so it can be reused for any Github repo. They made the URL dynamic with the repo name, and they `return` the response data from the function, as shown below:
+Someone from your cohort has then decided to wrap this whole snippet into a function, called `fetchRepoInfo`, so it can be reused for any Github repo. They made the URL dynamic with the repo name, as shown below — and we now need a way to "return" or "pass" the response to the function's caller. As you might have guessed, we need to use a callback function.
 ```javascript
 
 const fetchRepoInfo = (repoName) => {
   got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    return response;
+    // send back the response to fetchRepoInfo's caller
   });
 }
 
-const repoResponse = fetchRepoInfo('sinatra/sinatra');
-
-console.log(repoResponse);
+fetchRepoInfo('sinatra/sinatra'); // we want to get back the response here
 ```
 
-However, something doesn't seem right with their code when they run it. The variable `repoResponse` doesn't contain the expected response. Can you see why?
-
-1. Describe the order in which things happen in the code above.
-2. Run the code. What is printed by the call to `console.log`? Is it what you expected? Can you see why this happens? (If you don't, maybe have a fresh look at [the last section about callbacks](6-async.md))
-3. Modify the function `fetchRepoInfo` so it accepts a second argument that is a callback function, and we can call `fetchRepoInfo` this way:
+1. Modify the function `fetchRepoInfo` so it accepts a second argument that is a callback function, and so we can call `fetchRepoInfo` this way:
 
 ```javascript
 fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
@@ -135,11 +146,19 @@ fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
 });
 ```
 
-4. Order those different steps in the order they happen:
-    * The Github API is called
-    * `fetchRepoInfo` is called
-    * the callback function to print out the response is called
-    * the Github API response is received
+<details>
+<summary>Reveal suggested solution</summary>
+
+```javascript
+const got = require('got');
+
+const fetchRepoInfo = (repoName, callback) => {
+  got(`https://api.github.com/repos/${repoName}`).then((response) => {
+    callback(response);
+  });
+}
+```
+</details>
   
 
 

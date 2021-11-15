@@ -22,20 +22,23 @@ build a more complex coding challenge using all of those new concepts.
   programming.
 * Apply a coherent process to learn a new language.
 
-## Sequence
+## Start here - introduction exercises
 
-1. [Getting started](contents/01_getting_started.md)
-2. [Running files](contents/02_running_js_files.md)
-3. [Discovering Javascript](contents/03_discovering_js.md)
-4. [Arrays and functions](contents/04_arrays.md)
-5. [Testing with Jest](contents/05_testing_with_jest.md)
-6. [Classes](contents/06_classes.md)
-7. [Challenge: Building a Thermostat](contents/07_thermostat.md)
-8. [Challenge: Building a Thermostat](contents/08_thermostat_cli.md)
-9. [Asynchronous JS](contents/09_async.md)
-10. [Calling remote APIs](contents/10_calling_apis.md)
-11. [Challenge: Building a Thermostat](contents/11_weather_api.md)
-12. [Challenge (stretch): Thermostat Web server](contents/12_thermostat_web.md)
+1. [Getting started with JavaScript](contents/01_getting_started.md)
+2. [Running JS files](contents/02_running_js_files.md)
+
+## Pairing sequence
+
+1. [Discovering Javascript](contents/03_discovering_js.md)
+2. [Arrays and functions](contents/04_arrays.md)
+3. [Testing with Jest](contents/05_testing_with_jest.md)
+4. [Classes](contents/06_classes.md)
+5. [Challenge: Building a Thermostat](contents/07_thermostat.md)
+6. [Challenge: Building a Thermostat](contents/08_thermostat_cli.md)
+7. [Asynchronous JS](contents/09_async.md)
+8. [Calling remote APIs](contents/10_calling_apis.md)
+9. [Challenge: Building a Thermostat](contents/11_weather_api.md)
+10. [Challenge (stretch): Thermostat Web server](contents/12_thermostat_web.md)
 
 ## Practicals and other resources
  * [Learning a new language by translation](https://hackmd.io/kMNgXiPHQf2Q_P9A-tnS9A)

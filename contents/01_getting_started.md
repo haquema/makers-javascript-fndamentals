@@ -40,7 +40,7 @@ Other code examples without prompt indicators at all should be written to JavaSc
 
 ## Exercise - your first JavaScript program
 
-Here are two more lines of JS - resist the urge of pasting them into `node` right away and try to analyse the code first.
+Here are two more lines of JS that you can paste into the `node` REPL:
 
 ```javascript
 > const name = 'JavaScript';
