@@ -40,7 +40,7 @@ Other code examples without prompt indicators at all should be written to JavaSc
 
 ## Exercise - your first JavaScript program
 
-Here are two more lines of JS that you can paste into the `node` REPL:
+Here are two more lines of JS that you can paste into the `node` REPL — we want to print the *concatenation* of `'Hello'` and the variable `name`:
 
 ```javascript
 > const name = 'JavaScript';
@@ -49,6 +49,11 @@ Here are two more lines of JS that you can paste into the `node` REPL:
 
 1. As you might have noticed already if you've tried running the code above, there is a syntax error. Can you spot where? Make the necessary fix so the code above prints the string "Hello, JavaScript" on the terminal.
 2. In the `node` REPL, change the value of `name` to your name, then use `console.log` again so it says hi — to you, rather than to JavaScript.
+
+## Additional resources
+
+ * [How to use the node.js REPL](https://nodejs.dev/learn/how-to-use-the-nodejs-repl)
+ * [Using console.log](https://nodejs.dev/learn/output-to-the-command-line-using-nodejs)
 
 
 [Next Challenge](02_running_js_files.md)

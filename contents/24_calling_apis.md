@@ -2,9 +2,7 @@
 
 ## Objectives
 
- * Manipulate JS objects
  * Define what a remote API is.
- * Explain how we can use JavaScript's asynchronous behaviour to request data from an API.
  * Use a library to request data from an API.
  * Use a callback function to handle response from an API.
 
@@ -26,11 +24,7 @@ console.log(person['name']);
 
 ## Asynchronous data
 
-We've previously learned how JS can execute code in an asynchronous way, with the example of `setTimeout`.
-
-Another common example of asynchronous behaviour in JavaScript is when we need to *fetch remote data* from other APIs. We'll often use the term APIs (for Application Programming Interfaces) to speak about external sources of data we can fetch and use in our programs. Since we often need to wait before the data is available (the network might be slow and unreliable), it makes sense to use JavaScript's *asynchronous* capabilities to work with APIs.
-
-After all, you wouldn't expect your phone screen to freeze completely while its fetching the latest weather data, or refreshing your work schedule in the background? In the same way, we don't want our program to be unresponsive while we're fetching remote data. 
+We've previously learned how JS can execute code *later* with callbacks, with the example of `setTimeout`. Another common use of callbacks in JavaScript is when we need to *fetch remote data* from other APIs. Since we often need to wait before the data is available (the network might be slow and unreliable), it makes sense to use callbacks to handle API responses.
 
 A good example of such an API is Github's one. If you want to see what it looks like, let's have a look at the [URL for Ruby's Sinatra Github repo.](https://api.github.com/repos/sinatra/sinatra) If you open this link in your browser, you'll see only data (in the JSON format):
 
@@ -116,60 +110,15 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 ```
 </details>
 
-## Exercise: wrapping inside a function
 
-We can write the previous code in a more concise way, using an anonymous function:
-
-```javascript
-got('https://api.github.com/repos/sinatra/sinatra').then((response) => {
-  console.log(response);
-});
-```
-
-Someone from your cohort has then decided to wrap this whole snippet into a function, called `fetchRepoInfo`, so it can be reused for any Github repo. They made the URL dynamic with the repo name, as shown below — and we now need a way to "return" or "pass" the response to the function's caller. As you might have guessed, we need to use a callback function.
-```javascript
-
-const fetchRepoInfo = (repoName) => {
-  got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    // send back the response to fetchRepoInfo's caller
-  });
-}
-
-fetchRepoInfo('sinatra/sinatra'); // we want to get back the response here
-```
-
-1. Modify the function `fetchRepoInfo` so it accepts a second argument that is a callback function, and so we can call `fetchRepoInfo` this way:
-
-```javascript
-fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
-  console.log(repoResponse);
-});
-```
-
-<details>
-<summary>Reveal suggested solution</summary>
-
-```javascript
-const got = require('got');
-
-const fetchRepoInfo = (repoName, callback) => {
-  got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    callback(response);
-  });
-}
-```
-</details>
-  
-
-
-[Next Challenge](11_weather_api.md)
+[Next Challenge](26_callbacks_return.md)
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
 
 **How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/10_calling_apis.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/10_calling_apis.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/10_calling_apis.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/10_calling_apis.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/10_calling_apis.md&prefill_Sentiment=😀)  
+[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/24_calling_apis.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/24_calling_apis.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/24_calling_apis.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/24_calling_apis.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy/javascript-fundamentals&prefill_File=contents/24_calling_apis.md&prefill_Sentiment=😀)  
 Click an emoji to tell us.
 
 <!-- END GENERATED SECTION DO NOT EDIT -->
