@@ -58,7 +58,7 @@ console.log(notify('+10000000000', notifyByText));
 
 
 
-[Next Challenge](09_arrays.md)
+[Next Challenge](09_testing_with_jest.md)
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 

@@ -8,10 +8,6 @@ In this section, you'll be discovering JavaScript's syntax and find some concept
 
  * Use variables in JS.
  * Use `console.log` to print the value of a variable.
- * Declare a function.
- * Return a value from a function with `return`.
- * Call a function and get its return value.
- * Use conditional statements (`if` / `else`).
 
 For each of those code examples, you should ideally resist the temptation of pasting it inside `node`, and instead reading it and explaining what it does. Then execute the code in `node` and verify your assumptions.
 
