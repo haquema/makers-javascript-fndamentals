@@ -120,6 +120,9 @@ sayHello();
 
 Once this is done, we can run `jest` again, and we should see our test passing! Congratulations, you've just wrote your first Jest test!
 
+### Additional resources
+
+ * [Jest - getting started](https://jestjs.io/docs/getting-started)
 
 [Next Challenge](11_testing_fizzbuzz.md)
 

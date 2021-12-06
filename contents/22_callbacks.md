@@ -4,7 +4,7 @@
  * Understand what a callback function is.
  * Use a callback function with `setInterval`.
 
-Callback functions are an important concept in JavaScript. 
+We'll go back to our thermostat program in a moment — but first, we need to learn about another important concept in JavaScript: callback functions. 
 
 As the name imply, a callback is **a function**:
 
@@ -14,7 +14,7 @@ const printMessage = () => {
 }
 ```
 
-But we don't use the name "callback" for all functions. Usually, we can say a function is used as "callback" when it's given to another function.
+But we don't use the name "callback" for *any* function. Usually, we can say a function is used as "callback" when it's given to another function.
 
 Let's have a look at an example — the native function `setTimeout` allows us to delay the execution of some code after a certain time. 
 
@@ -64,7 +64,28 @@ $ node index.js
 (...)
 ```
 
+<details>
+  <summary>Reveal suggested solution</summary>
+
+  ```js
+  let counter = 0;
+
+  const increment = () => {
+    counter += 1;
+    console.log(counter);
+  }
+
+  setInterval(increment, 1000); // every 1s
+  ```
+</details>
+
+---
+
 The function given in second argument to `setInterval` is an example of a **callback** — we've declared this function, but it won't be called until `setInterval` decides to call it (i.e every second, in the last example). The name "callback" comes from the fact that this function's purpose is to be *called back* by another part of the code, at a later time.
+
+### Additional resources
+
+ * [What is a callback? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
 
 [Next Challenge](23_callbacks_cli.md)
 

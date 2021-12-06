@@ -10,9 +10,7 @@
 
 <!-- OMITTED -->
 
-Your friend's candies business is booming, and you're now working almost full time on the website — this is great! However, the more the features you implement, and the more code you add, the messier the project starts to feel. It might be time to tidy up things a bit.
-
-So far we've used only JavaScript functions, but much like other languages that support object-oriented design, we can declare and use classes in JS to organise our code.
+Your friend's candies business is booming, and you're now working almost full time on the website — this is great! However, the more the features you implement, and the more code you add, the messier the project starts to feel. It might be time to tidy up things a bit, by splitting our code into classes.
 
 Classes in JS work in a similar way to other languages, they are declared with *methods* — and perhaps *attributes* — and can be instantiated when creating *instances*. By the end of this section, we'll write a few JavaScript classes that will allow us to execute code like this: 
 
@@ -27,7 +25,7 @@ const totalPrice = basket.getTotalPrice();
 
 ## Exercise - a simple class
 
-We would like to create a class to represent a user account. Here is how we should be able to use this class:
+We would like to test-drive and implement a class to represent a user account. Here is how we should be able to use this class:
 
 ```javascript
 > const user = new User('Uma');

@@ -44,6 +44,9 @@ const person = {
 1. Print the value of the `city` attribute ('London').
 2. Print the value of the second `hobbies` value ('tennis').
 
+### Additional resources
+
+ * [Objects and properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties)
 
 [Next Challenge](16_arrays_and_objects.md)
 

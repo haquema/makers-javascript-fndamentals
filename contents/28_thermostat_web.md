@@ -11,10 +11,13 @@ In order to do this, we'll need to have a look at a very popular package in the 
 
 ## Exercise: a simple web server
 
+Create a new project directory called `simple-server`, and install the `express` package:
+
 ```
 $ npm install express
 ```
 
+Then, create a file `server.js` inside this directory, with the following code:
 ```javascript
 const express = require('express');
 const app = express();
@@ -24,13 +27,12 @@ app.get('/', (req, res) => {
   res.send('Hello, express!')
 });
 
-console.log(`Server listening on ${port}`);
+console.log(`Server listening on localhost:${port}`);
 app.listen(port);
 ```
 
-1. Run this code from a file called `server.js`. Head to `http://localhost:3000` - what do you see?
-2. What is logged on the terminal when the server starts? When does the function that responds with 'Hello, express!' is executed?
-3. Is this web server a *synchronous* or *asynchronous* program? Explain why.
+1. Run this file using `node server.js` — it should output `Server listening on localhost:3000` to the terminal, once run. Head now with your browser to `http://localhost:3000` - what do you see?
+2. Modify the message passed to `res.send()` and reload the page to see a different result.
 
 ## Exercise: adding routes
 

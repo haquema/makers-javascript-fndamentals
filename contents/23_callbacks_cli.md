@@ -24,7 +24,7 @@ Note that the function given in second argument to `.question` is another exampl
 
 ## Exercise
 
-In the thermostat project directory, create a new file `cli.js`. The goal of this exercise is to control the thermostat using the commands "up" and "down" — a correct program would result in the following input/output on the terminal:
+ The goal of this exercise is to control the thermostat using the commands "up" and "down" — a correct program would result in the following input/output on the terminal:
 
 ```
 $ node cli.js
@@ -44,8 +44,9 @@ Enter command >
 
 In order to complete this exercise, you'll have to:
 
- * create an instance of the `Thermostat` class.
- * install the `readline` package with `npm install`.
+ * install the `readline` package with `npm install` in the thermostat project directory.
+ * create a new file `cli.js` in the thermostat project directory.
+ * create an instance of the `Thermostat` class in that file.
  * use the `readline` library and [its `question` method to ask for user input](https://nodejs.org/api/readline.html#rlquestionquery-options-callback).
  * use loops and conditionals.
 
