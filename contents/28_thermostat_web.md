@@ -1,4 +1,4 @@
-# Coding challenge: A web server for our thermostat
+# A web server for our thermostat
 
 ## Objectives
 
