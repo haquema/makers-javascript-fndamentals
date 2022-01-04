@@ -42,7 +42,7 @@ build a more complex coding challenge using all of those new concepts.
 11. [Filtering arrays](contents/13_filter_array_elements.md)
 12. [Mapping new arrays](contents/14_array_map.md)
 13. [Objects](contents/15_objects.md)
-14. [Array and objects](contents/16_array_and_objects.md)
+14. [Array and objects](contents/16_arrays_and_objects.md)
 15. [A search function](contents/17_search_function.md)
 16. [Classes](contents/18_classes.md)
 17. [Class interaction](contents/19_more_classes.md)
