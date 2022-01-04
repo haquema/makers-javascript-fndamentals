@@ -36,7 +36,7 @@ build a more complex coding challenge using all of those new concepts.
 5. [Fizzbuzz in JS](contents/07_fizzbuzz_function.md)
 6. [Passing functions to other functions](contents/08_passing_functions.md)
 7. [Testing with Jest](contents/09_testing_with_jest.md)
-8. [A first test](contents/10_first_test.md.md)
+8. [A first test](contents/10_first_test.md)
 9. [Testing FizzBuzz](contents/11_testing_fizzbuzz.md)
 10. [Arrays](contents/12_arrays.md)
 11. [Filtering arrays](contents/13_filter_array_elements.md)
