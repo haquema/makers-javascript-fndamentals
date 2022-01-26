@@ -9,8 +9,8 @@ We're given the following array (you can paste it directly into `node` — it's 
 const candies = [
   { name: 'Aero', price: 1.99 },
   { name: 'Skitties', price: 2.99 },
-  { name: 'Maltesers', price: 3.49 },
   { name: 'Mars', price: 1.49 },
+  { name: 'Maltesers', price: 3.49 },
   { name: 'Skittles', price: 1.49 },
   { name: 'Starburst', price: 5.99 },
   { name: 'Ricola', price: 1.99 },
@@ -96,8 +96,8 @@ describe('searchCandies function', () => {
 const candies = [
   { name: 'Aero', price: 1.99 },
   { name: 'Skitties', price: 2.99 },
-  { name: 'Maltesers', price: 3.49 },
   { name: 'Mars', price: 1.49 },
+  { name: 'Maltesers', price: 3.49 },
   { name: 'Skittles', price: 1.49 },
   { name: 'Starburst', price: 5.99 },
   { name: 'Ricola', price: 1.99 },

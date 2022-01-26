@@ -21,7 +21,7 @@ To complete this exercise you will have to find out:
 ### Questions
 
 1. Declare a function `addToBatch` that takes two arguments, an *array* and *a number*, and returns a *new array* by adding the number to the array.
-2. Now, make sure this function *does not* add the number *if the array's length is already greater than 5* — it should just return the array untouched in that case.
+2. Now, make sure this function *does not* add the number *if the array's length is already 5 or greater* — it should just return the array untouched in that case.
 
 Once your function is written, you should be able to type the following code and have the exact same output:
 
@@ -37,6 +37,9 @@ Once your function is written, you should be able to type the following code and
 
 > addToBatch([1, 2, 3, 4, 5, 6], 7); 
 [ 1, 2, 3, 4, 5, 6 ]
+
+> addToBatch([1, 2, 3, 4, 5, 6, 7, 8, 9], 10); 
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 ```
 
 <details>
@@ -44,7 +47,7 @@ Once your function is written, you should be able to type the following code and
 
 ```javascript
 const addToBatch = (array, number) => {
-  if (array.length > 5) {
+  if (array.length >= 5) {
     return array;
   }
 

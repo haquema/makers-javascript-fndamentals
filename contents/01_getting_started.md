@@ -11,14 +11,26 @@ You will need to install a program called Node.js (also just called "node"). Nod
 
 First let's install `nvm` - the Node Version Manager. If you've used Ruby with `rvm` before, it's a similar tool: `nvm` allows us to install and manage specific Node versions. You can check the latest Node release on the [releases page](https://nodejs.org/en/about/releases/). Running `nvm install node` and `nvm use node` will automatically install and use the latest stable version.
 
-```
-brew install nvm
+NVM is distributed using github - you can find installation instructions for the latest version [here](https://github.com/nvm-sh/nvm#installing-and-updating). You'll need to run a command that looks like this: 
 
-nvm install node
-nvm use node
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
-If the above did work, you should see something like this in your terminal (exact versions might be different for you!): `Now using node v16.6.0 (npm v7.19.1)` - if something went wrong, have a look at the [troubleshooting section](https://github.com/nvm-sh/nvm#troubleshooting-on-macos) or reach out to someone for help.
+Once that step is complete, you'll need to reload your ~/.zshrc file:
+
+```
+source ~/.zshrc
+```
+
+Now, you can install Node using nvm:
+
+```
+$ nvm install node
+$ nvm use node
+```
+
+If the above works, you should see something like this in your terminal (exact versions might be different for you!): `Now using node v16.6.0 (npm v7.19.1)` - if something went wrong, have a look at the [troubleshooting section](https://github.com/nvm-sh/nvm#troubleshooting-on-macos) or reach out to someone for help.
 
 Your should now be able to type `node` inside your terminal, to launch the node REPL: 
 ```
