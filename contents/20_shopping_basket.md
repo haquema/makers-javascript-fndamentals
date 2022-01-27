@@ -46,17 +46,17 @@ If what we want from a mock is only to get a predictable return value from a met
 
 ```js
 const name = "James"; // a string
-name.length(); // 5
+name.toLowerCase(); // 'james'
 
-// let's now mock .length()
-// the following object has one property .name,
-// which is just a function that returns 3
+// let's now mock .toLowerCase()
+// the following object has one property .toLowerCase,
+// which is a function that returns the mocked value
 
-const nameDouble = { length: () => 3 };
+const nameDouble = { toLowerCase: () => 'james' };
 
-// so we can call nameDouble.length()
+// so we can call nameDouble.toLowerCase()
 // which means it's a drop-in replacement for "real" String object,
-// *as long as we only want* to use .length() on it.
+// *as long as we only want* to use .toLowerCase() on it.
 ```
 
 ### Questions:
