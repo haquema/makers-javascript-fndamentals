@@ -6,7 +6,7 @@
  * Declare a function.
  * Return a value from a function with `return`.
 
-In JavaScript, we can define a function with the following syntax (a function is the same thing than a Ruby "method", but it lives on its own, without being attached to a specific object):
+In JavaScript, we can define a function with the following syntax (a function is the same thing as a Ruby "method", but it lives on its own, without being attached to a specific object):
 
 ```js
 // this function accepts no arguments

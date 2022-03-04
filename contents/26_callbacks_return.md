@@ -19,7 +19,8 @@ We can write the previous code in a more concise way, using an anonymous functio
 
 ```javascript
 got('https://api.github.com/repos/sinatra/sinatra').then((response) => {
-  console.log(response);
+  const responseObject = JSON.parse(response.body);
+  console.log(responseObject);
 });
 ```
 
@@ -30,28 +31,30 @@ Someone from your cohort has then decided to wrap this whole snippet into a func
 ```js
 const fetchRepoInfo = (repoName) => {
   got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    console.log(response);
+    const responseObject = JSON.parse(response.body);
+    console.log(responseObject);
   });
 }
 ```
 
-But we need a way to "return" or "pass back" the `response` to the function's caller.
+But we need a way to "return" or "pass back" the `responseObject` to the function's caller.
 ```javascript
 
 const fetchRepoInfo = (repoName) => {
   got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    // send back the response to fetchRepoInfo's caller
+    const responseObject = JSON.parse(response.body);
+    // send back the responseObject to fetchRepoInfo's caller
   });
 }
 
-fetchRepoInfo('sinatra/sinatra'); // we want to get back the response here
+fetchRepoInfo('sinatra/sinatra'); // we want to get back the response object here
 ```
 
 1. Modify the function `fetchRepoInfo` so it accepts a second argument that is a callback function, and so we can call `fetchRepoInfo` this way:
 
 ```javascript
-fetchRepoInfo('sinatra/sinatra', (repoResponse) => {
-  console.log(repoResponse);
+fetchRepoInfo('sinatra/sinatra', (repoResponseObject) => {
+  console.log(repoResponseObject);
 });
 ```
 
@@ -63,9 +66,16 @@ const got = require('got');
 
 const fetchRepoInfo = (repoName, callback) => {
   got(`https://api.github.com/repos/${repoName}`).then((response) => {
-    callback(response);
+    const responseObject = JSON.parse(response.body);
+    callback(responseObject);
   });
 }
+
+// The function would then be called this way:
+fetchRepoInfo('sinatra/sinatra', (repoResponseObject) => {
+  console.log(repoResponseObject);
+});
+
 ```
 </details>
   

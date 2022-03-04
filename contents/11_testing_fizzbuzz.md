@@ -45,7 +45,7 @@ describe('fizzBuzz', () => {
     expect(fizzBuzz(5)).toBe('Buzz');
   });
 
-  it('returns FizzBuzz when number is 5', () => {
+  it('returns FizzBuzz when number is 15', () => {
     expect(fizzBuzz(15)).toBe('FizzBuzz');
   });
 
