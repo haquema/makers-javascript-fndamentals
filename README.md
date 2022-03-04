@@ -51,7 +51,7 @@ build a more complex coding challenge using all of those new concepts.
 20. [Callbacks](contents/22_callbacks.md)
 21. [A CLI prompt](contents/23_callbacks_cli.md)
 22. [Calling APIs](contents/24_calling_apis.md)
-24. [Returning values from callbacks](contents/26_callbacks_return.ed.md)
+24. [Returning values from callbacks](contents/26_callbacks_return.md)
 25. [Fetching the current weather from an API](contents/27_weather_api.md)
 26. [Stretch — a web server for the thermostat](contents/28_thermostat_web.md)
 
