@@ -57,7 +57,7 @@ In a new file `counter.js`:
 If you've done the above correctly, you should be able to run the file and see the counter being incremented and printed every second:
 
 ```
-$ node index.js
+$ node counter.js
 1
 2
 3

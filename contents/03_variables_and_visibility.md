@@ -19,18 +19,23 @@ In JavaScript, we can print **to the terminal** arbitrary strings and variables 
 ```javascript
 console.log('Hello there');
 
-const age = 25;
+age = 25;
 console.log('I am ' + age + 'years old');
+
+age = 27;
+console.log('I am now ' + age + 'years old!');
+```
+
+We can use the `const` keyword to declare a value as "constant", if we're not planning to change its value later — usually, prefer using `const` if you don't need to reassign a variable, as it can prevent a few different kind of errors in your programs (it also communicates that this value won't need to change).
+
+```javascript
+const name = 'Charlie';
+
+name = 'Jess'; // will throw 'TypeError: Assignment to constant variable.'
 ```
 
 ## Exercise: variables
 
-We can use the `const` keyword to declare a variable and assign a value to it. Be careful to not omit this keyword, as otherwise JS will "think" you're trying to reassign an existing variable, and will complain that this variable doesn't exist yet.
-
-```javascript
-name = 'Charlie'; // wrong - we will get an error
-const name = 'Charlie'; // ok
-```
 
 ### Questions
 

@@ -44,7 +44,7 @@ As humans, we like to browse nice and colourful webpages and use links, buttons 
 Let's now request the same information but inside our JavaScript code. For this, we'll need another package called `got`.
 
 ```
-$ npm install got
+$ npm install got@11
 ```
 
 In the same directory, create a file named `github.js` and write the following code:

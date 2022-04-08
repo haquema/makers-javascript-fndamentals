@@ -57,6 +57,7 @@ build a more complex coding challenge using all of those new concepts.
 
 ## Practicals and other resources
  * [Learning a new language by translation](https://hackmd.io/kMNgXiPHQf2Q_P9A-tnS9A)
+ * [Mocking with Jest](./pills/mocking_with_jest.md)
  * [Explore asynchronicity in JavaScript with callback functions](./practicals/callbacks)
  * [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
  * [Manipulating functions](./practicals/functions)
@@ -75,8 +76,6 @@ build a more complex coding challenge using all of those new concepts.
 * [JavaScript versions - ES6 and before](https://www.codecademy.com/articles/javascript-versions)
 * [Testing with Jest (video)](https://www.youtube.com/watch?v=8gHEv5iNRKk)
 * [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
-* [Understanding Jest
-  mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
 * [Build a simple web server with express](https://expressjs.com/en/starter/hello-world.html)
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->

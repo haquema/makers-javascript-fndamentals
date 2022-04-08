@@ -159,11 +159,15 @@ We can start to see some interesting things in here. The `main` object is probab
 21.3 // this will be different for you depending on the actual weather data returned by the server
 ```
 
-4. Modify the tests in `thermostat.test.js` so the `Weather` object is mocked.
+4. Modify the tests in `thermostat.test.js` so the `Weather` object is mocked. If you're not sure how to mock, you may want to read (or re-read) the [guidance on mocking with Jest](../pills/mocking_with_jest.md).
 
 ## Well done!
 
 Well done for completing this module — if you're willing to go further, there's [an additional (bonus) section where you'll build a small web server](./28_thermostat_web.md) to run the thermostat JS program, using the express library. Alternatively, have a look at the other practicals or workshops from this module — or ask your coach for some more challenge!
+
+## Additional resources
+
+ * [Mocking with Jest](./pills/mocking_with_jest.ed.md)
 
 [Next Challenge](28_thermostat_web.md)
 

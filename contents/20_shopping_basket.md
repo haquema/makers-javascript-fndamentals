@@ -59,6 +59,8 @@ const nameDouble = { toLowerCase: () => 'james' };
 // *as long as we only want* to use .toLowerCase() on it.
 ```
 
+If you'd like to know more about mocking, you may want to read (or re-read) the [guidance on mocking with Jest](../pills/mocking_with_jest.md) — although the guidance above should be enough for this exercise.
+
 ### Questions:
 
 1. Setup the project directory and install Jest.
@@ -90,6 +92,10 @@ class ShoppingBasket {
   }
 }
 ```
+
+## Additional resources
+
+ * [Mocking with Jest](../pills/mocking_with_jest.md)
 
 [Next Challenge](21_thermostat.md)
 
