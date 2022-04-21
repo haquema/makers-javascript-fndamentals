@@ -22,38 +22,45 @@ build a more complex coding challenge using all of those new concepts.
   programming.
 * Apply a coherent process to learn a new language.
 
-## Start here - introduction exercises
+## Outline
 
-1. [Getting started with JavaScript](contents/01_getting_started.md)
-2. [Running JS files](contents/02_running_js_files.md)
+### Phase One 
 
-## Pairing sequence
+Work through these exercises designed to train the basics of JavaScript. If you already
+know JavaScript or you feel like a challenge, feel free to skip a few of these steps.
 
-1. [Variables and visibility](contents/03_variables_and_visibility.md)
-2. [Functions](contents/04_functions.md)
-3. [Returning values](contents/05_returning_values.md)
-4. [Conditionals](contents/06_conditionals.md)
-5. [Fizzbuzz in JS](contents/07_fizzbuzz_function.md)
-6. [Passing functions to other functions](contents/08_passing_functions.md)
-7. [Testing with Jest](contents/09_testing_with_jest.md)
-8. [A first test](contents/10_first_test.md)
-9. [Testing FizzBuzz](contents/11_testing_fizzbuzz.md)
-10. [Arrays](contents/12_arrays.md)
-11. [Filtering arrays](contents/13_filter_array_elements.md)
-12. [Mapping new arrays](contents/14_array_map.md)
-13. [Objects](contents/15_objects.md)
-14. [Array and objects](contents/16_arrays_and_objects.md)
-15. [A search function](contents/17_search_function.md)
-16. [Classes](contents/18_classes.md)
-17. [Class interaction](contents/19_more_classes.md)
-18. [A shopping basket](contents/20_shopping_basket.md)
-19. [A thermostat](contents/21_thermostat.md)
-20. [Callbacks](contents/22_callbacks.md)
-21. [A CLI prompt](contents/23_callbacks_cli.md)
-22. [Calling APIs](contents/24_calling_apis.md)
-24. [Returning values from callbacks](contents/26_callbacks_return.md)
-25. [Fetching the current weather from an API](contents/27_weather_api.md)
-26. [Stretch — a web server for the thermostat](contents/28_thermostat_web.md)
+1. [Running JavaScript](./bites/01_running_javascript.md)
+2. [Running files](./bites/02_running_files.md)
+3. [Variables and visibility](./bites/03_variables_and_visibility.md)
+4. [Functions](./bites/04_functions.md)
+5. [Conditionals](./bites/05_conditionals.md)
+6. [Loops](./bites/06_loops.md)
+7. [Functions as values](./bites/07_functions_as_values.md)
+8. [Callbacks](./bites/08_callbacks.md)
+9. [Arrays](./bites/09_arrays.md)
+10. [Objects](./bites/10_objects.md)
+11. [Array operations](./bites/11_array_operations.md)
+12. [Classes](./bites/12_classes.md)
+
+### Phase Two
+
+Work through challenges designed to help you learn how to use JavaScript in a real
+application, including unit tests, multiple classes, and external dependencies on
+packages and remote APIs.
+
+1. [Testing with Jest](./challenges/01_testing.md)
+2. [A Search function](./challenges/02_search_function.md)
+3. [A Shopping basket](./challenges/03_shopping_basket.md)
+4. [A Thermostat](./challenges/04_thermostat.md)
+5. [A Github client](./challenges/05_calling_apis.md)
+6. [A Weather client](./challenges/06_weather_api.md)
+7. [A Web server](./challenges/07_web_server.md)
+
+Most people won't complete all of this and that is OK.
+
+## Solo challenge
+
+[Work on the Bowling Challenge in JavaScript](https://github.com/makersacademy/bowling-challenge)
 
 ## Practicals and other resources
  * [Learning a new language by translation](https://hackmd.io/kMNgXiPHQf2Q_P9A-tnS9A)
@@ -70,11 +77,10 @@ build a more complex coding challenge using all of those new concepts.
  * [Asynchronous JS and callbacks](./workshops/async-js-and-callbacks)
  * [Following the flow and getting visibility in JavaScript](./workshops/debugging)
 
-## Resources
+## Additional resources
 
 * [The function keyword in JS](https://github.com/makersacademy/course/blob/main/pills/js_functions.md)
 * [JavaScript versions - ES6 and before](https://www.codecademy.com/articles/javascript-versions)
-* [Testing with Jest (video)](https://www.youtube.com/watch?v=8gHEv5iNRKk)
 * [What is a callback in JavaScript? (video)](https://www.youtube.com/watch?v=xHneyv38Jro)
 * [Build a simple web server with express](https://expressjs.com/en/starter/hello-world.html)
 

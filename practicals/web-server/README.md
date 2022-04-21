@@ -10,7 +10,7 @@
 [Express](https://expressjs.com/) is a lightweight framework that allows us to build web servers using Node (in a similar way to Ruby with Sinatra, for example). Express can be used in an NPM project and can be installed with:
 
 ```
-npm install express --save
+npm add express
 ```
 
 The simplest express application code looks like this:
