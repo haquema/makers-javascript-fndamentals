@@ -82,6 +82,8 @@ const person = {
 1. Print the value of the `city` attribute ('London').
 2. Print the value of the second `hobbies` value ('tennis').
 
+[Example solution](https://youtu.be/BjRDUtiM5T8?t=396)
+
 ## Challenge
 
 1. Declare an object `cohort` that has the following properties:

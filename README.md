@@ -1,7 +1,7 @@
 # JavaScript Fundamentals
 
 _Coaching this? Read the coach guidance
-[here.](https://github.com/makersacademy/slug/blob/main/materials/universe/language_intros/challenges/javascript_fundamentals/README.ed.md)_
+[here.](https://github.com/makersacademy/slug/blob/main/materials/universe/language_intros/challenges/javascript_fundamentals/COACH_GUIDANCE.x.md)_
 
 JavaScript (or JS) is a fully-featured programming language. It is today one of the most
 popular languages used for the development of web applications, and also for a lot of

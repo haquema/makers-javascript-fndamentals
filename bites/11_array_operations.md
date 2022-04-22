@@ -93,20 +93,7 @@ exact same output:
 [ ]
 ```
 
-<details>
-<summary>Reveal suggested solution</summary>
-
-```javascript
-const checkLength = (phoneNumber) => {
-  return phoneNumber.length <= 10;
-}
-
-const filterLongNumbers = (phoneNumbers) => {
-  return phoneNumbers.filter(checkLength);
-}
-```
-</details>
-
+[Example solution](https://youtu.be/BjRDUtiM5T8?t=559)
 
 ## Exercise - personalised messages
 
@@ -146,18 +133,7 @@ exact same output:
 ]
 ```
 
-<details>
-<summary>Reveal suggested solution</summary>
-
-```javascript
-const generateMessages = (names) => {
-  return names.map(name => {
-    return `Hi ${name}! 50% off our best candies for you today!`;
-  });
-}
-```
-</details>
-
+[Example solution](https://youtu.be/BjRDUtiM5T8?t=980)
 
 ## Challenge
 

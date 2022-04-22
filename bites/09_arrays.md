@@ -43,6 +43,8 @@ Create an array of a few names of people you know and:
 2. Print the second name of the array.
 3. Create a new array by adding a new name to the existing array.
 
+[Example solution](https://www.youtube.com/watch?v=BjRDUtiM5T8)
+
 ## Exercise
 
 Create an array of all numbers from 1 to 10. Calculate the sum of all these numbers by
@@ -51,6 +53,8 @@ looping through the array.
 You can use [the method
 `forEach`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 to iterate over each element.
+
+[Example solution](https://youtu.be/BjRDUtiM5T8?t=167)
 
 ## Challenge
 
