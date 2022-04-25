@@ -65,7 +65,7 @@ Then we can "require" it from another file, or from the `node` REPL:
 // In the node REPL
 // Assuming we're in the same current directory where hello.js is.
 
-const hello = require('./add');
+const hello = require('./hello');
 
 hello();
 ```
@@ -132,11 +132,11 @@ strings?](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Temp
 
 ## A note about syntax
 
-In this module, you'll learn "modern" JavaScript syntax — ES6 syntax or
-versions released after 2015. Most JavaScript runtime (including Node) are compatible with
-older syntax versions, and both syntax can be mixed in the same file. It's important to
-note that, when searching online for resources and examples, you'll find some code using a
-different, older, syntax. Here are two examples on declaring variables and functions:
+In this module, you'll learn "modern" JavaScript syntax — ES6 syntax or versions released
+after 2015. Most JavaScript runtime (including Node) are compatible with older syntax
+versions, and both syntax can be mixed in the same file. It's important to note that, when
+searching online for resources and examples, you'll find some code using a different,
+older, syntax. Here are two examples on declaring variables and functions:
 
  * `var` is the "legacy" keyword to declare a variable — it's equivalent to `let`:
     ```js
