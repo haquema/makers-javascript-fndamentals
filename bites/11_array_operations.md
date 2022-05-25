@@ -148,7 +148,7 @@ with the following array:
   { name: 'Laura', discount: 40 },
   { name: 'Josh', discount: 30 },
   { name: 'Min', discount: 50 },
-  { name: 'Karla',discount:  6 }
+  { name: 'Karla', discount: 60 }
 ];
 ```
 

@@ -51,7 +51,7 @@ setTimeout(() => {
 }, 2000);
 ```
 
-The function given in second argument to `setTimeout` is an example of a **callback** —
+The function given in first argument to `setTimeout` is an example of a **callback** —
 we've declared this function, but it won't be called until `setTimeout` decides to call it
 (i.e after a delay, in the last example). The name "callback" comes from the fact that
 this function's purpose is to be *called back* by another part of the code, at a later

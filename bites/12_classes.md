@@ -35,14 +35,17 @@ class Rectangle {
     return this.height * this.width;
   }
 }
+
+// Export the class
+module.exports = Rectangle;
 ```
 
-We can now launch the `node` REPL and load this file:
+We can now launch the `node` REPL and require the class:
 
-```
-$ node
+```js
+// In the REPL
 
-.load rectangle.js
+const Rectangle = require('./rectangle');
 ```
 
 And use it to create new instances:

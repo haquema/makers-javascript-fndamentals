@@ -28,16 +28,6 @@ $ node hello.js
 Hello - I am a file!
 ```
 
-We can also load an existing file into the `node` REPL, to have access to all defined
-things (variables, functions, etc) in our file:
-
-```javascript
-$ node
-
-> .load hello.js
-// hello.js is now loaded
-```
-
 ## Demonstration
 
 Stop this video before the exercise starts so you have the chance to try it yourself
