@@ -74,10 +74,6 @@ can use the `--check` option instead of `--write`. The [VSCode extension is also
 available](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to
 make your life easier, if you're using that editor.
 
-## Additional resources
-
- * [Run JS files from the command
-   line](https://nodejs.dev/learn/run-nodejs-scripts-from-the-command-line)
 
 [Next Challenge](03_variables_and_visibility.md)
 

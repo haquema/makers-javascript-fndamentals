@@ -85,8 +85,7 @@ This program uses the function `console.log()` to print messages to the console.
 
 ## Additional resources
 
- * [How to use the node.js REPL](https://nodejs.dev/learn/how-to-use-the-nodejs-repl)
- * [Using console.log](https://nodejs.dev/learn/output-to-the-command-line-using-nodejs)
+ * [How to use the node.js REPL](https://nodejs.org/en/knowledge/REPL/how-to-use-nodejs-repl/)
 
 
 [Next Challenge](02_running_files.md)

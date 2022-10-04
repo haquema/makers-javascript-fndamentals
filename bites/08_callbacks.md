@@ -8,7 +8,12 @@ Bites.](https://github.com/makersacademy/course/blob/main/labels/bites.md)_
 
 Learn to explain and use callback functions.
 
-## Introduction
+## Video
+
+[This demonstration video will help to understand the concept](https://youtu.be/KnB61fZjcv4?t=849). Stop this video before the exercise starts so you have the chance to try it yourself
+first.
+
+## On Callbacks
 
 You will now learn about another important concept in JavaScript: callback functions. They
 are used a lot in JavaScript, so it's important to understand how they work. You'll see
@@ -46,6 +51,9 @@ Note that the following syntax is doing the exact same thing, using an anonymous
 (i.e a function not bound to a name) directly:
 
 ```js
+// The function given is the same, but it's not
+// assigned to a name before using the `const` keyword.
+
 setTimeout(() => {
   console.log('Hello there');
 }, 2000);
@@ -61,13 +69,6 @@ This is an example of **asynchronous programming** — the execution of the call
 function is not "in sync" with the rest of the program execution, because it has a delay
 before being called.
 
-## Demonstration
-
-Stop this video before the exercise starts so you have the chance to try it yourself
-first.
-
-[Demonstration Video](https://youtu.be/KnB61fZjcv4?t=849)
-
 ## Exercise
 
 1. Declare a function `printHello` which prints a greeting message.
@@ -77,8 +78,8 @@ first.
 
 ## Exercise
 
-To work on this exercise, it might be good to think again of functions as regular values.
-Revisit the previous section is this wasn't clear.
+To work on this exercise, it is important to think of functions as regular values (they can be passed around just like any other variable). 
+[Revisit the previous section](./07_functions_as_values.md) if this wasn't clear.
 
 Declare a function `executeAfterDelay` which calls the given function after the given
 delay in seconds:
