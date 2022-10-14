@@ -8,6 +8,8 @@
 
 You've previously learned how we can pass "callback" functions to other functions, with
 the example of `setTimeout`. This is an example of **asynchronous behaviour**.
+Asynchronous behaviour is any behaviour that takes a non-trivial amount of time to
+complete.
 
 Another example of asynchronous behaviour in JavaScript is when we need to *fetch remote data* from
 other APIs. Since we often need to wait before the data is available (the network might be
@@ -133,12 +135,16 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 
 ## Exercise
 
-Create a function `fetchJson` (in `fetchJson.js`) which accepts one URL as argument, and
-one callback function.
+Create a function `fetchJson` (in `fetchJson.js`) which accepts one URL, and
+one callback function as arguments.
 
 It should send an HTTP request using `got` to the URL, and calls the given function with
 the received response's data. This data should be parsed from JSON into a plain JavaScript
 object.
+
+**Note:** When writing tests for asynchronous functions, you need to be careful
+that the test isn't completing before your `expect` assertions have executed.
+See the _additional resources_ at the bottom of the page for more info.
 
 ```js
 // In node
@@ -173,7 +179,7 @@ fetchJson('https://jsonplaceholder.typicode.com/todos', (response) => {
 
 Create a function `fetchRepositoryInfo` (in `fetchRepositoryInfo.js`) which
   * fetches repository data from Github's API
-  * calls the given callback with the received data (as a JS object):
+  * calls the given callback with the data it receives from the API (as a JS object):
 
 ```js
 // In node
@@ -295,6 +301,9 @@ describe('Github', () => {
 });
 ```
 
+## Additional resources
+ * [Testing Asynchronous Code - Jest Docs](https://jestjs.io/docs/asynchronous)
+ * [Testing Asynchronous Code - Pill](../pills/testing_asynchronous_code.md)
 
 [Next Challenge](06_weather_api.md)
 

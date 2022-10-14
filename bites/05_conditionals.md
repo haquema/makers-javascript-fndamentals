@@ -60,7 +60,7 @@ A colleague just asked you some help to debug their code.
 
 ```javascript
 const isValidLength = (phoneNumber) => {
-  const validLength = 10;
+  const validLength = 11;
   if (phoneNumber.length == validLength) {
     true;
   } else {
