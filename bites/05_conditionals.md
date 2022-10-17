@@ -79,7 +79,7 @@ You'll know the function works if you manage to have the expected output when ru
 > isValidLength('00');
 false
 
-> isValidLength('0011223344');
+> isValidLength('00112233445');
 true
 ```
 
