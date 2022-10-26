@@ -4,21 +4,30 @@
 
  * Implement a class that fetches data from a remote API.
 
-## About fetching data from APIs
+## On Sending HTTP requests
 
-You've previously learned how we can pass "callback" functions to other functions, with
-the example of `setTimeout`. This is an example of **asynchronous behaviour**.
-Asynchronous behaviour is any behaviour that takes a non-trivial amount of time to
-complete.
+You've previously learned how we can pass "callback" functions to other
+functions, with the example of `setTimeout`. This is an example of
+**asynchronous programming** - instead of making the whole program wait for a
+task to complete, we give a callback function to be executed later, while the
+rest of the program can execute normally.
 
-Another example of asynchronous behaviour in JavaScript is when we need to *fetch remote data* from
-other APIs. Since we often need to wait before the data is available (the network might be
-slow and unreliable), it makes sense to use callbacks to handle API responses.
+Another example of asynchronous programming in JavaScript is when we need to
+send HTTP requests to a web server. Receiving the response will take some time (even if
+our connection is really fast!), so we don't want the program to block until it
+is received.
 
-A good example of such an API is Github's one. If you want to see what it looks like,
-let's have a look at the [URL for Ruby's Sinatra Github
-repo.](https://api.github.com/repos/sinatra/sinatra) If you open this link in your
-browser, you'll see only data (in the JSON format):
+## What is an API?
+
+When a web server allows a client to send HTTP requests (GET, POST, or other) to
+its URLs to fetch, create or update data, it is also called an API. The Github
+API is a good example of a "public" API - by sending HTTP requests to it, we are
+able to interact with Github, but programmatically, rather than with a user
+interface.
+
+We can have a look at the [URL for Ruby's Sinatra Github
+repo.](https://api.github.com/repos/sinatra/sinatra) If you open this link in
+your browser, you'll see only data (in the JSON format):
 
 ```json
 {
@@ -31,23 +40,19 @@ browser, you'll see only data (in the JSON format):
 }
 ```
 
-As humans, we like to browse nice and colourful webpages and use links, buttons and forms
-to interact with it. Programs don't need such webpages, they can just read and write raw
-data. APIs are just a simpler way of interacting with a website like Github - but for
-programs, rather than humans.
-
 ## Using the `got` package
 
 We'll use the package `got` to send HTTP requests from our JavaScript program.
 
-Initialise a new project directory and run the following command to install the package.
+Initialise a new project directory and run the following command to install the
+package.
 
 ```
 $ npm add got@11
 ```
 
-In the same directory, create a file named `githubRequest.js` and write the following
-code:
+In the same directory, create a file named `githubRequest.js` and write the
+following code:
 
 ```javascript
 // file: githubRequest.js
@@ -67,21 +72,27 @@ const url = 'https://api.github.com/repos/sinatra/sinatra';
 got(url).then(handleReceivedResponse);
 ```
 
-```js
-// We can also rewrite the above using a shorter version,
-// by defining the "handler" function as an anonymous function
+We can also rewrite the above using a shorter version,
+by defining the "handler" function (the callback) as an anonymous function:
 
+```js
 got(url)
   .then((response) => {
     console.log(response.body);
   });
 ```
 
-If you've run the program above, you'll see we received the same data seen previously on
-the browser. Good! However it's a bit messy and hard to read.
+[You might remember diagrams from the section on callbacks](../bites/08_callbacks.md#asynchronous-programming), where we made the difference between "immediate" tasks and asynchronous tasks. Here is a similar diagram illustrating what happens when the code above is run:
 
-What we can do is *convert* the string data into a JavaScript *object* so it is formatted
-properly. We can do this using `JSON.parse`:
+![](../resources/got-http-request-example.png)
+
+## Converting JSON to an Object
+
+If you've run the program above, you'll see we received the same data seen
+previously on the browser. Good! However it's a bit messy and hard to read.
+
+What we can do is *convert* the string data into a JavaScript *object* so it is
+formatted properly. We can do this using `JSON.parse`:
 
 ```javascript
 const stringValue = '{ "name": "John" }';
@@ -95,8 +106,8 @@ console.log(objectValue.name);
 
 ## Exercise 
 
-1. Modify the code in `githubRequest.js` so it converts the received response body to an
-   object, using `JSON.parse`, and prints it.
+1. Modify the code in `githubRequest.js` so it converts the received response
+   body to an object, using `JSON.parse`, and prints it.
 
 You should get the following output (some part was omitted for clarity):
 
@@ -135,12 +146,12 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 
 ## Exercise
 
-Create a function `fetchJson` (in `fetchJson.js`) which accepts one URL, and
-one callback function as arguments.
+Create a function `fetchJson` (in `fetchJson.js`) which accepts one URL, and one
+callback function as arguments.
 
-It should send an HTTP request using `got` to the URL, and calls the given function with
-the received response's data. This data should be parsed from JSON into a plain JavaScript
-object.
+It should send an HTTP request using `got` to the URL, and calls the given
+function with the received response's data. This data should be parsed from JSON
+into a plain JavaScript object.
 
 **Note:** When writing tests for asynchronous functions, you need to be careful
 that the test isn't completing before your `expect` assertions have executed.
@@ -179,7 +190,8 @@ fetchJson('https://jsonplaceholder.typicode.com/todos', (response) => {
 
 Create a function `fetchRepositoryInfo` (in `fetchRepositoryInfo.js`) which
   * fetches repository data from Github's API
-  * calls the given callback with the data it receives from the API (as a JS object):
+  * calls the given callback with the data it receives from the API (as a JS
+    object):
 
 ```js
 // In node
@@ -210,20 +222,20 @@ fetchRepositoryInfo('sinatra/sinatra', (receivedResponse) => {
 
 ## Challenge
 
-1. Implement a class `GithubApi` (in `githubApi.js`) with a method `fetchRepositoryData`
-   which:
+1. Implement a class `GithubClient` (in `githubClient.js`) with a method
+   `fetchRepositoryData` which:
     * fetches repository data from Github's API.
-    * calls the given callback with the received data (after transforming the JSON into a
-      JavaScript object).
+    * calls the given callback with the received data (after transforming the
+      JSON into a JavaScript object).
 
 ```js
 // In node
 
-const GithubApi = require('./githubApi');
+const GithubClient = require('./githubClient');
 
-const api = new GithubApi();
+const client = new GithubClient();
 
-api.fetchRepositoryData('sinatra/sinatra', (repositoryData) => {
+client.fetchRepositoryData('sinatra/sinatra', (repositoryData) => {
   console.log(repositoryData);
 });
 
@@ -247,31 +259,31 @@ api.fetchRepositoryData('sinatra/sinatra', (repositoryData) => {
 2. Test-drive a class `Github` which has the following behaviour:
 
 ```js
-const api = new GithubApi();
+const client = new GithubClient();
 
-// We inject the instance of `GithubApi`:
-const github = new Github(api);
+// We inject the instance of `GithubClient`:
+const github = new Github(client);
 
-// This method will delegate to `GithubApi.fetchRepositoryData()`
+// This method will delegate to `GithubClient.fetchRepositoryData()`
 github.fetch('sinatra/sinatra');
 
 // And after a few moments, this should return a JS object with the repo information.
 github.getRepoData();
 ```
 
-## Mocking the `GithubApi` class
+## Mocking the `GithubClient` class
 
-In unit tests for the `Github` class, we should now mock the dependency on `GithubApi`.
-Below is one way we can do it.
+In unit tests for the `Github` class, we should now mock the dependency on
+`GithubClient`. Below is one way we can do it.
 
 ```js
 // file: github.test.js
 
 describe('Github', () => {
-  it('gets the repo data fetched by the Api class', () => {
+  it('gets the repo data fetched by the GithubClient class', () => {
 
-    // 1. We mock the implementation of the API class
-    const mockedApi = {
+    // 1. We mock the implementation of the Client class
+    const mockedClient = {
       // 2. It has a method `fetchRepositoryData`...
       fetchRepositoryData: (repoName, callback) => {
         // 3. ...which calls the given callback function
@@ -283,11 +295,11 @@ describe('Github', () => {
     }
 
     // 4.  We can now call
-    //    `mockedApi.fetchRepositoryData('repo-name', callbackFunction)`
+    //    `mockedClient.fetchRepositoryData('repo-name', callbackFunction)`
     //     and get the expected behaviour (our callbackFunction will be called 
     //     with the fake repo data)
 
-    const github = new Github(mockedApi);
+    const github = new Github(mockedClient);
 
     // 5. The mocked implementation will be called instead of the real one
     github.fetch('sinatra/sinatra');

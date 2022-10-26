@@ -145,24 +145,24 @@ somewhere.
 
 ## Challenge
 
-1. Implement the class `WeatherApi` that fetches the current weather for a given city
+1. Implement the class `WeatherClient` that fetches the current weather for a given city
    using `got`. It should also accept a callback function, which will get called once the
    data has been received and parsed to an object:
 
 ```js
-const api = new WeatherApi();
+const client = new WeatherClient();
 
-api.fetchWeatherData('London', (weatherData) => {
+client.fetchWeatherData('London', (weatherData) => {
   console.log(weatherData);
 });
 ```
 
 
-2. Test-drive the class `Weather`, which uses the class `WeatherApi` to get the weather
-   for a given city. Make sure the dependency on `WeatherApi` is mocked.
+2. Test-drive the class `Weather`, which uses the class `WeatherClient` to get the weather
+   for a given city. Make sure the dependency on `WeatherClient` is mocked.
 
 ```js
-const api = new WeatherApi();
+const client = new WeatherClient();
 const weather = new Weather(api);
 
 weather.fetch('Bristol');
@@ -173,7 +173,7 @@ weather.getWeatherData();
 You'll now if it works if (in order of important to less important):
   * The code above works and you get the correct weather data from `getWeatherData()`.
   * Your tests pass.
-  * You can break the class `WeatherApi` and your unit tests for `Weather` still pass.
+  * You can break the class `WeatherClient` and your unit tests for `Weather` still pass.
 
 ## Make it yours!
 
