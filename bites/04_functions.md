@@ -10,9 +10,18 @@ Learn to declare and call JavaScript functions.
 
 ## Introduction
 
-We can define a function with the following syntax (a function is the same thing as a Ruby
-"method", but it lives on its own, without being attached to a specific object):
+In JavaScript, we can define a function with the "function literal syntax".
+```js
+() => {
+  console.log('Hi there!');
+};
+```
+If you ever see this syntax, with parentheses followed by that little arrow
+`=>`, you are seeing a function being created. But how do we execute this 
+function, after it's been defined? Currently this function is unnamed. It's
+known as an _anonymous function_.
 
+If we want to use it later, we need to give it a name by storing it in a variable:
 ```js
 // 1. This function accepts no arguments
 const printMessage = () => {
@@ -25,22 +34,39 @@ const printMessage = (message) => {
 }
 
 printMessage('Hi there!');
+```
 
-// 3. We use the `return` keyword to return a value from the function.
-// Be careful - in JavaScript, we *have* to use `return`, otherwise nothing will be returned.
+**Note:** We use the `return` keyword to return a value from the function.
+Be careful - in JavaScript, we *have* to use `return`, otherwise our function will return
+`undefined`.
 
+```js
 const getName = () => {
   return 'Léo';
-}
+};
 
 getName(); // returns 'Léo'
 
 // 4. Here, we forgot to use `return`.
 const getName = () => {
   'Léo'
-}
+};
 
 getName(); // returns undefined
+```
+
+**Note:** In JavaScript, you **must** use parentheses `()` to execute a function,
+even if it doesn't take any arguments. 
+
+Take a look at the code below. What do you think `something` will be? Have a go
+at running this code, and see if your intuition is correct by `console.log`ing `something`.
+
+```js
+const returnFour = () => {
+  return 4;
+};
+
+const something = returnFour;
 ```
 
 ### Exporting a function
@@ -53,7 +79,7 @@ it using `module.exports`:
 
 const hello = () => {
   console.log('Hello!');
-}
+};
 
 // Add this at the end of the file
 module.exports = hello;
@@ -112,7 +138,7 @@ Modify the previous function `sayHello` so it accepts one argument, and calling
 
 Bonus: can you find another way to write the `sayHello` function, [without using the sign
 `+` to concatenate the
-strings?](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#syntax)
+strings?](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation)
 
 ```javascript
 > sayHello();
