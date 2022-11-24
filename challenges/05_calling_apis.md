@@ -40,15 +40,15 @@ your browser, you'll see only data (in the JSON format):
 }
 ```
 
-## Using the `got` package
+## Using the `callback-fetch` package
 
-We'll use the package `got` to send HTTP requests from our JavaScript program.
+We'll use the package `callback-fetch` to send HTTP requests from our JavaScript program.
 
 Initialise a new project directory and run the following command to install the
 package.
 
 ```
-$ npm add got@11
+$ npm add callback-fetch
 ```
 
 In the same directory, create a file named `githubRequest.js` and write the
@@ -57,8 +57,8 @@ following code:
 ```javascript
 // file: githubRequest.js
 
-// Load the `got` function.
-const got = require('got');
+// Load the `get` function.
+const { get } = require('callback-fetch');
 
 // Create a "handler" callback function.
 const handleReceivedResponse = (response) => {
@@ -67,19 +67,18 @@ const handleReceivedResponse = (response) => {
 
 const url = 'https://api.github.com/repos/sinatra/sinatra';
 
-// Call `got` and provide the handler callback function.
-// This will get called by `got` when the response is received.
-got(url).then(handleReceivedResponse);
+// Call `get` and provide the handler callback function.
+// This will get called by `get` when the response is received.
+get(url, handleReceivedResponse);
 ```
 
 We can also rewrite the above using a shorter version,
 by defining the "handler" function (the callback) as an anonymous function:
 
 ```js
-got(url)
-  .then((response) => {
-    console.log(response.body);
-  });
+get(url, (response) => {
+  console.log(response.body);
+});
 ```
 
 [You might remember diagrams from the section on callbacks](../bites/08_callbacks.md#asynchronous-programming), where we made the difference between "immediate" tasks and asynchronous tasks. Here is a similar diagram illustrating what happens when the code above is run:
@@ -133,14 +132,14 @@ node githubRequest.js
 <summary>Reveal suggested solution</summary>
 
 ```javascript
-const got = require('got');
+const { get } = require('callback-fetch');
 
 const handleReceivedResponse = (response) => {
   const responseObject = JSON.parse(response.body);
   console.log(responseObject);
 }
 
-got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse);
+get('https://api.github.com/repos/sinatra/sinatra', handleReceivedResponse);
 ```
 </details>
 
@@ -149,7 +148,7 @@ got('https://api.github.com/repos/sinatra/sinatra').then(handleReceivedResponse)
 Create a function `fetchJson` (in `fetchJson.js`) which accepts one URL, and one
 callback function as arguments.
 
-It should send an HTTP request using `got` to the URL, and calls the given
+It should send an HTTP request using `get` to the URL, and calls the given
 function with the received response's data. This data should be parsed from JSON
 into a plain JavaScript object.
 

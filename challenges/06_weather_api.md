@@ -57,7 +57,7 @@ committed with git.**
 mkdir weather
 cd weather
 npm init -y
-npm add got@11
+npm add callback-fetch
 ```
 
 You can try having a look at what data this API can return by going to the following URL
@@ -71,14 +71,14 @@ We can try the following code to test the API and get weather for a given locati
 ```javascript
 // file: index.js
 
-const got = require('got');
+const { get } = require('callback-fetch');
 const apiKey = 'a3d9eb01d4de82b9b8d0849ef604dbed'; // include our key
 const city = 'London';
 const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
 
 let weatherData = null;
 
-got(apiUrl).then((response) => {
+get(apiUrl, (response) => {
   weatherData = JSON.parse(response.body);
   console.log(weatherData);
 });
@@ -87,7 +87,7 @@ console.log('Requesting weather data');
 ```
 
 Let's have a look at the above code example together:
- * First, we're building the URL to call with `got`. This URL contains our API key (so the
+ * First, we're building the URL to call with `get`. This URL contains our API key (so the
    server on the other end can "know" it's our account requesting the API - and who to
    charge for it), and the city we want to get weather data for.
  * The *callback* function passed to `then` will be executed once the response is
@@ -146,7 +146,7 @@ somewhere.
 ## Challenge
 
 1. Implement the class `WeatherClient` that fetches the current weather for a given city
-   using `got`. It should also accept a callback function, which will get called once the
+   using `get`. It should also accept a callback function, which will get called once the
    data has been received and parsed to an object:
 
 ```js
