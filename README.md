@@ -74,6 +74,7 @@ Most people won't complete all of this and that is OK.
 
 ## Workshops
 
+ * [Using Functions as Arguments](./workshops/using-functions-as-arguments)
  * [Asynchronous JS and callbacks](./workshops/async-js-and-callbacks)
  * [Following the flow and getting visibility in JavaScript](./workshops/debugging)
 
