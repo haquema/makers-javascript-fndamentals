@@ -100,6 +100,23 @@ const sayHello = () => {
 doubleCall(sayHello); // Should print 'Hello!' twice.
 ```
 
+<details>
+  <summary>Hint 1</summary>
+
+  1. The workings of our `doubleCall` function will be closer to
+  `makersBiggestFan` than `convertToCaps` or `exclaim`.
+
+</details>
+<details>
+  <summary>Hint 2</summary>
+
+  2. If you're struggling with this exercise, go back to `makersBiggestFan` and
+  make sure you understand what it's doing, down to every last bracket. Then,
+  implement the same functionality, but instead of executing the callback _once_
+  and passing in the argument `'Makers'`, it should execute it _twice_, without 
+  passing _any_ arguments.
+</details>
+
 ### Exercise 2:
 Can you write a function called `obnoxiousFn` that takes a callback, and announces loudly it's executing its callback, before doing it and returning the result?
 ```js

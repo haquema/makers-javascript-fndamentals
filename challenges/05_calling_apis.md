@@ -61,8 +61,8 @@ following code:
 const { get } = require('callback-fetch');
 
 // Create a "handler" callback function.
-const handleReceivedResponse = (response) => {
-  console.log(response.body);
+const handleReceivedResponse = (body) => {
+  console.log('body:', body);
 }
 
 const url = 'https://api.github.com/repos/sinatra/sinatra';
@@ -76,14 +76,14 @@ We can also rewrite the above using a shorter version,
 by defining the "handler" function (the callback) as an anonymous function:
 
 ```js
-get(url, (response) => {
-  console.log(response.body);
+get(url, (body) => {
+  console.log('body:', body);
 });
 ```
 
 [You might remember diagrams from the section on callbacks](../bites/08_callbacks.md#asynchronous-programming), where we made the difference between "immediate" tasks and asynchronous tasks. Here is a similar diagram illustrating what happens when the code above is run:
 
-![](../resources/got-http-request-example.png)
+![](../resources/get-callback.png)
 
 ## Converting JSON to an Object
 
@@ -105,8 +105,9 @@ console.log(objectValue.name);
 
 ## Exercise 
 
-1. Modify the code in `githubRequest.js` so it converts the received response
-   body to an object, using `JSON.parse`, and prints it.
+1. Modify the code in `githubRequest.js` so that instead of simply logging the
+   response, it first converts the received response to an object using 
+   `JSON.parse`, and prints it.
 
 You should get the following output (some part was omitted for clarity):
 
@@ -134,8 +135,8 @@ node githubRequest.js
 ```javascript
 const { get } = require('callback-fetch');
 
-const handleReceivedResponse = (response) => {
-  const responseObject = JSON.parse(response.body);
+const handleReceivedResponse = (body) => {
+  const responseObject = JSON.parse(body);
   console.log(responseObject);
 }
 
