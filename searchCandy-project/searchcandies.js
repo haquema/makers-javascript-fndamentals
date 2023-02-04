@@ -16,9 +16,9 @@ const candies = [
 
 const searchCandies = (string, value) => {
   return candies
-  .filter(candy => candy.name.toLowerCase().startsWith(string.toLowerCase()))
-  .filter(candy => candy.price < value)
-  .map(candy => candy.name); 
+  .filter((candy) => candy.name.toLowerCase().startsWith(string.toLowerCase()))
+  .filter((candy) => candy.price < value)
+  .map((candy) => candy.name); 
 };
 
 

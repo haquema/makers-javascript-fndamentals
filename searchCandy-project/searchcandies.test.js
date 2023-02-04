@@ -19,5 +19,6 @@ describe("searchCandies", () => {
 
   it("returns array of all candies beginning with s and price less than 4", () => {
     expect(searchCandies("s", 4)).toEqual([ 'Skitties', 'Skittles' ]);
+    expect(searchCandies("ma", 10)).toEqual([ 'Mars', 'Maltesers' ])
   });
 })
