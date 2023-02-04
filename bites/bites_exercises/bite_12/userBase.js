@@ -1,22 +1,33 @@
 class UserBase {
   constructor(array) {
-    this.names = [];
-    array.forEach((user) => this.names.push(user.getName()));
+    this.users = array;
   }
 
   count() {
-    return this.names.length;
+    return this.users.length;
   }
 
   getNames() {
-    this.names.forEach(name => console.log(name));
+    this.users.forEach(user => 
+      console.log(user.getName())
+    );
   }
 
   getIntroductions() {
-    this.names.forEach((name) =>
-      console.log(`Hi, my name is ${name}`)
+    this.users.forEach(user =>
+      console.log(user.getIntroduction())
     );
   }
 }
 
 module.exports = UserBase;
+
+// const User = require('./user');
+// const UserBase = require('./userBase');
+// const users = [
+//   new User('Uma'),
+//   new User('Josh'),
+//   new User('Ollie')
+// ];
+// const userBase = new UserBase(users);
+// userBase.getNames();
