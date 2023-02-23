@@ -1,14 +1,18 @@
 class ShoppingBasket {
   constructor() {
-    this.basketValue = 0;
+    this.basket = [];
   }
 
   getTotalPrice() {
-    return this.basketValue;
+    let totalPrice = 0;
+    this.basket.forEach((item) => {
+      totalPrice += item.getPrice();
+    });
+    return totalPrice;
   }
 
   addItem(candy) {
-    this.basketValue += candy.getPrice();
+    this.basket.push(candy);
   }
 }
 
